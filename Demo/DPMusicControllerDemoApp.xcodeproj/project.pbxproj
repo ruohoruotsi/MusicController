@@ -34,8 +34,8 @@
 		44C3C0B316C65EE3003E43D3 /* DPMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C3C0B216C65EE3003E43D3 /* DPMViewController.m */; };
 		44C3C0C616C661A3003E43D3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C3C0C516C661A3003E43D3 /* AudioToolbox.framework */; };
 		44C3C0C816C661A9003E43D3 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C3C0C716C661A9003E43D3 /* CoreAudio.framework */; };
-		44C3C0CA16C66219003E43D3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C3C0C916C66219003E43D3 /* AVFoundation.framework */; };
 		44C3C0D516C68870003E43D3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C3C0D416C68870003E43D3 /* MediaPlayer.framework */; };
+		D963863717806212003724B8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D963863617806212003724B8 /* AVFoundation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,8 +84,8 @@
 		44C3C0B216C65EE3003E43D3 /* DPMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPMViewController.m; sourceTree = "<group>"; };
 		44C3C0C516C661A3003E43D3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		44C3C0C716C661A9003E43D3 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
-		44C3C0C916C66219003E43D3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		44C3C0D416C68870003E43D3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		D963863617806212003724B8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,9 +93,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D963863717806212003724B8 /* AVFoundation.framework in Frameworks */,
 				44A441D816C790B300D71022 /* CoreMedia.framework in Frameworks */,
 				44C3C0D516C68870003E43D3 /* MediaPlayer.framework in Frameworks */,
-				44C3C0CA16C66219003E43D3 /* AVFoundation.framework in Frameworks */,
 				44C3C0C816C661A9003E43D3 /* CoreAudio.framework in Frameworks */,
 				44C3C0C616C661A3003E43D3 /* AudioToolbox.framework in Frameworks */,
 				44C3C09416C65EE3003E43D3 /* UIKit.framework in Frameworks */,
@@ -184,14 +184,14 @@
 		44C3C09216C65EE3003E43D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				44A441D716C790B300D71022 /* CoreMedia.framework */,
-				44C3C0D416C68870003E43D3 /* MediaPlayer.framework */,
-				44C3C0C916C66219003E43D3 /* AVFoundation.framework */,
-				44C3C0C716C661A9003E43D3 /* CoreAudio.framework */,
 				44C3C0C516C661A3003E43D3 /* AudioToolbox.framework */,
-				44C3C09316C65EE3003E43D3 /* UIKit.framework */,
-				44C3C09516C65EE3003E43D3 /* Foundation.framework */,
+				D963863617806212003724B8 /* AVFoundation.framework */,
+				44C3C0C716C661A9003E43D3 /* CoreAudio.framework */,
 				44C3C09716C65EE3003E43D3 /* CoreGraphics.framework */,
+				44A441D716C790B300D71022 /* CoreMedia.framework */,
+				44C3C09516C65EE3003E43D3 /* Foundation.framework */,
+				44C3C0D416C68870003E43D3 /* MediaPlayer.framework */,
+				44C3C09316C65EE3003E43D3 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
