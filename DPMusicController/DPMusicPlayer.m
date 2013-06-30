@@ -9,10 +9,11 @@
 #import "DPMusicPlayer.h"
 #import "DPMusicItem.h"
 #import "DPMusicItemSong.h"
-#import <AudioToolbox/AudioToolbox.h>
-#import <AVFoundation/AVFoundation.h>
 #import <CoreMedia/CoreMedia.h>
 #import "DPMusicConstants.h"
+
+#import <AVFoundation/AVAudioSession.h>
+
 #define kUnitSize sizeof(AudioUnitSampleType)
 #define kBufferUnit 655360
 #define kTotalBufferSize kBufferUnit * kUnitSize
@@ -23,21 +24,19 @@
 #define BUFFER_COUNT 2
 
 static OSStatus ipodRenderCallback (
-									
-									void                        *inRefCon,      // A pointer to a struct containing the complete audio data
-									//    to play, as well as state information such as the
-									//    first sample to play on this invocation of the callback.
-									AudioUnitRenderActionFlags  *ioActionFlags, // Unused here. When generating audio, use ioActionFlags to indicate silence
-									//    between sounds; for silence, also memset the ioData buffers to 0.
-									const AudioTimeStamp        *inTimeStamp,   // Unused here.
-									UInt32                      inBusNumber,    // The mixer unit input bus that is requesting some new
-									//        frames of audio data to play.
-									UInt32                      inNumberFrames, // The number of frames of audio to provide to the buffer(s)
-									//        pointed to by the ioData parameter.
-									AudioBufferList             *ioData         // On output, the audio data to play. The callback's primary
-									//        responsibility is to fill the buffer(s) in the
-									//        AudioBufferList.
-									);
+            void *inRefCon,     // A pointer to a struct containing the complete audio data
+                                //    to play, as well as state information such as the
+                                //    first sample to play on this invocation of the callback.
+            AudioUnitRenderActionFlags  *ioActionFlags, // Unused here. When generating audio, use ioActionFlags to indicate silence
+                                                        // between sounds; for silence, also memset the ioData buffers to 0.
+            const AudioTimeStamp        *inTimeStamp,   // Unused here.
+            UInt32                      inBusNumber,    // The mixer unit input bus that is requesting some new
+                                                        // frames of audio data to play.
+            UInt32                      inNumberFrames, // The number of frames of audio to provide to the buffer(s)
+                                                        // pointed to by the ioData parameter.
+            AudioBufferList             *ioData         // On output, the audio data to play. The callback's primary
+                                                        // responsibility is to fill the buffer(s) in the AudioBufferList.
+            );
 
 
 
@@ -435,11 +434,14 @@ static OSStatus ipodRenderCallback (
 	}
 	
 	// Request the desired hardware sample rate.
-	self.graphSampleRate = 44100.0;    // Hertz
-	
-	[mySession setPreferredSampleRate: self.graphSampleRate
-								error: &audioSessionError];
-	
+	self.graphSampleRate = 44100.0;
+    
+    if ([AVAudioSession instancesRespondToSelector: @selector (setPreferredSampleRate:)]) {
+        [mySession setPreferredSampleRate: self.graphSampleRate error: &audioSessionError];         // iOS6
+    } else {
+        [mySession setPreferredHardwareSampleRate: self.graphSampleRate error: &audioSessionError]; // iOS5
+    }
+    
 	if (audioSessionError != nil) {
 		
 		DLog (@"Error setting preferred hardware sample rate.");
@@ -447,8 +449,7 @@ static OSStatus ipodRenderCallback (
 	}
 	
 	// Activate the audio session
-	[mySession setActive: YES
-				   error: &audioSessionError];
+	[mySession setActive: YES error: &audioSessionError];
 	
 	if (audioSessionError != nil) {
 		
@@ -457,57 +458,64 @@ static OSStatus ipodRenderCallback (
 	}
 	
 	// Obtain the actual hardware sample rate and store it for later use in the audio processing graph.
-	self.graphSampleRate = [mySession sampleRate];
+    if ([AVAudioSession instancesRespondToSelector: @selector (setPreferredSampleRate:)]) {
+        self.graphSampleRate = [mySession sampleRate];                  // iOS6
+    } else {
+        self.graphSampleRate = [mySession currentHardwareSampleRate];   // iOS5
+    }
+    
 	
-	if (!notes)
-		notes = [NSMutableArray arrayWithCapacity:1];
-	
-	
-	[notes addObject:[[NSNotificationCenter defaultCenter] addObserverForName:AVAudioSessionInterruptionNotification object:[AVAudioSession sharedInstance] queue:nil usingBlock:^(NSNotification *note) {
-		
-		NSNumber *interruptType = [[note userInfo] objectForKey:AVAudioSessionInterruptionTypeKey];
-		
-		if ([interruptType intValue] == AVAudioSessionInterruptionTypeBegan)
-		{
-			
-			
-			if (self.playing)
-			{
-				wasPlayingBeforeSeek = YES;
-				[self stopAUGraph];
-			}
-			
-			//[[NSNotificationCenter defaultCenter] postNotificationName:@"Pause" object:self];
-			_playing = NO;
-			
-		}
-		else
-		{
-			NSNumber* opt = [[note userInfo] objectForKey:AVAudioSessionInterruptionOptionKey];
-			
-			if (opt.integerValue == AVAudioSessionInterruptionOptionShouldResume)
-			{
-				if (wasPlayingBeforeSeek)
-				{
-					[self startAUGraph];
-					wasPlayingBeforeSeek = NO;
-				//	[[NSNotificationCenter defaultCenter] postNotificationName:@"Play" object:self];
-					
-				}
-			}
-		}
-		
-	}]];
-	
-	[notes addObject:[[NSNotificationCenter defaultCenter] addObserverForName:AVAudioSessionRouteChangeNotification object:[AVAudioSession sharedInstance] queue:nil usingBlock:^(NSNotification *note) {
-		
-		NSNumber *changeType = [[note userInfo] objectForKey:AVAudioSessionRouteChangeReasonKey];
-		
-		if ([changeType intValue] == AVAudioSessionRouteChangeReasonOldDeviceUnavailable){
-			[self pause];
-		}
-	}]];
-
+    if(&AVAudioSessionInterruptionNotification != NULL &&
+       &AVAudioSessionInterruptionOptionKey != NULL) {  // iOS6
+        
+        if (!notes)
+            notes = [NSMutableArray arrayWithCapacity:1];
+        
+        [notes addObject:[[NSNotificationCenter defaultCenter] addObserverForName:AVAudioSessionInterruptionNotification object:[AVAudioSession sharedInstance] queue:nil usingBlock:^(NSNotification *note) {
+            
+            NSNumber *interruptType = [[note userInfo] objectForKey:AVAudioSessionInterruptionTypeKey];
+            
+            if ([interruptType intValue] == AVAudioSessionInterruptionTypeBegan)
+            {
+                
+                
+                if (self.playing)
+                {
+                    wasPlayingBeforeSeek = YES;
+                    [self stopAUGraph];
+                }
+                
+                //[[NSNotificationCenter defaultCenter] postNotificationName:@"Pause" object:self];
+                _playing = NO;
+                
+            }
+            else
+            {
+                NSNumber* opt = [[note userInfo] objectForKey:AVAudioSessionInterruptionOptionKey];
+                
+                if (opt.integerValue == AVAudioSessionInterruptionOptionShouldResume)
+                {
+                    if (wasPlayingBeforeSeek)
+                    {
+                        [self startAUGraph];
+                        wasPlayingBeforeSeek = NO;
+                        //	[[NSNotificationCenter defaultCenter] postNotificationName:@"Play" object:self];
+                        
+                    }
+                }
+            }
+            
+        }]];
+        
+        [notes addObject:[[NSNotificationCenter defaultCenter] addObserverForName:AVAudioSessionRouteChangeNotification object:[AVAudioSession sharedInstance] queue:nil usingBlock:^(NSNotification *note) {
+            
+            NSNumber *changeType = [[note userInfo] objectForKey:AVAudioSessionRouteChangeReasonKey];
+            
+            if ([changeType intValue] == AVAudioSessionRouteChangeReasonOldDeviceUnavailable){
+                [self pause];
+            }
+        }]];
+    }
 }
 
 -(void) configureAndInitializeAudioProcessingGraph {

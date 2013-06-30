@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
+
 #import "TPCircularBuffer+AudioBufferList.h"
 #import "TPCircularBuffer.h"
-#import <AVFoundation/AVFoundation.h>
 
 @class DPMusicItem;
 @class DPMusicItemSong;
