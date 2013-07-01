@@ -87,7 +87,7 @@
 		return @"";
 	}
 	
-	DPMusicItemIndexSection *indexSection = self.items[section];
+	DPMusicItemIndexSection *indexSection = [self.items objectAtIndex:section]; // IOHAVOC objectAtIndex:section]
 	return indexSection.indexTitle;
 }
 
@@ -130,7 +130,7 @@
 		return self.items.count;
 	}
 	
-	DPMusicItemIndexSection *indexSection = self.items[section];
+	DPMusicItemIndexSection *indexSection = [self.items objectAtIndex:section]; // IOHAVOC objectAtIndex:section];
 
 	return indexSection.items.count;
 }
@@ -146,18 +146,31 @@
 	DPMusicItem *item;
 	
 	if (self.tableContentType & DPMTableViewControllerContentTypeDrillDown || self.tableContentType & DPMTableViewControllerContentTypeQueue) {
-		item = self.items[indexPath.row];
+		item = [self.items objectAtIndex:indexPath.row]; // IOHAVOC objectAtIndex:[indexPath.row]];
 	} else {
-		DPMusicItemIndexSection *indexSection = self.items[indexPath.section];
-		item = indexSection.items[indexPath.row];
+		DPMusicItemIndexSection *indexSection = [self.items objectAtIndex:indexPath.section]; // IOHAVOC objectAtIndex:[indexPath.section]];
+		item = [indexSection.items objectAtIndex:indexPath.row];  // IOHAVOC objectAtIndex:indexPath.row]; 
 	}
 
-	cell.textLabel.text = item.generalTitle;
-	cell.detailTextLabel.text = item.generalSubtitle;
-
-	if (self.tableContentType == DPMTableViewControllerContentTypeAlbums) {
-		cell.imageView.image = [item getRepresentativeImageForSize:CGSizeMake(44, 44)];
-	}
+    if([item isKindOfClass:[DPMusicItemIndexSection class]] && self.tableContentType == DPMTableViewControllerContentTypeArtists)
+    {
+        DPMusicItemArtist* artist = [[(DPMusicItemIndexSection*)item items] objectAtIndex:0];
+        cell.textLabel.text = artist.generalTitle;
+        cell.detailTextLabel.text = artist.generalSubtitle;
+    }
+    else if([item isKindOfClass:[DPMusicItemIndexSection class]] && self.tableContentType == DPMTableViewControllerContentTypeAlbums)
+    {
+        DPMusicItemAlbum* album = [[(DPMusicItemIndexSection*)item items] objectAtIndex:0];
+        cell.textLabel.text = album.generalTitle;
+        cell.detailTextLabel.text = album.generalSubtitle;
+        
+        cell.imageView.image = [album getRepresentativeImageForSize:CGSizeMake(44, 44)];
+    }
+    else {
+        
+        cell.textLabel.text = item.generalTitle;
+        cell.detailTextLabel.text = item.generalSubtitle;
+    }
 	
     return cell;
 }
@@ -205,8 +218,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	DPMusicItemIndexSection *indexSection = self.items[indexPath.section];
-	DPMusicItem *selectedItem = indexSection.items[indexPath.row];
+	DPMusicItemIndexSection *indexSection = [self.items objectAtIndex:indexPath.section]; // IOHAVOC objectAtIndex:indexPath.section]; 
+	DPMusicItem *selectedItem = [indexSection.items objectAtIndex:indexPath.row]; // IOHAVOC objectAtIndex:indexPath.row];
 	
 	if (self.tableContentType == DPMTableViewControllerContentTypeSongs) {
 
