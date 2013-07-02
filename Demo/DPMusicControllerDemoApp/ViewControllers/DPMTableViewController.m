@@ -146,10 +146,10 @@
 	DPMusicItem *item;
 	
 	if (self.tableContentType & DPMTableViewControllerContentTypeDrillDown || self.tableContentType & DPMTableViewControllerContentTypeQueue) {
-		item = [self.items objectAtIndex:indexPath.row]; // IOHAVOC objectAtIndex:[indexPath.row]];
+		item = self.items[indexPath.row];
 	} else {
-		DPMusicItemIndexSection *indexSection = [self.items objectAtIndex:indexPath.section]; // IOHAVOC objectAtIndex:[indexPath.section]];
-		item = [indexSection.items objectAtIndex:indexPath.row];  // IOHAVOC objectAtIndex:indexPath.row]; 
+		DPMusicItemIndexSection *indexSection = self.items[indexPath.section];
+		item = indexSection.items[indexPath.row]; 
 	}
 
     if([item isKindOfClass:[DPMusicItemIndexSection class]] && self.tableContentType == DPMTableViewControllerContentTypeArtists)
