@@ -108,7 +108,11 @@
 
 - (BOOL)play:(NSError *__autoreleasing *)error
 {
-	return [self.player play];
+    // Implicitly, self.isPlaying == NO. In first play usecase, the player doesn't have
+    // a current song, so set it first since we're not playing, then play
+    [self.player setCurrentSong:self.currentSong play:NO];
+
+	return [self.player play];  
 }
 
 - (void)pause:(NSError *__autoreleasing *)error
@@ -504,7 +508,8 @@
 
 -(void)playbackDidFinish
 {
-	[self nextWithCrossfade:NO error:nil];
+    [self nextWithCrossfade:NO error:nil];
+    
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
