@@ -337,47 +337,49 @@ static OSStatus ipodRenderCallback (
 									//        AudioBufferList.
 									)
 {
-	
-	DPMusicPlayer *self = (__bridge DPMusicPlayer*)inRefCon;
-	AudioStructPtr audioObject = &self->audioStructs[MAIN_BUS];
-		
-    AudioUnitSampleType *outSample          = (AudioUnitSampleType *)ioData->mBuffers[0].mData;
-    memset(outSample, 0, inNumberFrames * kUnitSize);
-	
-    if (audioObject->playingiPod && audioObject->bufferIsReady) {
-		
-		int32_t availableBytes;
-		
-		AudioUnitSampleType *bufferTail     = TPCircularBufferTail(&audioObject->circularBuffer, &availableBytes);
-		
-        memcpy(outSample, bufferTail, MIN(availableBytes, inNumberFrames * kUnitSize) );
-        TPCircularBufferConsume(&audioObject->circularBuffer, MIN(availableBytes, inNumberFrames * kUnitSize) );
-        audioObject->currentSampleNum += MIN(availableBytes / (kUnitSize), inNumberFrames);
-		
-				if (inBusNumber == self->mainBus)
-					self->framesSinceLastTimeUpdate += inNumberFrames;
-		
-				//8820 22050
-			if (self->framesSinceLastTimeUpdate >= 22050 && inBusNumber == self->mainBus) {
-		[self->incrementTrackPositionInvocation performSelectorOnMainThread:@selector(invoke)
-																				 withObject:nil
-																			  waitUntilDone:NO];
-				self->framesSinceLastTimeUpdate = 0;
-			}
-		
-        if (availableBytes <= inNumberFrames * kUnitSize) {
-            // Buffer is running out or playback is finished
-            audioObject->bufferIsReady = NO;
-			audioObject->playingiPod = NO;
-            audioObject->currentSampleNum = 0;
-			
-			
-			if ([[self delegate] respondsToSelector:@selector(playbackDidFinish)]) {
-				[[self delegate] performSelector:@selector(playbackDidFinish)];
-			}
+    @autoreleasepool {
+        
+        DPMusicPlayer *self = (__bridge DPMusicPlayer*)inRefCon;
+        AudioStructPtr audioObject = &self->audioStructs[MAIN_BUS];
+        
+        AudioUnitSampleType *outSample          = (AudioUnitSampleType *)ioData->mBuffers[0].mData;
+        memset(outSample, 0, inNumberFrames * kUnitSize);
+        
+        if (audioObject->playingiPod && audioObject->bufferIsReady) {
+            
+            int32_t availableBytes;
+            
+            AudioUnitSampleType *bufferTail     = TPCircularBufferTail(&audioObject->circularBuffer, &availableBytes);
+            
+            memcpy(outSample, bufferTail, MIN(availableBytes, inNumberFrames * kUnitSize) );
+            TPCircularBufferConsume(&audioObject->circularBuffer, MIN(availableBytes, inNumberFrames * kUnitSize) );
+            audioObject->currentSampleNum += MIN(availableBytes / (kUnitSize), inNumberFrames);
+            
+            if (inBusNumber == self->mainBus)
+                self->framesSinceLastTimeUpdate += inNumberFrames;
+            
+            //8820 22050
+            if (self->framesSinceLastTimeUpdate >= 22050 && inBusNumber == self->mainBus) {
+                [self->incrementTrackPositionInvocation performSelectorOnMainThread:@selector(invoke)
+                                                                         withObject:nil
+                                                                      waitUntilDone:NO];
+                self->framesSinceLastTimeUpdate = 0;
+            }
+            
+            if (availableBytes <= inNumberFrames * kUnitSize) {
+                // Buffer is running out or playback is finished
+                audioObject->bufferIsReady = NO;
+                audioObject->playingiPod = NO;
+                audioObject->currentSampleNum = 0;
+                
+                
+                if ([[self delegate] respondsToSelector:@selector(playbackDidFinish)]) {
+                    [[self delegate] performSelector:@selector(playbackDidFinish)];
+                }
+            }
         }
     }
-	
+    
     return noErr;
 }
 
