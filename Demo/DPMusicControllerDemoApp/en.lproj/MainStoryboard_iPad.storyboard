@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="l5g-nZ-BBQ">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
@@ -25,7 +25,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJk-fG-Xv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-347" y="140"/>
+            <point key="canvasLocation" x="-1211" y="-104"/>
         </scene>
         <!--Table View Controller - Root View Controller-->
         <scene sceneID="LGU-ns-0Ub">
@@ -56,7 +56,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WF5-ZK-u5C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="625" y="-507"/>
+            <point key="canvasLocation" x="621" y="-971"/>
         </scene>
         <!--Table View Controller - Root View Controller-->
         <scene sceneID="hyq-gy-ojP">
@@ -87,7 +87,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3nv-ZI-gvI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="715" y="219"/>
+            <point key="canvasLocation" x="263" y="-261"/>
         </scene>
         <!--Navigation Controller - Artists-->
         <scene sceneID="3A7-Es-Gz7">
@@ -103,7 +103,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3cJ-IK-rN2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="181" y="219"/>
+            <point key="canvasLocation" x="-271" y="-261"/>
         </scene>
         <!--Table View Controller - Root View Controller-->
         <scene sceneID="Ef1-xo-3r1">
@@ -153,54 +153,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vm5-4E-845" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="571" y="871"/>
-        </scene>
-        <!--Table View Controller - Root View Controller-->
-        <scene sceneID="Lqf-1f-6q7">
-            <objects>
-                <tableViewController id="Veh-YZ-dU5" customClass="DPMTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vJH-Zq-G1M">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ooX-qT-gaO">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="I5F-Yd-kEl"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="tableContentType">
-                            <integer key="value" value="4"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nfy-KO-f52" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-367" y="877"/>
-        </scene>
-        <!--Navigation Controller - Playlist-->
-        <scene sceneID="nwK-5u-8hJ">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="6aE-da-ZEJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Playlist" id="fa9-Ak-vdS"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zlH-BQ-Aaf">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Veh-YZ-dU5" kind="relationship" relationship="rootViewController" id="hqm-pH-Wvz"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5f6-Pw-Ebz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-848" y="877"/>
+            <point key="canvasLocation" x="955" y="455"/>
         </scene>
         <!--Navigation Controller - Albums-->
         <scene sceneID="19c-By-4Xi">
@@ -216,7 +169,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJ6-J4-i9i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="37" y="871"/>
+            <point key="canvasLocation" x="421" y="455"/>
         </scene>
         <!--Now Playing View Controller - Now Playing-->
         <scene sceneID="wof-7i-kwl">
@@ -323,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIG-kW-NUm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133" y="-1284"/>
+            <point key="canvasLocation" x="-655" y="-1076"/>
         </scene>
         <!--Table View Controller - Root View Controller-->
         <scene sceneID="FWL-nE-y4a">
@@ -354,7 +307,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gA-UV-JEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1139" y="-1401"/>
+            <point key="canvasLocation" x="-49" y="811"/>
         </scene>
         <!--Navigation Controller - Queue-->
         <scene sceneID="k0l-vs-5Kl">
@@ -370,7 +323,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocY-HB-ABN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="603" y="-1401"/>
+            <point key="canvasLocation" x="-573" y="811"/>
         </scene>
         <!--Navigation Controller - Songs-->
         <scene sceneID="kb5-2T-Xxi">
@@ -386,7 +339,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzG-Mb-IB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136" y="-539"/>
+            <point key="canvasLocation" x="127" y="-971"/>
         </scene>
     </scenes>
     <classes>
