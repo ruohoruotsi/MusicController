@@ -68,13 +68,18 @@
 
 - (void)updateInterface
 {
-	DPMusicItemSong *currentSong = [[DPMusicController sharedController] currentSong];
-	
-	self.titleLabel.text = currentSong.title;
-	self.albumLabel.text = currentSong.albumTitle;
-	self.artistLabel.text = currentSong.artistName;
-	
-	self.artworkImageView.image = [currentSong getRepresentativeImageForSize:self.artworkImageView.frame.size];
+    DPMusicController* controller = [DPMusicController sharedController];
+
+    if([[controller queue] count] != 0) { // Only update the interface if there are songs in the queue
+        
+        DPMusicItemSong *currentSong = [controller currentSong];
+        
+        self.titleLabel.text = currentSong.title;
+        self.albumLabel.text = currentSong.albumTitle;
+        self.artistLabel.text = currentSong.artistName;
+        
+        self.artworkImageView.image = [currentSong getRepresentativeImageForSize:self.artworkImageView.frame.size];
+    }
 }
 
 - (void)updatePlayingTime
