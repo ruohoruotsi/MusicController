@@ -37,43 +37,66 @@
 - (void)loadLibrary
 {
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        //---------------------------------------------------------------------------------------------------
+        //---------------------------------------------------------------------------------------------------
+        // SONG QUERY
+        //---------------------------------------------------------------------------------------------------
+        //---------------------------------------------------------------------------------------------------
 		MPMediaQuery *songsQuery = [MPMediaQuery songsQuery];
 		__block NSMutableArray *songsArray = [NSMutableArray arrayWithCapacity:songsQuery.itemSections.count];
 		
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-		for (MPMediaQuerySection *section in songsQuery.itemSections) {
-			NSArray *subArray = [songsQuery.items objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:section.range]];
-			NSMutableArray *convertedSubArray = [NSMutableArray arrayWithCapacity:subArray.count];
-			
-			for (MPMediaItem *item in subArray) {
-				
-				if ([item valueForProperty:MPMediaItemPropertyAssetURL] || self.includeUnplayable) {
-					DPMusicItemSong *libraryItem = [[DPMusicItemSong alloc] initWithMediaItem:item];
-					libraryItem.libraryManager = self;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            
+            int count = 0;
+            //DLog(@" songsQuery.itemSections size == %ld", (unsigned long)[songsQuery.itemSections count]);
+            for (MPMediaQuerySection *section in songsQuery.itemSections) {
+                NSArray *subArray = [songsQuery.items objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:section.range]];
+                NSMutableArray *convertedSubArray = [NSMutableArray arrayWithCapacity:subArray.count];
+                
+                for (MPMediaItem *item in subArray) {
 
-					[convertedSubArray addObject:libraryItem];
-				}
-			}
-			
-			DPMusicItemIndexSection *itemSection = [[DPMusicItemIndexSection alloc] initWithItems:convertedSubArray forIndexTitle:section.title atIndex:songsArray.count];
+                    if ([item valueForProperty:MPMediaItemPropertyAssetURL] || self.includeUnplayable) {
+                        DPMusicItemSong *libraryItem = [[DPMusicItemSong alloc] initWithMediaItem:item];
+                        libraryItem.libraryManager = self;
+                        
+                        [convertedSubArray addObject:libraryItem];
+                        count++;
+                    }
+                }
+                
+                //DLog(@"  [SONG] convertedSubArray size == %ld", (unsigned long)[convertedSubArray count]);
+                DPMusicItemIndexSection *itemSection = [[DPMusicItemIndexSection alloc] initWithItems:convertedSubArray forIndexTitle:section.title atIndex:songsArray.count];
+                
+                [songsArray addObject:itemSection];
+            }
 
-			[songsArray addObject:itemSection];
-		}
-		
-		
-		_songs = [NSArray arrayWithArray:songsArray];
+            
+            //DLog(@" SONG QUERY SUBARRAY ELEMENT COUNT == %d", count);
+            //DLog(@" songsArray COUNT == %d", [songsArray count]);
 
-		dispatch_async(dispatch_get_main_queue(), ^{
-			_songsLoaded = YES;
-			[[NSNotificationCenter defaultCenter] postNotificationName:kDPMusicNotificationLibraryLoaded object:nil];
-			[self sectionLoaded];
-		});
-    });
-
+            _songs = [NSArray arrayWithArray:songsArray];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _songsLoaded = YES;
+                [[NSNotificationCenter defaultCenter] postNotificationName:kDPMusicNotificationLibraryLoaded object:nil];
+                [self sectionLoaded];
+            });
+        });
+        
+        
+        //---------------------------------------------------------------------------------------------------
+        //---------------------------------------------------------------------------------------------------
+        // ARTIST QUERY
+        //---------------------------------------------------------------------------------------------------
+        //---------------------------------------------------------------------------------------------------
 		MPMediaQuery *artistsQuery = [MPMediaQuery artistsQuery];
 		NSMutableArray *artistsArray = [NSMutableArray arrayWithCapacity:artistsQuery.itemSections.count];
 		
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            
+            int count = 0;
+            // DLog(@" artistsQuery.itemSections size == %ld", (unsigned long)[artistsQuery.itemSections count]);
 			
 			for (MPMediaQuerySection *section in artistsQuery.collectionSections) {
 				NSArray *subArray = [artistsQuery.collections objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:section.range]];
@@ -81,12 +104,14 @@
 				
 				for (MPMediaItemCollection *collection in subArray) {
 					MPMediaItem *item = [collection representativeItem];
-
+                    
 					DPMusicItemArtist *libraryItem = [[DPMusicItemArtist alloc] initWithMediaItem:item];
-					libraryItem.libraryManager = self;				
+					libraryItem.libraryManager = self;
                     [convertedSubArray addObject:libraryItem];
+                     count++;
 				}
 				
+                // DLog(@" [ARTIST] convertedSubArray size == %ld", (unsigned long)[convertedSubArray count]);
 				DPMusicItemIndexSection *itemSection = [[DPMusicItemIndexSection alloc] initWithItems:convertedSubArray forIndexTitle:section.title atIndex:artistsArray.count];
 				
 				
@@ -95,15 +120,25 @@
 			}
 			
 			
+            // DLog(@" ARTIST QUERY SUBARRAY ELEMENT COUNT == %d", count);
+            // DLog(@" artistsArray COUNT == %d", [artistsArray count]);
+            
 			_artists = [NSArray arrayWithArray:artistsArray];
+
 			dispatch_async(dispatch_get_main_queue(), ^{
 				_artistsLoaded = YES;
 				[[NSNotificationCenter defaultCenter] postNotificationName:kDPMusicNotificationLibraryLoaded object:nil];
 				[self sectionLoaded];
 			});
-
+            
 		});
-				
+        
+        
+        //---------------------------------------------------------------------------------------------------
+        //---------------------------------------------------------------------------------------------------
+        // ALBUM QUERY
+        //---------------------------------------------------------------------------------------------------
+        //---------------------------------------------------------------------------------------------------
 		MPMediaQuery *albumsQuery = [MPMediaQuery albumsQuery];
 		NSMutableArray *albumsArray = [NSMutableArray arrayWithCapacity:albumsQuery.itemSections.count];
 		
@@ -115,7 +150,7 @@
 				for (MPMediaItemCollection *collection in subArray) {
 					MPMediaItem *item = [collection representativeItem];
 					DPMusicItemAlbum *libraryItem = [[DPMusicItemAlbum alloc] initWithMediaItem:item];
-					libraryItem.libraryManager = self;			
+					libraryItem.libraryManager = self;
                     [convertedSubArray addObject:libraryItem];
 				}
 				
@@ -127,13 +162,15 @@
 			
 			
 			_albums = [NSArray arrayWithArray:albumsArray];
-			dispatch_async(dispatch_get_main_queue(), ^{
+            // DLog(@" ALBUM SIZE == %ld", (unsigned long)[_albums count]);
+			
+            dispatch_async(dispatch_get_main_queue(), ^{
 				_albumsLoaded = YES;
 				[[NSNotificationCenter defaultCenter] postNotificationName:kDPMusicNotificationLibraryLoaded object:nil];
 				[self sectionLoaded];
 			});
 		});
-	  });
+    });
 }
 
 - (void)sectionLoaded

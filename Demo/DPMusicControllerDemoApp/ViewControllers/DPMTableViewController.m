@@ -7,6 +7,8 @@
 //
 
 #import "DPMTableViewController.h"
+#import "SVProgressHUD.h"
+
 
 @interface DPMTableViewController ()
 {
@@ -46,6 +48,8 @@
 
 - (void)reloadList
 {
+    DLog(@"self.tableContentType == %d", self.tableContentType);
+    
 	switch (self.tableContentType) {
 		case DPMTableViewControllerContentTypeSongs:
 			loaded = [[[DPMusicController sharedController] libraryManager] songsLoaded];
@@ -83,17 +87,21 @@
 #pragma mark - Table view data source
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-	if (self.tableContentType & DPMTableViewControllerContentTypeDrillDown || self.tableContentType & DPMTableViewControllerContentTypeQueue) {
+	if (self.tableContentType == DPMTableViewControllerContentTypeDrillDown ||
+        self.tableContentType == DPMTableViewControllerContentTypeQueue) {
+
 		return @"";
 	}
 	
-	DPMusicItemIndexSection *indexSection = [self.items objectAtIndex:section]; // IOHAVOC objectAtIndex:section]
+	DPMusicItemIndexSection *indexSection = self.items[section];
+
 	return indexSection.indexTitle;
 }
 
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView // {A, B, C, D ... X, Y, Z, #}
 {
-	if (self.tableContentType & DPMTableViewControllerContentTypeDrillDown || self.tableContentType & DPMTableViewControllerContentTypeQueue) {
+	if (self.tableContentType == DPMTableViewControllerContentTypeDrillDown ||
+        self.tableContentType == DPMTableViewControllerContentTypeQueue) {
 		return nil;
 	}
 	return [self valueForKeyPath:@"items.indexTitle"];
@@ -101,19 +109,27 @@
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
-	if (self.tableContentType & DPMTableViewControllerContentTypeDrillDown || self.tableContentType & DPMTableViewControllerContentTypeQueue) {
+	if (self.tableContentType == DPMTableViewControllerContentTypeDrillDown ||
+        self.tableContentType == DPMTableViewControllerContentTypeQueue) {
 		return 0;
 	}
 	return index;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{	
-	if (!loaded) {
+{
+    // DLog(@"self.tableContentType == %d", self.tableContentType);
+    // DLog(@"loaded == %d\n", loaded);
+	
+	if (!loaded && (self.tableContentType == DPMTableViewControllerContentTypeSongs ||
+                    self.tableContentType == DPMTableViewControllerContentTypeArtists ||
+                    self.tableContentType == DPMTableViewControllerContentTypeAlbums)) {
 		return 0;
 	}
 	
-	if (self.tableContentType & DPMTableViewControllerContentTypeDrillDown || self.tableContentType & DPMTableViewControllerContentTypeQueue) {
+	if (self.tableContentType == DPMTableViewControllerContentTypeDrillDown ||
+        self.tableContentType == DPMTableViewControllerContentTypeQueue) {
+        
 		return 1;
 	}
     
@@ -122,21 +138,29 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	if (!loaded) {
+    // DLog(@"self.tableContentType == %d", self.tableContentType);
+    // DLog(@"loaded == %d\n", loaded);
+    
+	if (!loaded && (self.tableContentType == DPMTableViewControllerContentTypeSongs ||
+                    self.tableContentType == DPMTableViewControllerContentTypeArtists ||
+                    self.tableContentType == DPMTableViewControllerContentTypeAlbums)) {
 		return 0;
 	}
 	
-	if (self.tableContentType & DPMTableViewControllerContentTypeDrillDown || self.tableContentType & DPMTableViewControllerContentTypeQueue) {
+	if (self.tableContentType == DPMTableViewControllerContentTypeDrillDown ||
+        self.tableContentType ==  DPMTableViewControllerContentTypeQueue) {
 		return self.items.count;
 	}
 	
-	DPMusicItemIndexSection *indexSection = [self.items objectAtIndex:section]; // IOHAVOC objectAtIndex:section];
+	DPMusicItemIndexSection *indexSection = self.items[section];
 
 	return indexSection.items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // DLog(@"self.tableContentType == %d", self.tableContentType);
+
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -145,31 +169,19 @@
 
 	DPMusicItem *item;
 	
-	if (self.tableContentType & DPMTableViewControllerContentTypeDrillDown || self.tableContentType & DPMTableViewControllerContentTypeQueue) {
+	if (self.tableContentType == DPMTableViewControllerContentTypeDrillDown || self.tableContentType == DPMTableViewControllerContentTypeQueue) {
 		item = self.items[indexPath.row];
 	} else {
 		DPMusicItemIndexSection *indexSection = self.items[indexPath.section];
 		item = indexSection.items[indexPath.row]; 
 	}
-
-    if([item isKindOfClass:[DPMusicItemIndexSection class]] && self.tableContentType == DPMTableViewControllerContentTypeArtists)
-    {
-        DPMusicItemArtist* artist = [[(DPMusicItemIndexSection*)item items] objectAtIndex:0];
-        cell.textLabel.text = artist.generalTitle;
-        cell.detailTextLabel.text = artist.generalSubtitle;
-    }
-    else if([item isKindOfClass:[DPMusicItemIndexSection class]] && self.tableContentType == DPMTableViewControllerContentTypeAlbums)
-    {
-        DPMusicItemAlbum* album = [[(DPMusicItemIndexSection*)item items] objectAtIndex:0];
-        cell.textLabel.text = album.generalTitle;
-        cell.detailTextLabel.text = album.generalSubtitle;
-        
-        cell.imageView.image = [album getRepresentativeImageForSize:CGSizeMake(44, 44)];
-    }
-    else {
-        
-        cell.textLabel.text = item.generalTitle;
-        cell.detailTextLabel.text = item.generalSubtitle;
+    
+    
+    cell.textLabel.text = item.generalTitle;
+    cell.detailTextLabel.text = item.generalSubtitle;
+    
+    if (self.tableContentType == DPMTableViewControllerContentTypeAlbums) {
+        cell.imageView.image = [item getRepresentativeImageForSize:CGSizeMake(44, 44)];
     }
 	
     return cell;
@@ -218,35 +230,61 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	DPMusicItemIndexSection *indexSection = [self.items objectAtIndex:indexPath.section]; // IOHAVOC objectAtIndex:indexPath.section]; 
-	DPMusicItem *selectedItem = [indexSection.items objectAtIndex:indexPath.row]; // IOHAVOC objectAtIndex:indexPath.row];
+	DPMusicItemIndexSection *indexSection = self.items[indexPath.section];
 	
-	if (self.tableContentType == DPMTableViewControllerContentTypeSongs) {
-
-		[[DPMusicController sharedController] addSong:(DPMusicItemSong*)selectedItem error:nil];
+    // If indexSection == NIL, DPMTableViewControllerContentTypeDrillDown mode is active and
+    // we need to display flat,non-sectioned data, i.e. album(s) songs or a flat list of songs
+    if (([indexSection isKindOfClass:[DPMusicItemSong class]] ||
+         [indexSection  isKindOfClass:[DPMusicItemAlbum class]]) &&
+        self.tableContentType == DPMTableViewControllerContentTypeDrillDown) {
+        
+        DPMusicItem *selectedItem = self.items[indexPath.row];
+        
+        // Add to queue
+        NSError *adderror = nil;
+		[[DPMusicController sharedController] addSong:(DPMusicItemSong*)selectedItem error:&adderror];
 		[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        // check error & notify
+        if(!adderror) [SVProgressHUD showSuccessWithStatus:[(DPMusicItemSong*)selectedItem generalTitle]];
+        else [SVProgressHUD showErrorWithStatus:[adderror localizedDescription]];
 		
-	} else if (self.tableContentType == DPMTableViewControllerContentTypeArtists) {
-		DPMTableViewController *controller = [[DPMTableViewController alloc] initWithStyle:UITableViewStylePlain];
-		controller.tableContentType = DPMTableViewControllerContentTypeDrillDown;
+	} else {  // If there is a section index, we need to display sectioned data (i.e. artists, albums)
+        
 
-		NSArray *albums = [(DPMusicItemArtist*)selectedItem albums];
-		
-		controller.items = albums;
-		controller.tableTitle = selectedItem.generalTitle;
-		[self.navigationController pushViewController:controller animated:YES];
-	} else if (self.tableContentType == DPMTableViewControllerContentTypeAlbums) {
-		DPMTableViewController *controller = [[DPMTableViewController alloc] initWithStyle:UITableViewStylePlain];
-		controller.tableContentType = DPMTableViewControllerContentTypeDrillDown;
-		
-		NSArray *songs = [(DPMusicItemAlbum*)selectedItem songs];
-		
-		controller.items = songs;
-		controller.tableTitle = selectedItem.generalTitle;
-		[self.navigationController pushViewController:controller animated:YES];
-	} else if (self.tableContentType == DPMTableViewControllerContentTypeQueue) {
-		
-	}
+        DPMusicItem *selectedItem = indexSection.items[indexPath.row];
+        
+        if (self.tableContentType == DPMTableViewControllerContentTypeSongs) {
+            
+            // Add to queue
+            [[DPMusicController sharedController] addSong:(DPMusicItemSong*)selectedItem error:nil];
+            [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+            
+        } else if (self.tableContentType == DPMTableViewControllerContentTypeArtists) {
+            DPMTableViewController *controller = [[DPMTableViewController alloc] initWithStyle:UITableViewStylePlain];
+            controller.tableContentType = DPMTableViewControllerContentTypeDrillDown; 
+            
+            //NSArray *albums = [(DPMusicItemArtist*)selectedItem albums]; // IOHAVOC!!! return songs instead of albums! TODO FIXME
+            NSArray *songs = [(DPMusicItemArtist*)selectedItem songs];
+            
+            // DLog(@"Selected Artist: %@", [(DPMusicItemArtist*)selectedItem name]);
+            
+            controller.items = songs; // albums;
+            controller.tableTitle = selectedItem.generalTitle;
+            [self.navigationController pushViewController:controller animated:YES];
+        } else if (self.tableContentType == DPMTableViewControllerContentTypeAlbums) {
+            DPMTableViewController *controller = [[DPMTableViewController alloc] initWithStyle:UITableViewStylePlain];
+            controller.tableContentType = DPMTableViewControllerContentTypeDrillDown;
+            
+            NSArray *songs = [(DPMusicItemAlbum*)selectedItem songs];
+            
+            controller.items = songs;
+            controller.tableTitle = selectedItem.generalTitle;
+            [self.navigationController pushViewController:controller animated:YES];
+        } else if (self.tableContentType == DPMTableViewControllerContentTypeQueue) {
+            
+        }
+    }
 }
 
 @end

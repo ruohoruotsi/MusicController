@@ -35,10 +35,13 @@
 		44C3C0C616C661A3003E43D3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C3C0C516C661A3003E43D3 /* AudioToolbox.framework */; };
 		44C3C0C816C661A9003E43D3 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C3C0C716C661A9003E43D3 /* CoreAudio.framework */; };
 		44C3C0D516C68870003E43D3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C3C0D416C68870003E43D3 /* MediaPlayer.framework */; };
+		852BAF5280FA470C82207783 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0337E37D3A414E63A70A3CB5 /* libPods.a */; };
+		D9418CC9179DB45000F65F9A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9418CC8179DB45000F65F9A /* QuartzCore.framework */; };
 		D963863717806212003724B8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D963863617806212003724B8 /* AVFoundation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0337E37D3A414E63A70A3CB5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		44A441D716C790B300D71022 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		44A441D916C7AD4D00D71022 /* DPMNowPlayingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPMNowPlayingViewController.h; path = ViewControllers/DPMNowPlayingViewController.h; sourceTree = "<group>"; };
 		44A441DA16C7AD4D00D71022 /* DPMNowPlayingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPMNowPlayingViewController.m; path = ViewControllers/DPMNowPlayingViewController.m; sourceTree = "<group>"; };
@@ -85,6 +88,8 @@
 		44C3C0C516C661A3003E43D3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		44C3C0C716C661A9003E43D3 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		44C3C0D416C68870003E43D3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		689B97A0DB164B1EAFE161D2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		D9418CC8179DB45000F65F9A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D963863617806212003724B8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -93,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9418CC9179DB45000F65F9A /* QuartzCore.framework in Frameworks */,
 				D963863717806212003724B8 /* AVFoundation.framework in Frameworks */,
 				44A441D816C790B300D71022 /* CoreMedia.framework in Frameworks */,
 				44C3C0D516C68870003E43D3 /* MediaPlayer.framework in Frameworks */,
@@ -101,6 +107,7 @@
 				44C3C09416C65EE3003E43D3 /* UIKit.framework in Frameworks */,
 				44C3C09616C65EE3003E43D3 /* Foundation.framework in Frameworks */,
 				44C3C09816C65EE3003E43D3 /* CoreGraphics.framework in Frameworks */,
+				852BAF5280FA470C82207783 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +177,7 @@
 				44C3C09916C65EE3003E43D3 /* DPMusicControllerDemoApp */,
 				44C3C09216C65EE3003E43D3 /* Frameworks */,
 				44C3C09116C65EE3003E43D3 /* Products */,
+				689B97A0DB164B1EAFE161D2 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,7 +199,9 @@
 				44A441D716C790B300D71022 /* CoreMedia.framework */,
 				44C3C09516C65EE3003E43D3 /* Foundation.framework */,
 				44C3C0D416C68870003E43D3 /* MediaPlayer.framework */,
+				D9418CC8179DB45000F65F9A /* QuartzCore.framework */,
 				44C3C09316C65EE3003E43D3 /* UIKit.framework */,
+				0337E37D3A414E63A70A3CB5 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -232,9 +242,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44C3C0B616C65EE3003E43D3 /* Build configuration list for PBXNativeTarget "DPMusicControllerDemoApp" */;
 			buildPhases = (
+				5E3F424CA8CC49348A943A66 /* Check Pods Manifest.lock */,
 				44C3C08C16C65EE3003E43D3 /* Sources */,
 				44C3C08D16C65EE3003E43D3 /* Frameworks */,
 				44C3C08E16C65EE3003E43D3 /* Resources */,
+				A291609E8EB94F32B2DB3E0E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -287,6 +299,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5E3F424CA8CC49348A943A66 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A291609E8EB94F32B2DB3E0E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		44C3C08C16C65EE3003E43D3 /* Sources */ = {
@@ -401,6 +446,7 @@
 		};
 		44C3C0B716C65EE3003E43D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 689B97A0DB164B1EAFE161D2 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DPMusicControllerDemoApp/DPMusicControllerDemoApp-Prefix.pch";
@@ -413,6 +459,7 @@
 		};
 		44C3C0B816C65EE3003E43D3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 689B97A0DB164B1EAFE161D2 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DPMusicControllerDemoApp/DPMusicControllerDemoApp-Prefix.pch";
