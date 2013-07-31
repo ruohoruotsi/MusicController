@@ -228,6 +228,19 @@
 
 #pragma mark - Table view delegate
 
+- (void)addtoQueue:(DPMusicItem*)selectedItem atIndexPath:(NSIndexPath *)indexPath
+{
+    // Add to queue
+    NSError *adderror = nil;
+    
+    [[DPMusicController sharedController] addSong:(DPMusicItemSong*)selectedItem error:&adderror];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    // Check error & notify
+    if(!adderror) [SVProgressHUD showSuccessWithStatus:@"Added to Queue"];
+    else [SVProgressHUD showErrorWithStatus:@"Already in Queue"];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	DPMusicItemIndexSection *indexSection = self.items[indexPath.section];
@@ -235,52 +248,43 @@
     // If indexSection == NIL, DPMTableViewControllerContentTypeDrillDown mode is active and
     // we need to display flat,non-sectioned data, i.e. album(s) songs or a flat list of songs
     if (([indexSection isKindOfClass:[DPMusicItemSong class]] ||
-         [indexSection  isKindOfClass:[DPMusicItemAlbum class]]) &&
+         [indexSection isKindOfClass:[DPMusicItemAlbum class]]) &&
         self.tableContentType == DPMTableViewControllerContentTypeDrillDown) {
         
-        DPMusicItem *selectedItem = self.items[indexPath.row];
-        
         // Add to queue
-        NSError *adderror = nil;
-		[[DPMusicController sharedController] addSong:(DPMusicItemSong*)selectedItem error:&adderror];
-		[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-        
-        // check error & notify
-        if(!adderror) [SVProgressHUD showSuccessWithStatus:[(DPMusicItemSong*)selectedItem generalTitle]];
-        else [SVProgressHUD showErrorWithStatus:[adderror localizedDescription]];
-		
+        DPMusicItem *selectedItem = self.items[indexPath.row];
+        [self addtoQueue:selectedItem atIndexPath:indexPath];
+
 	} else {  // If there is a section index, we need to display sectioned data (i.e. artists, albums)
         
-
         DPMusicItem *selectedItem = indexSection.items[indexPath.row];
         
         if (self.tableContentType == DPMTableViewControllerContentTypeSongs) {
             
             // Add to queue
-            [[DPMusicController sharedController] addSong:(DPMusicItemSong*)selectedItem error:nil];
-            [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+            [self addtoQueue:selectedItem atIndexPath:indexPath];
             
         } else if (self.tableContentType == DPMTableViewControllerContentTypeArtists) {
+            
             DPMTableViewController *controller = [[DPMTableViewController alloc] initWithStyle:UITableViewStylePlain];
             controller.tableContentType = DPMTableViewControllerContentTypeDrillDown; 
             
-            //NSArray *albums = [(DPMusicItemArtist*)selectedItem albums]; // IOHAVOC!!! return songs instead of albums! TODO FIXME
+            // NSArray *albums = [(DPMusicItemArtist*)selectedItem albums]; // Return songs instead of albums! TODO FIXME
             NSArray *songs = [(DPMusicItemArtist*)selectedItem songs];
-            
-            // DLog(@"Selected Artist: %@", [(DPMusicItemArtist*)selectedItem name]);
-            
             controller.items = songs; // albums;
             controller.tableTitle = selectedItem.generalTitle;
             [self.navigationController pushViewController:controller animated:YES];
+            
         } else if (self.tableContentType == DPMTableViewControllerContentTypeAlbums) {
+            
             DPMTableViewController *controller = [[DPMTableViewController alloc] initWithStyle:UITableViewStylePlain];
             controller.tableContentType = DPMTableViewControllerContentTypeDrillDown;
             
             NSArray *songs = [(DPMusicItemAlbum*)selectedItem songs];
-            
             controller.items = songs;
             controller.tableTitle = selectedItem.generalTitle;
             [self.navigationController pushViewController:controller animated:YES];
+            
         } else if (self.tableContentType == DPMTableViewControllerContentTypeQueue) {
             
         }
