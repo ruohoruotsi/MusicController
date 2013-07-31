@@ -35,6 +35,9 @@ install_resource()
       ;;
   esac
 }
+install_resource 'BeamMusicPlayerViewController/Source/BeamMusicPlayerViewController.xib'
+install_resource 'BeamMusicPlayerViewController/Source/BeamMusicPlayerViewController~ipad.xib'
+install_resource 'BeamMusicPlayerViewController/Source/BeamMusicPlayerController.bundle'
 install_resource 'SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle'
 
 rsync -avr --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
