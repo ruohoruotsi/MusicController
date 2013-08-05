@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="l5g-nZ-BBQ">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
@@ -21,6 +21,7 @@
                         <segue destination="35K-wR-kSI" kind="relationship" relationship="viewControllers" id="5rO-HC-cJt"/>
                         <segue destination="s1p-yV-Llb" kind="relationship" relationship="viewControllers" id="cul-cS-dju"/>
                         <segue destination="Vpz-F1-JaD" kind="relationship" relationship="viewControllers" id="oEg-n6-FKH"/>
+                        <segue destination="LIN-yp-nkM" kind="relationship" relationship="viewControllers" id="bjr-zf-K7x"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJk-fG-Xv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -171,6 +172,21 @@
             </objects>
             <point key="canvasLocation" x="421" y="455"/>
         </scene>
+        <!--Beam Music Player View Controller - Beam-->
+        <scene sceneID="ycq-Ve-9RC">
+            <objects>
+                <viewController storyboardIdentifier="BeamView" id="LIN-yp-nkM" customClass="BeamMusicPlayerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hw7-99-SKP">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Beam" id="4jq-pX-qCp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bk6-2v-vyQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-957" y="-1320"/>
+        </scene>
         <!--Now Playing View Controller - Now Playing-->
         <scene sceneID="wof-7i-kwl">
             <objects>
@@ -276,7 +292,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIG-kW-NUm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-655" y="-1076"/>
+            <point key="canvasLocation" x="-403" y="-1312"/>
         </scene>
         <!--Table View Controller - Root View Controller-->
         <scene sceneID="FWL-nE-y4a">
@@ -343,6 +359,9 @@
         </scene>
     </scenes>
     <classes>
+        <class className="BeamMusicPlayerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BeamMusicPlayerViewController.h"/>
+        </class>
         <class className="DPMNowPlayingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DPMNowPlayingViewController.h"/>
             <relationships>

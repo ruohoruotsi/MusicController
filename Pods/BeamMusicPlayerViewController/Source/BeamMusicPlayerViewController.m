@@ -120,6 +120,17 @@
 {
     [super viewDidLoad];
     
+    // IOHAVOC - TODO -- load XIB from Pod. Not ideal, find a better place to load XIB.
+    // To revisit later in a TODO.
+    NSMutableString *nibName = [NSMutableString stringWithString:@"BeamMusicPlayerViewController"];
+    if ([UIDevice instancesRespondToSelector:@selector(userInterfaceIdiom)]) {
+        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+            [nibName appendString:@"~ipad"];
+        }
+    }
+    [self.view addSubview:[[[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil] objectAtIndex:0]];
+    // IOHAVOC - end
+    
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"BeamMusicPlayerController.bundle/images/black_linen_v2"]];
     
     // Scrobble overlay should always be visible on tall phones

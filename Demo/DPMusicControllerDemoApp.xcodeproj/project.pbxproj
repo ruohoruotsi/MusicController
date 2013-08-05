@@ -36,6 +36,9 @@
 		44C3C0C816C661A9003E43D3 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C3C0C716C661A9003E43D3 /* CoreAudio.framework */; };
 		44C3C0D516C68870003E43D3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C3C0D416C68870003E43D3 /* MediaPlayer.framework */; };
 		852BAF5280FA470C82207783 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0337E37D3A414E63A70A3CB5 /* libPods.a */; };
+		D934A3C517ADF401003A9AD8 /* BeamMusicPlayerViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D934A3C417ADF401003A9AD8 /* BeamMusicPlayerViewController~ipad.xib */; };
+		D934A3C817AE2E6D003A9AD8 /* BeamMinimalExampleProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D934A3C717AE2E6D003A9AD8 /* BeamMinimalExampleProvider.m */; };
+		D934A3CA17AF4B14003A9AD8 /* BeamMusicPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D934A3C917AF4B14003A9AD8 /* BeamMusicPlayerViewController.xib */; };
 		D9418CC9179DB45000F65F9A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9418CC8179DB45000F65F9A /* QuartzCore.framework */; };
 		D963863717806212003724B8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D963863617806212003724B8 /* AVFoundation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
@@ -89,6 +92,10 @@
 		44C3C0C716C661A9003E43D3 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		44C3C0D416C68870003E43D3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		689B97A0DB164B1EAFE161D2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		D934A3C417ADF401003A9AD8 /* BeamMusicPlayerViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "BeamMusicPlayerViewController~ipad.xib"; path = "../../Pods/BeamMusicPlayerViewController/Source/BeamMusicPlayerViewController~ipad.xib"; sourceTree = "<group>"; };
+		D934A3C617AE2E6D003A9AD8 /* BeamMinimalExampleProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeamMinimalExampleProvider.h; sourceTree = "<group>"; };
+		D934A3C717AE2E6D003A9AD8 /* BeamMinimalExampleProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeamMinimalExampleProvider.m; sourceTree = "<group>"; };
+		D934A3C917AF4B14003A9AD8 /* BeamMusicPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BeamMusicPlayerViewController.xib; path = ../../Pods/BeamMusicPlayerViewController/Source/BeamMusicPlayerViewController.xib; sourceTree = "<group>"; };
 		D9418CC8179DB45000F65F9A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D963863617806212003724B8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -162,6 +169,8 @@
 		44AB1FAD16C78B7800BD3670 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D934A3C917AF4B14003A9AD8 /* BeamMusicPlayerViewController.xib */,
+				D934A3C417ADF401003A9AD8 /* BeamMusicPlayerViewController~ipad.xib */,
 				44AB1FAE16C78B9900BD3670 /* DPMTableViewController.h */,
 				44AB1FAF16C78B9900BD3670 /* DPMTableViewController.m */,
 				44A441D916C7AD4D00D71022 /* DPMNowPlayingViewController.h */,
@@ -210,6 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				44AB1FAD16C78B7800BD3670 /* ViewControllers */,
+				D934A3C617AE2E6D003A9AD8 /* BeamMinimalExampleProvider.h */,
+				D934A3C717AE2E6D003A9AD8 /* BeamMinimalExampleProvider.m */,
 				44C3C0A216C65EE3003E43D3 /* DPMAppDelegate.h */,
 				44C3C0A316C65EE3003E43D3 /* DPMAppDelegate.m */,
 				44C3C0AB16C65EE3003E43D3 /* MainStoryboard_iPhone.storyboard */,
@@ -295,6 +306,8 @@
 				44C3C0AA16C65EE3003E43D3 /* Default-568h@2x.png in Resources */,
 				44C3C0AD16C65EE3003E43D3 /* MainStoryboard_iPhone.storyboard in Resources */,
 				44C3C0B016C65EE3003E43D3 /* MainStoryboard_iPad.storyboard in Resources */,
+				D934A3C517ADF401003A9AD8 /* BeamMusicPlayerViewController~ipad.xib in Resources */,
+				D934A3CA17AF4B14003A9AD8 /* BeamMusicPlayerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +366,7 @@
 				44A9FAB016CF9EFD00C6E5D1 /* DPMusicPlayer.m in Sources */,
 				44A9FAB116CF9EFD00C6E5D1 /* TPCircularBuffer+AudioBufferList.c in Sources */,
 				44A9FAB216CF9EFD00C6E5D1 /* TPCircularBuffer.c in Sources */,
+				D934A3C817AE2E6D003A9AD8 /* BeamMinimalExampleProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

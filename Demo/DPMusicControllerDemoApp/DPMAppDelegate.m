@@ -10,9 +10,37 @@
 
 @implementation DPMAppDelegate
 
+@synthesize provider;
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    BeamMusicPlayerViewController* beamAppVC = nil;
+
+    UINavigationController *tabBar = (UINavigationController *)self.window.rootViewController;
+    
+    // Are there subviews
+    if (tabBar.viewControllers) {
+        
+        // Iterate through sub viewControllers
+        for (UINavigationController *vc in tabBar.viewControllers) {
+            
+            if ([vc isKindOfClass:[BeamMusicPlayerViewController class]])
+                beamAppVC = (BeamMusicPlayerViewController *) vc;
+        }
+    }
+    
+    // if we found the VC, then setup the delegate & datasource
+    if (beamAppVC) {
+        
+        provider = [BeamMinimalExampleProvider new];
+        
+        beamAppVC.delegate = provider;
+        beamAppVC.dataSource= provider;
+    }
+    
     return YES;
 }
 							

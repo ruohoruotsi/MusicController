@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BeamMinimalExampleProvider.h"
 
 @interface DPMAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) BeamMinimalExampleProvider* provider;
+
 
 @end
