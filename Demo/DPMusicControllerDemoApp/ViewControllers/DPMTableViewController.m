@@ -254,8 +254,12 @@
         // Add to queue
         DPMusicItem *selectedItem = self.items[indexPath.row];
         [self addtoQueue:selectedItem atIndexPath:indexPath];
+        
+	} else if (self.tableContentType == DPMTableViewControllerContentTypeQueue) { // Special handling for queues
 
-	} else {  // If there is a section index, we need to display sectioned data (i.e. artists, albums)
+        DLog(@" self.tableContentType == DPMTableViewControllerContentTypeQueue handler");
+        
+    } else {  // If there is a section index, we need to display sectioned data (i.e. artists, albums)
         
         DPMusicItem *selectedItem = indexSection.items[indexPath.row];
         
@@ -267,7 +271,7 @@
         } else if (self.tableContentType == DPMTableViewControllerContentTypeArtists) {
             
             DPMTableViewController *controller = [[DPMTableViewController alloc] initWithStyle:UITableViewStylePlain];
-            controller.tableContentType = DPMTableViewControllerContentTypeDrillDown; 
+            controller.tableContentType = DPMTableViewControllerContentTypeDrillDown;
             
             // NSArray *albums = [(DPMusicItemArtist*)selectedItem albums]; // Return songs instead of albums! TODO FIXME
             NSArray *songs = [(DPMusicItemArtist*)selectedItem songs];
@@ -284,8 +288,6 @@
             controller.items = songs;
             controller.tableTitle = selectedItem.generalTitle;
             [self.navigationController pushViewController:controller animated:YES];
-            
-        } else if (self.tableContentType == DPMTableViewControllerContentTypeQueue) {
             
         }
     }
