@@ -8,6 +8,8 @@
 
 #import "DPMNowPlayingViewController.h"
 #import "DPMusicController.h"
+#import "SVProgressHUD.h"
+
 @interface DPMNowPlayingViewController ()
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
@@ -91,6 +93,11 @@
 
 - (IBAction)buttonHit:(id)sender
 {
+    if([[[DPMusicController sharedController] queue ]count] == 0) {
+        [SVProgressHUD showErrorWithStatus:@"Empty Queue. Add some songs!"];
+        return;
+    }
+    
 	if (sender == self.playButton) {
 		
 		if ([[DPMusicController sharedController] isPlaying]) {
