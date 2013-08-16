@@ -48,7 +48,7 @@
 
 - (void)reloadList
 {
-    DLog(@"self.tableContentType == %d", self.tableContentType);
+    // DLog(@"self.tableContentType == %d", self.tableContentType);
     
 	switch (self.tableContentType) {
 		case DPMTableViewControllerContentTypeSongs:

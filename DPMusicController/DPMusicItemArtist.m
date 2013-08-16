@@ -19,8 +19,12 @@
 {
 	self = [super initWithMediaItem:item];
 	if (self) {
-		_name = [item valueForProperty:MPMediaItemPropertyArtist];
-		_persistentID = [item valueForProperty:MPMediaItemPropertyArtistPersistentID];
+        
+        NSSet *properties = [NSSet setWithArray:@[ MPMediaItemPropertyArtist, MPMediaItemPropertyArtistPersistentID ]];
+        [item enumerateValuesForProperties:properties usingBlock:^(NSString *property, id value, BOOL *stop) {
+            if ([property isEqualToString:MPMediaItemPropertyArtist]) _name = value;
+            if ([property isEqualToString:MPMediaItemPropertyArtistPersistentID]) _persistentID = value; }];
+        
 		_associatedItem = item;
 	}
 	

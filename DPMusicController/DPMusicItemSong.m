@@ -15,18 +15,34 @@
 @end
 
 @implementation DPMusicItemSong
-@synthesize persistentID=_persistentID, associatedItem=_associatedItem, artist=_artist, album=_album, artistPersistentID=_artistPersistentID, albumPersistentID=_albumPersistentID, url=_url;
+@synthesize persistentID = _persistentID;
+@synthesize associatedItem = _associatedItem;
+@synthesize artist = _artist;
+@synthesize album = _album;
+@synthesize artistPersistentID = _artistPersistentID;
+@synthesize albumPersistentID = _albumPersistentID;
+@synthesize url = _url;
+
 - (id)initWithMediaItem:(MPMediaItem *)item
 {
 	self = [super initWithMediaItem:item];
 	if (self) {
-		_title = [item valueForProperty:MPMediaItemPropertyTitle];
+        
+        NSSet *properties = [NSSet setWithArray:@[
+                             MPMediaItemPropertyTitle,
+                             MPMediaItemPropertyArtistPersistentID,
+                             MPMediaItemPropertyAlbumPersistentID,
+                             MPMediaItemPropertyPersistentID,
+                             MPMediaItemPropertyPlaybackDuration,
+                             MPMediaItemPropertyAssetURL ]];
+        [item enumerateValuesForProperties:properties usingBlock:^(NSString *property, id value, BOOL *stop) {
+            if ([property isEqualToString:MPMediaItemPropertyTitle]) _title = value;
+            if ([property isEqualToString:MPMediaItemPropertyArtistPersistentID]) _artistPersistentID = value;
+            if ([property isEqualToString:MPMediaItemPropertyAlbumPersistentID]) _albumPersistentID = value;
+            if ([property isEqualToString:MPMediaItemPropertyPersistentID]) _persistentID = value;
+            if ([property isEqualToString:MPMediaItemPropertyPlaybackDuration]) _duration = [value doubleValue];
+            if ([property isEqualToString:MPMediaItemPropertyAssetURL]) _url = value; }];
 
-		_artistPersistentID = [item valueForProperty:MPMediaItemPropertyArtistPersistentID];
-		_albumPersistentID = [item valueForProperty:MPMediaItemPropertyAlbumPersistentID];
-		_persistentID = [item valueForProperty:MPMediaItemPropertyPersistentID];
-		_duration = [[item valueForProperty:MPMediaItemPropertyPlaybackDuration] doubleValue];
-		_url = [item valueForProperty:MPMediaItemPropertyAssetURL];
 		_associatedItem = item;
 	}
 	

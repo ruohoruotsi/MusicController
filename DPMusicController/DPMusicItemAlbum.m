@@ -15,16 +15,26 @@
 
 
 @implementation DPMusicItemAlbum
-@synthesize persistentID=_persistentID, associatedItem=_associatedItem, artist=_artist, songs=_songs;
+
+@synthesize persistentID = _persistentID;
+@synthesize associatedItem = _associatedItem;
+@synthesize artist = _artist;
+@synthesize songs = _songs;
 
 - (id)initWithMediaItem:(MPMediaItem *)item
 {
 	self = [super initWithMediaItem:item];
 	if (self) {
-
-		_title = [item valueForProperty:MPMediaItemPropertyAlbumTitle];
-		_artistPersistentID = [item valueForProperty:MPMediaItemPropertyArtistPersistentID];
-		_persistentID = [item valueForProperty:MPMediaItemPropertyAlbumPersistentID];
+        
+        NSSet *properties = [NSSet setWithArray:@[
+                             MPMediaItemPropertyAlbumTitle,
+                             MPMediaItemPropertyArtistPersistentID,
+                             MPMediaItemPropertyAlbumPersistentID ]];
+        [item enumerateValuesForProperties:properties usingBlock:^(NSString *property, id value, BOOL *stop) {
+            if ([property isEqualToString:MPMediaItemPropertyAlbumTitle]) _title = value;
+            if ([property isEqualToString:MPMediaItemPropertyArtistPersistentID]) _artistPersistentID = value;
+            if ([property isEqualToString:MPMediaItemPropertyAlbumPersistentID]) _persistentID = value; }];
+        
 		_associatedItem = item;
 	}
 	
