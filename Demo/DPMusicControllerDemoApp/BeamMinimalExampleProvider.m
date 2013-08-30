@@ -12,6 +12,11 @@
 
 @implementation BeamMinimalExampleProvider
 
+
+-(CGFloat)volumeForMusicPlayer:(BeamMusicPlayerViewController*)player {
+    return [DPMusicController sharedController].player.volume;
+}
+
 #pragma mark Minimal Datasource Methods
 
 -(NSString*)musicPlayer:(BeamMusicPlayerViewController *)player titleForTrack:(NSUInteger)trackNumber {
@@ -36,7 +41,6 @@
     return retVal;
 }
 
-
 -(NSString*)musicPlayer:(BeamMusicPlayerViewController *)player albumForTrack:(NSUInteger)trackNumber {
 
     NSString* retVal = nil;
@@ -59,16 +63,17 @@
     return retVal;
 }
 
-#pragma mark optional
--(CGFloat)volumeForMusicPlayer:(BeamMusicPlayerViewController*)player {
-    return [DPMusicController sharedController].player.volume;
+-(CGFloat)musicPlayer:(BeamMusicPlayerViewController*)player currentPositionForTrack:(NSUInteger)trackNumber {
+    return player.currentPlaybackPosition + 1.0f;
 }
+
+
+#pragma mark optional
 
 -(NSInteger)numberOfTracksInPlayer:(BeamMusicPlayerViewController *)player {
-
+    
     return [DPMusicController sharedController].queue.count;
 }
-
 
 -(void)musicPlayer:(BeamMusicPlayerViewController *)player artworkForTrack:(NSUInteger)trackNumber receivingBlock:(BeamMusicPlayerReceivingBlock)receivingBlock {
     
@@ -85,39 +90,44 @@
     }
 }
 /* ALT
--(void)musicPlayer:(BeamMusicPlayerViewController *)player artworkForTrack:(NSUInteger)trackNumber receivingBlock:(BeamMusicPlayerReceivingBlock)receivingBlock {
-    NSString* url = @"http://a3.mzstatic.com/us/r1000/045/Features/7f/50/ee/dj.zygromnm.600x600-75.jpg";
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        NSData* urlData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
-        
-        UIImage* image = [UIImage imageWithData:urlData];
-        receivingBlock(image,nil);
-    });
-} */
+ -(void)musicPlayer:(BeamMusicPlayerViewController *)player artworkForTrack:(NSUInteger)trackNumber receivingBlock:(BeamMusicPlayerReceivingBlock)receivingBlock {
+ NSString* url = @"http://a3.mzstatic.com/us/r1000/045/Features/7f/50/ee/dj.zygromnm.600x600-75.jpg";
+ 
+ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+ NSData* urlData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+ 
+ UIImage* image = [UIImage imageWithData:urlData];
+ receivingBlock(image,nil);
+ });
+ } */
 
-// NEW BEAM ISH
-// -(CGFloat)musicPlayer:(BeamMusicPlayerViewController*)player currentPositionForTrack:(NSUInteger)trackNumber {
-//    return player.currentPlaybackPosition + 1.0f;
-// }
 
 
 #pragma mark Delegate Methods ( Used to control the music player )
 
 -(NSInteger)musicPlayer:(BeamMusicPlayerViewController *)player didChangeTrack:(NSUInteger)track {
-    /*
-    if(self.mediaItems) {
-        [self.musicPlayer setNowPlayingItem:[self mediaItemAtIndex:track]];
-    } else {
-        int delta = track - self.musicPlayer.indexOfNowPlayingItem;
-        if(delta > 0)
-            [self.musicPlayer skipToNextItem];
-        if(delta == 0)
-            [self.musicPlayer skipToBeginning];
-        if(delta < 0)
-            [self.musicPlayer skipToPreviousItem];
+    
+    DPMusicController* controller = [DPMusicController sharedController];
+    
+    if([[controller queue] count] > 0) {
+        
+        NSInteger currentIndex = [controller indexOfSong:[controller currentSong] indexType:DPMusicIndexTypePlaylistIndex error:nil];
+
+        int delta = track - currentIndex;
+        DLog(@" track#:  %d   currentIndex#:   %d     delta:  %d \n", track, currentIndex, delta);        
+        
+        if (delta > 0) [controller nextWithCrossfade:YES error:nil];
+        else if(delta < 0) [controller previousWithCrossfade:YES error:nil];
+        else if(delta == 0) {
+            
+            DLog(@"####:  delta == 0 \n");
+                                                                            
+            // [self.musicPlayer skipToBeginning];
+        }
     }
-    return self.musicPlayer.indexOfNowPlayingItem; */
+
+    NSInteger newCurrentSong = [controller indexOfSong:[controller currentSong] indexType:DPMusicIndexTypePlaylistIndex error:nil];
+    return newCurrentSong;
 }
 
 -(void)musicPlayerDidStartPlaying:(BeamMusicPlayerViewController *)player {

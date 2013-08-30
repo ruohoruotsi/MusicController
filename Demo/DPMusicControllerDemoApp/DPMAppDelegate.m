@@ -19,16 +19,21 @@
     
     BeamMusicPlayerViewController* beamAppVC = nil;
 
-    UINavigationController *tabBar = (UINavigationController *)self.window.rootViewController;
+    UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
+    // navigationController = nav;
     
     // Are there subviews
-    if (tabBar.viewControllers) {
+    if (nav.viewControllers) {                                             // top level navigation
         
-        // Iterate through sub viewControllers
-        for (UINavigationController *vc in tabBar.viewControllers) {
+        // tabbar should be the only element in this top array
+        for (UITabBarController *tabBar in nav.viewControllers) {         // tabbar
             
-            if ([vc isKindOfClass:[BeamMusicPlayerViewController class]])
-                beamAppVC = (BeamMusicPlayerViewController *) vc;
+            // Iterate through tabbar sub viewControllers
+            for (UINavigationController *vc in tabBar.viewControllers) {
+                
+                if ([vc isKindOfClass:[BeamMusicPlayerViewController class]])
+                    beamAppVC = (BeamMusicPlayerViewController *) vc;
+            }
         }
     }
     

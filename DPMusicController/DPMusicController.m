@@ -110,8 +110,8 @@
 {
     // Implicitly, self.isPlaying == NO. In first play usecase, the player doesn't have
     // a current song, so set it first since we're not playing, then play
-    [self.player setCurrentSong:self.currentSong play:NO];
-
+    [self.player setOnlyCurrentSong:self.currentSong];
+    
 	return [self.player play];  
 }
 

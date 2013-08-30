@@ -36,6 +36,7 @@ typedef struct {
 
 @property (nonatomic, strong, readonly) DPMusicItemSong *song;	// current song; use -setCurrentSong:play: to change
 -(void)setCurrentSong:(DPMusicItemSong*)song play:(BOOL)play;
+-(void)setOnlyCurrentSong:(DPMusicItemSong*)song;               // Only set _song, do not config/reset/pre-roll etc
 
 @property (getter = isPlaying, readonly) BOOL playing;
 -(BOOL)play;

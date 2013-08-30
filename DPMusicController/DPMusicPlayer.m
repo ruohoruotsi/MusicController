@@ -89,6 +89,13 @@ static OSStatus ipodRenderCallback (
 
 #pragma mark - player calls
 
+-(void)setOnlyCurrentSong:(DPMusicItemSong*)song
+{
+	if (self.song != song)
+	{
+		_song = song;
+	}
+}
 
 -(void)setCurrentSong:(DPMusicItemSong*)song play:(BOOL)play
 {
