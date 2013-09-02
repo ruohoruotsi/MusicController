@@ -10,7 +10,7 @@
 
 @implementation DPMAppDelegate
 
-@synthesize provider;
+// @synthesize provider;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -19,20 +19,22 @@
     
     BeamMusicPlayerViewController* beamAppVC = nil;
 
-    UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
-    // navigationController = nav;
+    _topNavViewController = (UINavigationController *)self.window.rootViewController;
+    _topNavViewController.navigationBar.topItem.title = @"Albums"; // Initial view
     
     // Are there subviews
-    if (nav.viewControllers) {                                             // top level navigation
+    if (_topNavViewController.viewControllers) {                                    // top level navigation
         
         // tabbar should be the only element in this top array
-        for (UITabBarController *tabBar in nav.viewControllers) {         // tabbar
+        for (UITabBarController *tabBar in _topNavViewController.viewControllers) { // tabbar
+            
+            tabBar.delegate = self;                                                 // Assign DPMAppDelegate (self) to be the delegate
             
             // Iterate through tabbar sub viewControllers
             for (UINavigationController *vc in tabBar.viewControllers) {
                 
                 if ([vc isKindOfClass:[BeamMusicPlayerViewController class]])
-                    beamAppVC = (BeamMusicPlayerViewController *) vc;
+                    beamAppVC = (BeamMusicPlayerViewController*) vc;
             }
         }
     }
@@ -40,10 +42,10 @@
     // if we found the VC, then setup the delegate & datasource
     if (beamAppVC) {
         
-        provider = [BeamMinimalExampleProvider new];
+        _provider = [BeamMinimalExampleProvider new];
         
-        beamAppVC.delegate = provider;
-        beamAppVC.dataSource= provider;
+        beamAppVC.delegate = _provider;
+        beamAppVC.dataSource= _provider;
     }
     
     return YES;
@@ -74,6 +76,46 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark UITabBarController delegate
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    NSArray *titleArray = @[@"Albums", @"Artists", @"Songs", @"Queue", @"Now Playing", @"Beam"];
+
+    if (viewController == [tabBarController.viewControllers objectAtIndex:0] ) {
+     
+        // DLog(@"Selected 0 \n");
+        _topNavViewController.navigationBar.topItem.title = [titleArray objectAtIndex:0];
+    }
+    else if (viewController == [tabBarController.viewControllers objectAtIndex:1] ) {
+        
+        // DLog(@"Selected 1 \n");
+        _topNavViewController.navigationBar.topItem.title = [titleArray objectAtIndex:1];
+    }
+    else if (viewController == [tabBarController.viewControllers objectAtIndex:2] ) {
+        
+        // DLog(@"Selected 2 \n");
+        _topNavViewController.navigationBar.topItem.title = [titleArray objectAtIndex:2];
+    }
+    else if (viewController == [tabBarController.viewControllers objectAtIndex:3] ) {
+        
+        // DLog(@"Selected 3 \n");
+        _topNavViewController.navigationBar.topItem.title = [titleArray objectAtIndex:3];
+    }
+    else if (viewController == [tabBarController.viewControllers objectAtIndex:4] ) {
+        
+        // DLog(@"Selected 4 \n");
+        _topNavViewController.navigationBar.topItem.title = [titleArray objectAtIndex:4];
+    }
+    else if (viewController == [tabBarController.viewControllers objectAtIndex:5] ) {
+        
+        // DLog(@"Selected 5 \n");
+        _topNavViewController.navigationBar.topItem.title = [titleArray objectAtIndex:5];
+    }
+    
+    return YES;
 }
 
 @end

@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "BeamMinimalExampleProvider.h"
 
-@interface DPMAppDelegate : UIResponder <UIApplicationDelegate>
+@interface DPMAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) BeamMinimalExampleProvider* provider;
+@property (strong, nonatomic) BeamMinimalExampleProvider *provider;
+@property (strong, nonatomic) UINavigationController *topNavViewController;
 
 
 @end
