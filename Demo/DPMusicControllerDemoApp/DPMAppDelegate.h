@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BeamMinimalExampleProvider.h"
+
+@class BeamMusicPlayerViewController;
+@class BeamMinimalExampleProvider;
+@class MMDrawerController;
 
 @interface DPMAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 
@@ -15,5 +18,7 @@
 @property (strong, nonatomic) BeamMinimalExampleProvider *provider;
 @property (strong, nonatomic) UINavigationController *topNavViewController;
 
+@property (strong, nonatomic) BeamMusicPlayerViewController* beamAppVC;
+@property (strong, nonatomic) MMDrawerController* drawerController;
 
 @end
