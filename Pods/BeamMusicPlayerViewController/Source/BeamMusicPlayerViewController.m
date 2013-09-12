@@ -116,6 +116,14 @@
 @synthesize backBlock, actionBlock;
 @synthesize placeholderImageDelay;
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    // IOHAVOC -- Reload data and ensure navbar is hidden
+    [self reloadData];
+    [self.navigationBar setHidden:YES];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -244,14 +252,14 @@
 -(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         CGRect f = self.albumArtImageView.frame;
-        f.origin.x = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 65 : 84;
-        f.origin.y = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? (int)((self.view.bounds.size.height-self.navigationBar.bounds.size.height-f.size.height)/2)+self.navigationBar.bounds.size.height : 65;
+        f.origin.x = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 65 : 84;       // landscape : portrait  // IOHAVOC -- adjust for navigationBar removal
+        f.origin.y = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? (int)((self.view.bounds.size.height/* -self.navigationBar.bounds.size.height*/ -f.size.height)/2) /*+self.navigationBar.bounds.size.height */: 25; // 65; IOHAVOC
         self.albumArtImageView.frame = f;
         
         f = self.controlView.frame;
         f.size.width = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 350 : 600;
         f.origin.x = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 660 : 84;
-        f.origin.y = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 220 : 675;
+        f.origin.y = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 220 : 635; // 675; IOHAVOC
         self.controlView.frame = f;
         
     }
