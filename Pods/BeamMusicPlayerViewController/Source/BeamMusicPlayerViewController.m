@@ -253,7 +253,7 @@
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         CGRect f = self.albumArtImageView.frame;
         f.origin.x = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 65 : 84;       // landscape : portrait  // IOHAVOC -- adjust for navigationBar removal
-        f.origin.y = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? (int)((self.view.bounds.size.height/* -self.navigationBar.bounds.size.height*/ -f.size.height)/2) /*+self.navigationBar.bounds.size.height */: 25; // 65; IOHAVOC
+        f.origin.y = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? (int)((self.view.bounds.size.height - f.size.height)/2): 25; // 65; IOHAVOC
         self.albumArtImageView.frame = f;
         
         f = self.controlView.frame;
