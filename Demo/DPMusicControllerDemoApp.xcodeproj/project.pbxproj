@@ -41,6 +41,16 @@
 		D934A3CA17AF4B14003A9AD8 /* BeamMusicPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D934A3C917AF4B14003A9AD8 /* BeamMusicPlayerViewController.xib */; };
 		D9418CC9179DB45000F65F9A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9418CC8179DB45000F65F9A /* QuartzCore.framework */; };
 		D963863717806212003724B8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D963863617806212003724B8 /* AVFoundation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		D99634F017F91EC600BEAFFE /* MMDrawerController+Subclass.h in Resources */ = {isa = PBXBuildFile; fileRef = D99634EB17F91EC600BEAFFE /* MMDrawerController+Subclass.h */; };
+		D99634F117F91EC600BEAFFE /* MMDrawerController.h in Resources */ = {isa = PBXBuildFile; fileRef = D99634EC17F91EC600BEAFFE /* MMDrawerController.h */; };
+		D99634F217F91EC600BEAFFE /* UIViewController+MMDrawerController.h in Resources */ = {isa = PBXBuildFile; fileRef = D99634ED17F91EC600BEAFFE /* UIViewController+MMDrawerController.h */; };
+		D99634F317F91EC600BEAFFE /* MMDrawerBarButtonItem.h in Resources */ = {isa = PBXBuildFile; fileRef = D99634EE17F91EC600BEAFFE /* MMDrawerBarButtonItem.h */; };
+		D99634F417F91EC600BEAFFE /* MMDrawerVisualState.h in Resources */ = {isa = PBXBuildFile; fileRef = D99634EF17F91EC600BEAFFE /* MMDrawerVisualState.h */; };
+		D99634F517F91EE900BEAFFE /* MMDrawerController+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = D99634EB17F91EC600BEAFFE /* MMDrawerController+Subclass.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D99634F617F91EE900BEAFFE /* MMDrawerController.h in Headers */ = {isa = PBXBuildFile; fileRef = D99634EC17F91EC600BEAFFE /* MMDrawerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D99634F717F91EE900BEAFFE /* UIViewController+MMDrawerController.h in Headers */ = {isa = PBXBuildFile; fileRef = D99634ED17F91EC600BEAFFE /* UIViewController+MMDrawerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D99634F817F91EE900BEAFFE /* MMDrawerBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D99634EE17F91EC600BEAFFE /* MMDrawerBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D99634F917F91EE900BEAFFE /* MMDrawerVisualState.h in Headers */ = {isa = PBXBuildFile; fileRef = D99634EF17F91EC600BEAFFE /* MMDrawerVisualState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9AAA97817E7B2B900A0C288 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0337E37D3A414E63A70A3CB5 /* libPods.a */; };
 		D9CF898E17E629BC0014557E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9CF898C17E629BC0014557E /* InfoPlist.strings */; };
 		D9CF899217E629BC0014557E /* DPMusicControllerStatic.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CF899117E629BC0014557E /* DPMusicControllerStatic.m */; };
@@ -148,6 +158,11 @@
 		D934A3C917AF4B14003A9AD8 /* BeamMusicPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BeamMusicPlayerViewController.xib; path = ../../Pods/BeamMusicPlayerViewController/Source/BeamMusicPlayerViewController.xib; sourceTree = "<group>"; };
 		D9418CC8179DB45000F65F9A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D963863617806212003724B8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D99634EB17F91EC600BEAFFE /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MMDrawerController+Subclass.h"; path = "../../Pods/MMDrawerController/MMDrawerController/MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
+		D99634EC17F91EC600BEAFFE /* MMDrawerController.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = MMDrawerController.h; path = ../../Pods/MMDrawerController/MMDrawerController/MMDrawerController.h; sourceTree = "<group>"; };
+		D99634ED17F91EC600BEAFFE /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = "UIViewController+MMDrawerController.h"; path = "../../Pods/MMDrawerController/MMDrawerController/UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
+		D99634EE17F91EC600BEAFFE /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = MMDrawerBarButtonItem.h; path = ../../Pods/MMDrawerController/MMDrawerController/MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
+		D99634EF17F91EC600BEAFFE /* MMDrawerVisualState.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = MMDrawerVisualState.h; path = ../../Pods/MMDrawerController/MMDrawerController/MMDrawerVisualState.h; sourceTree = "<group>"; };
 		D9CF898817E629BC0014557E /* DPMusicControllerStatic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DPMusicControllerStatic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CF898B17E629BC0014557E /* DPMusicControllerStatic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DPMusicControllerStatic-Info.plist"; sourceTree = "<group>"; };
 		D9CF898D17E629BC0014557E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -346,6 +361,11 @@
 		D9CF89B517E6A4B30014557E /* Pod Headers */ = {
 			isa = PBXGroup;
 			children = (
+				D99634EB17F91EC600BEAFFE /* MMDrawerController+Subclass.h */,
+				D99634EC17F91EC600BEAFFE /* MMDrawerController.h */,
+				D99634ED17F91EC600BEAFFE /* UIViewController+MMDrawerController.h */,
+				D99634EE17F91EC600BEAFFE /* MMDrawerBarButtonItem.h */,
+				D99634EF17F91EC600BEAFFE /* MMDrawerVisualState.h */,
 				D9CF89B617E6A59C0014557E /* AutoScrollLabel.h */,
 				D9CF89B717E6A59C0014557E /* BeamAVMusicPlayerProvider.h */,
 				D9CF89B817E6A59C0014557E /* BeamMusicPlayerDataSource.h */,
@@ -393,6 +413,11 @@
 				D9CF89D117E6A5BC0014557E /* BeamMPMusicPlayerProvider.h in Headers */,
 				D9CF89D217E6A5BC0014557E /* OBSlider.h in Headers */,
 				D9CF89D317E6A5BC0014557E /* SVProgressHUD.h in Headers */,
+				D99634F517F91EE900BEAFFE /* MMDrawerController+Subclass.h in Headers */,
+				D99634F617F91EE900BEAFFE /* MMDrawerController.h in Headers */,
+				D99634F717F91EE900BEAFFE /* UIViewController+MMDrawerController.h in Headers */,
+				D99634F817F91EE900BEAFFE /* MMDrawerBarButtonItem.h in Headers */,
+				D99634F917F91EE900BEAFFE /* MMDrawerVisualState.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +519,11 @@
 				D9CF89DD17E6A9170014557E /* MainStoryboard_iPhone.storyboard in Resources */,
 				D9CF89DE17E6A9170014557E /* MainStoryboard_iPad.storyboard in Resources */,
 				D9CF898E17E629BC0014557E /* InfoPlist.strings in Resources */,
+				D99634F017F91EC600BEAFFE /* MMDrawerController+Subclass.h in Resources */,
+				D99634F117F91EC600BEAFFE /* MMDrawerController.h in Resources */,
+				D99634F217F91EC600BEAFFE /* UIViewController+MMDrawerController.h in Resources */,
+				D99634F317F91EC600BEAFFE /* MMDrawerBarButtonItem.h in Resources */,
+				D99634F417F91EC600BEAFFE /* MMDrawerVisualState.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
