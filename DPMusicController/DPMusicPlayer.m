@@ -645,7 +645,7 @@ static OSStatus ipodRenderCallback (
 		
 		UInt32 busCount   = 1;    // bus count for mixer unit input
 								  //  UInt32 mainBus  = 0;    // mixer unit bus 0 will be stereo and will take the guitar sound
-								  //   UInt32 beatsBus   = 1;    // mixer unit bus 1 will be mono and will take the beats sound
+								  //  UInt32 beatsBus   = 1;    // mixer unit bus 1 will be mono and will take the beats sound
 		
 		mainBus = 0;
 		auxBus = 1;

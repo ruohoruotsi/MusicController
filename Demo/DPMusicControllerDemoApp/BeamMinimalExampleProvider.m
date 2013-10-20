@@ -116,13 +116,14 @@
         int delta = track - currentIndex;
         DLog(@" track#:  %d   currentIndex#:   %d     delta:  %d \n", track, currentIndex, delta);        
         
-        if (delta > 0) [controller nextWithCrossfade:YES error:nil];
-        else if(delta < 0) [controller previousWithCrossfade:YES error:nil];
+        if (delta > 0) [controller nextWithCrossfade:NO error:nil];
+        else if(delta < 0) [controller previousWithCrossfade:NO error:nil];
         else if(delta == 0) {
             
             DLog(@"####:  delta == 0 \n");
-                                                                            
             // [self.musicPlayer skipToBeginning];
+            [controller previousWithCrossfade:NO error:nil];
+
         }
     }
 
