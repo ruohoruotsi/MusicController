@@ -50,15 +50,9 @@
     
     
     
-    
-    ////
-    
-#if 1
-    // UIViewController * leftSideDrawerViewController = [[MMExampleLeftSideDrawerViewController alloc] init];
-    // UIViewController * rightSideDrawerViewController = [[MMExampleRightSideDrawerViewController alloc] init];
-    
-    // UIViewController * centerViewController = [[MMExampleCenterTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    // UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:centerViewController];
+    //////////////////////////////////////////////////////////////////
+    //
+    // setup drawer controller center - left - right
     
     MMDrawerController* drawerController = [[MMDrawerController alloc]
                                             initWithCenterViewController:_topNavViewController //navigationController
@@ -68,17 +62,6 @@
     [drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     
-    /*
-     [drawerController
-     setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
-     MMDrawerControllerDrawerVisualStateBlock block;
-     block = [[MMExampleDrawerVisualStateManager sharedManager]
-     drawerVisualStateBlockForDrawerSide:drawerSide];
-     if(block){
-     block(drawerController, drawerSide, percentVisible);
-     }
-     }]; */
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setRootViewController:drawerController];
     
@@ -87,8 +70,6 @@
     MMDrawerBarButtonItem * rightDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(rightDrawerButtonPress:)];
     [_topNavViewController.navigationBar.topItem setRightBarButtonItem:rightDrawerButton animated:YES];
 
-
-#endif
     
     return YES;
 }
