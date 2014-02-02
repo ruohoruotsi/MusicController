@@ -55,7 +55,7 @@
 						<array key="IBUIItems">
 							<object class="IBUINavigationItem" id="546333562">
 								<reference key="IBUINavigationBar" ref="146668208"/>
-								<string key="IBUITitle">Title</string>
+								<string key="IBUITitle"/>
 								<object class="IBUIBarButtonItem" key="IBUILeftBarButtonItem" id="293618477">
 									<object class="NSCustomResource" key="IBUIImage">
 										<string key="NSClassName">NSImage</string>
@@ -93,10 +93,9 @@
 					<object class="IBUIToolbar" id="578893802">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{0, 371}, {320, 44}}</string>
+						<string key="NSFrame">{{0, 416}, {320, 44}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -377,6 +376,7 @@
 						<string key="NSFrame">{{0, 134}, {320, 64}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="578893802"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<float key="IBUIAlpha">0.0</float>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -892,55 +892,6 @@
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">15</int>
-						<reference key="object" ref="578893802"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="646048802"/>
-							<reference ref="508956789"/>
-							<reference ref="697697531"/>
-							<reference ref="403599178"/>
-							<reference ref="747409635"/>
-							<reference ref="760091794"/>
-							<reference ref="356141574"/>
-						</array>
-						<reference key="parent" ref="774585933"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">16</int>
-						<reference key="object" ref="508956789"/>
-						<reference key="parent" ref="578893802"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">21</int>
-						<reference key="object" ref="697697531"/>
-						<reference key="parent" ref="578893802"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">22</int>
-						<reference key="object" ref="646048802"/>
-						<reference key="parent" ref="578893802"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">26</int>
-						<reference key="object" ref="403599178"/>
-						<reference key="parent" ref="578893802"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">27</int>
-						<reference key="object" ref="747409635"/>
-						<reference key="parent" ref="578893802"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">28</int>
-						<reference key="object" ref="760091794"/>
-						<reference key="parent" ref="578893802"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">29</int>
-						<reference key="object" ref="356141574"/>
-						<reference key="parent" ref="578893802"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">31</int>
 						<reference key="object" ref="476195150"/>
 						<reference key="parent" ref="774585933"/>
@@ -1018,11 +969,6 @@
 						<string key="objectName">Time Elapsed</string>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">74</int>
-						<reference key="object" ref="324115021"/>
-						<reference key="parent" ref="269887851"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">75</int>
 						<reference key="object" ref="627743492"/>
 						<reference key="parent" ref="774585933"/>
@@ -1056,6 +1002,60 @@
 						<int key="objectID">95</int>
 						<reference key="object" ref="293618477"/>
 						<reference key="parent" ref="546333562"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">74</int>
+						<reference key="object" ref="324115021"/>
+						<reference key="parent" ref="269887851"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">15</int>
+						<reference key="object" ref="578893802"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="646048802"/>
+							<reference ref="508956789"/>
+							<reference ref="697697531"/>
+							<reference ref="403599178"/>
+							<reference ref="747409635"/>
+							<reference ref="760091794"/>
+							<reference ref="356141574"/>
+						</array>
+						<reference key="parent" ref="774585933"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">29</int>
+						<reference key="object" ref="356141574"/>
+						<reference key="parent" ref="578893802"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">28</int>
+						<reference key="object" ref="760091794"/>
+						<reference key="parent" ref="578893802"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">27</int>
+						<reference key="object" ref="747409635"/>
+						<reference key="parent" ref="578893802"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">26</int>
+						<reference key="object" ref="403599178"/>
+						<reference key="parent" ref="578893802"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">21</int>
+						<reference key="object" ref="697697531"/>
+						<reference key="parent" ref="578893802"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">16</int>
+						<reference key="object" ref="508956789"/>
+						<reference key="parent" ref="578893802"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">22</int>
+						<reference key="object" ref="646048802"/>
+						<reference key="parent" ref="578893802"/>
 					</object>
 				</array>
 			</object>

@@ -121,7 +121,13 @@
 {
     // IOHAVOC -- Reload data and ensure navbar is hidden
     [self reloadData];
-    [self.navigationBar setHidden:YES];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        [self.navigationBar setHidden:YES];
+    }
+    
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+    }
 }
 
 - (void)viewDidLoad
@@ -147,34 +153,28 @@
     } else {
         // on small phones, let tap toggle overlay
         if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+            
             self.scrobbleOverlay.alpha = 0;
             self.coverArtGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(coverArtTapped:)];
             [self.albumArtImageView addGestureRecognizer:self.coverArtGestureRecognizer];
+       
         } else {
+        
             //on ipad use shadow behind cover art
             self.albumArtImageView.layer.shadowColor = [UIColor blackColor].CGColor;
             self.albumArtImageView.layer.shadowOpacity = 0.8;
             self.albumArtImageView.layer.shadowRadius = 10.0;
             self.albumArtImageView.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
-            self.albumArtImageView.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.albumArtImageView.bounds].CGPath;
-            
-            
+            self.albumArtImageView.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.albumArtImageView.bounds].CGPath;            
         }
     }
     
+    UINavigationBar* mmNavBar = ((UINavigationController*)self.parentViewController.parentViewController).navigationBar;
+
     // Progess Slider
     UIImage* knob = [UIImage imageNamed:@"BeamMusicPlayerController.bundle/images/VolumeKnob"];
     [progressSlider setThumbImage:knob forState:UIControlStateNormal];
     progressSlider.maximumTrackTintColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
-    
-    // Volume Slider
-    UIImage* minImg = [[UIImage imageNamed:@"BeamMusicPlayerController.bundle/images/speakerSliderMinValue.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 16, 0, 16)];
-    UIImage* maxImg = [[UIImage imageNamed:@"BeamMusicPlayerController.bundle/images/speakerSliderMaxValue.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 16, 0, 16)];
-    UIImage* knobImg = [UIImage imageNamed:@"BeamMusicPlayerController.bundle/images/speakerSliderKnob.png"];
-    [self.volumeSlider setThumbImage:knobImg forState:UIControlStateNormal];
-    [self.volumeSlider setThumbImage:knobImg forState:UIControlStateHighlighted];
-    [self.volumeSlider setMinimumTrackImage:minImg forState:UIControlStateNormal];
-    [self.volumeSlider setMaximumTrackImage:maxImg forState:UIControlStateNormal];
 
     // The Original Toolbar is 48px high in the iPod/Music app
     CGRect toolbarRect = self.controlsToolbar.frame;
@@ -184,23 +184,27 @@
     // Set UI to non-scrobble
     [self setScrobbleUI:NO animated:NO];
     
-    // Set up labels. These are autoscrolling and need code-base setup.
-    [self.artistNameLabel setShadowColor:[UIColor blackColor]];
-    [self.artistNameLabel setShadowOffset:CGSizeMake(0, -1)];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        
+        // Set up labels. These are autoscrolling and need code-base setup.
+        [self.artistNameLabel setShadowColor:[UIColor blackColor]];
+        [self.artistNameLabel setShadowOffset:CGSizeMake(0, -1)];
+        
+        [self.albumTitleLabel setShadowColor:[UIColor blackColor]];
+        [self.albumTitleLabel setShadowOffset:CGSizeMake(0, -1)];
+    }
     
-    [self.albumTitleLabel setShadowColor:[UIColor blackColor]];
-    [self.albumTitleLabel setShadowOffset:CGSizeMake(0, -1)];
-
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
-        [self.artistNameLabel setTextColor:[UIColor lightTextColor]];
+
         [self.artistNameLabel setFont:[UIFont boldSystemFontOfSize:12]];
-        
-        [self.albumTitleLabel setTextColor:[UIColor lightTextColor]];
-        [self.albumTitleLabel setFont:[UIFont boldSystemFontOfSize:12]];
-        
-        self.trackTitleLabel.textColor = [UIColor whiteColor];
         [self.trackTitleLabel setFont:[UIFont boldSystemFontOfSize:12]];
+        [self.albumTitleLabel setFont:[UIFont boldSystemFontOfSize:12]];
+
+        self.navigationItem.titleView.center = mmNavBar.center;
+        [mmNavBar addSubview:self.navigationItem.titleView];
+
     } else {
+        
         self.artistNameLabel.textColor = [UIColor lightTextColor];
         [self.artistNameLabel setFont:[UIFont boldSystemFontOfSize:14]];
         
@@ -212,9 +216,10 @@
         
         [self.trackTitleLabel setShadowColor:[UIColor blackColor]];
         [self.trackTitleLabel setShadowOffset:CGSizeMake(0, -1)];
+        
     }
     self.placeholderImageDelay = 0.5;
-
+    
     // force UI to update properly
     self.actionBlock = self->actionBlock;
     self.backBlock = self->backBlock;
@@ -248,9 +253,10 @@
     }
 }
 
-
 -(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+    
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        
         CGRect f = self.albumArtImageView.frame;
         f.origin.x = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 65 : 84;       // landscape : portrait  // IOHAVOC -- adjust for navigationBar removal
         f.origin.y = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? (int)((self.view.bounds.size.height - f.size.height)/2): 25; // 65; IOHAVOC
@@ -261,14 +267,23 @@
         f.origin.x = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 660 : 84;
         f.origin.y = UIInterfaceOrientationIsLandscape(toInterfaceOrientation) ? 220 : 635; // 675; IOHAVOC
         self.controlView.frame = f;
+    }
+    else if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
         
+        CGRect f = self.albumArtImageView.frame;
+        f.origin.y = 0;
+        self.albumArtImageView.frame = f;
+        
+        // Ensure that coming back from Landscape -> Portrait that the center gets correctly set
+        UINavigationBar* mmNavBar = ((UINavigationController*)self.parentViewController.parentViewController).navigationBar;
+        self.navigationItem.titleView.center = mmNavBar.center;
     }
 }
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    
     [self.albumTitleLabel setNeedsLayout];
     [self.artistNameLabel setNeedsLayout];
     [self.trackTitleLabel setNeedsLayout];
-    
 }
 
 
