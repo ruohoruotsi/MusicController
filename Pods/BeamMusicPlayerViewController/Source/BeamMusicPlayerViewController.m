@@ -464,12 +464,18 @@
     else
         self.numberOfTracks = -1;
 
-    if (newTrack < 0 || (self.numberOfTracksAvailable && newTrack >= self.numberOfTracks)){
-        shouldChange = NO;
-        // If we can't next, stop the playback.
-        // TODO: notify delegate about the fact we felt off the playlist
-        [self pause];
+    if (newTrack < 0){
+//        shouldChange = NO;
+//        // If we can't next, stop the playback.
+//        // TODO: notify delegate about the fact we felt off the playlist
+//        [self pause];
+        
+        newTrack = self.numberOfTracks -1;
     }
+    else if (self.numberOfTracksAvailable && newTrack >= self.numberOfTracks){
+        newTrack = 0;
+    }
+    
     
     if ( shouldChange ){
         if ( [self.delegate respondsToSelector:@selector(musicPlayer:didChangeTrack:) ]){
