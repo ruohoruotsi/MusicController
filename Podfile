@@ -4,4 +4,4 @@ xcodeproj 'Demo/DPMusicControllerDemoApp.xcodeproj'
 
 pod 'SVProgressHUD'
 pod 'BeamMusicPlayerViewController'
-pod 'MMDrawerController', '~> 0.4.0'
+pod 'MMDrawerController', '~> 0.5.3'

@@ -10,14 +10,7 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
-		<key>006B79B1A38D41CC8CA8329F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D8C5808EE2144BB6A8BBAB2F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>01383F133AE74913A60EB1B1</key>
+		<key>00F4164B6F244C0EAC40E726</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -26,62 +19,106 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>MMDrawerBarButtonItem.h</string>
+			<string>BeamMusicPlayerDelegate.h</string>
 			<key>path</key>
-			<string>MMDrawerController/MMDrawerController/MMDrawerBarButtonItem.h</string>
+			<string>Source/BeamMusicPlayerDelegate.h</string>
 			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>01A999A4E6984C2A9414AAC1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>MMDrawerController.m</string>
-			<key>path</key>
-			<string>MMDrawerController/MMDrawerController/MMDrawerController.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>01F2C13EC34443C4875313D0</key>
+		<key>038546C10A9A4232B8CBC92A</key>
 		<dict>
 			<key>children</key>
 			<array>
-				<string>01383F133AE74913A60EB1B1</string>
-				<string>72CF23D901644BDCA4BF499E</string>
+				<string>569997D99F5C439C8BCA6549</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>name</key>
-			<string>MMDrawerBarButtonItem</string>
+			<string>Resources</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>04C6745AEAA74D739D40DC81</key>
+		<key>03A0E4FE7F314044B474CDF7</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>MMDrawerController+Subclass.h</string>
 			<key>path</key>
-			<string>Pods-SVProgressHUD-dummy.m</string>
+			<string>MMDrawerController/MMDrawerController+Subclass.h</string>
 			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>05882A3EF67D45A88B3FD962</key>
+		<key>056F13FF24564E1D9394C187</key>
 		<dict>
 			<key>fileRef</key>
-			<string>D2F62DCE60E441B4809637F4</string>
+			<string>8A4E8B398181429B9FDFCA84</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>0AA9962A4DD94798B5A29B37</key>
+		<key>06CAFEFAEDCB4269B88E84E3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9891BE7043A14169B671229F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>072FD97C176B4DF29EED3E36</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>A464183333E540F795554092</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Pods-OBSlider-prefix.pch</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>5.0</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>095E4819367249C489B33972</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -90,24 +127,84 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>Pods-environment.h</string>
+			<string>Pods-OBSlider-prefix.pch</string>
 			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>0AD66B11D7D548AD893B40BB</key>
+		<key>0A21C05F3A6446A1A29F4105</key>
 		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>4817884E802E49B7A69B6CBC</string>
-			</array>
+			<key>fileRef</key>
+			<string>9DBE444E1F8146D2ACDB5C3A</string>
 			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
+			<string>PBXBuildFile</string>
 		</dict>
-		<key>0E0AE46AF3EB4361BC8E1A65</key>
+		<key>0ADDDF053BD446BB9A7451F8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>6DC75911104B4309A2CF047A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0C09D93362594FE4AB32BABB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-BeamMusicPlayerViewController-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0DE6DB8FD9CA49489EA55E11</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-BeamMusicPlayerViewController.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>0DE9D0A8B8664DC78FE8F087</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreGraphics.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreGraphics.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>1093C4A7B01E42D19D0FAAE2</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-MMDrawerController-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>116D69283DF142B09ACAA75A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>80641B80AFDC48A9A8FF2E1F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1204BC70F17442479EB725B1</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -118,57 +215,225 @@
 			<key>name</key>
 			<string>BeamMusicPlayerViewController.xib</string>
 			<key>path</key>
-			<string>BeamMusicPlayerViewController/Source/BeamMusicPlayerViewController.xib</string>
+			<string>Source/BeamMusicPlayerViewController.xib</string>
 			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>0F94F8C65A3F4447A63D9284</key>
+		<key>1297B3B6DE864E9E92A28CCB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E8FC4B3E839B4C4A9439268E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>133E166F63C34069B08F9A4D</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>DBF7BDB5F6E144BCAE0322C9</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>C2F67D1C1EA640A39B8A008D</string>
+			<key>remoteInfo</key>
+			<string>Pods-OBSlider</string>
+		</dict>
+		<key>1376BA295B5443898B3FC569</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9891BE7043A14169B671229F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>143F726E56544B57B99A1530</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E649B088267549AC9F75A8CD</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>14D8E8DCF5F64EEE9B5FCFFA</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>EF4FC9FBF5344C09BF482E83</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>5.0</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>150DF2DE973C4AAD99AFCF21</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0DE6DB8FD9CA49489EA55E11</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1599D60F471847F8A3C7B39A</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>DBF7BDB5F6E144BCAE0322C9</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>B068976FC80548438CB52A89</string>
+			<key>remoteInfo</key>
+			<string>Pods-BeamMusicPlayerViewController</string>
+		</dict>
+		<key>15E87E140432475586BAEF0D</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>3F2C4AADD875401B8E7DAE51</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Pods-BeamMusicPlayerViewController-prefix.pch</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>5.0</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>16FC3ABE7F1F4C2CB8212EAB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>7BBF85A5D2764DB3854D85EF</string>
+			<key>targetProxy</key>
+			<string>E3F7FB5DD7C240D597B6CEF3</string>
+		</dict>
+		<key>1A312780AE9040B79E6EAF57</key>
 		<dict>
 			<key>children</key>
 			<array>
-				<string>A866CC32E2FF4A3896CF2ACA</string>
-				<string>549BB14B10B24450B3BD1144</string>
-				<string>FCFF0007F5824FD68C440E69</string>
-				<string>2B745928C27B4A829AB09CE0</string>
+				<string>44C1A8B9D14846C5A1FE1081</string>
+				<string>38718538AD9B405E96A5DAFF</string>
+				<string>25B7F656068743F29D04E144</string>
+				<string>D9DAB563928F4823AC0B703B</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>name</key>
-			<string>Frameworks</string>
+			<string>Support Files</string>
 			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>SOURCE_ROOT</string>
 		</dict>
-		<key>111BBE7AF3AD413D8BB47D95</key>
-		<dict>
-			<key>fileRef</key>
-			<string>695DC8609B0948EB84B2D23B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>114293C673C843CFABE1BAC2</key>
+		<key>1C36B3B5A51E4B4A8162A41B</key>
 		<dict>
 			<key>buildActionMask</key>
 			<string>2147483647</string>
 			<key>files</key>
 			<array>
-				<string>6B917E7BC53249A09127D7B0</string>
-				<string>A52F955A82C14D34B77B27C7</string>
-				<string>FBC6C55272B948B88ED31DB8</string>
-				<string>E6D2D7361D934D1FA00AD87B</string>
-				<string>DBBDB9D8AC5A48E2910B93B0</string>
-				<string>319B6B38F3B5427FA4DEC07A</string>
-				<string>5EC77F60C3CF45FD87C1A02A</string>
-				<string>BE0BCE6CBE3148A3BF7CCAE4</string>
+				<string>90C2EF08A565479498F31BE3</string>
+				<string>150DF2DE973C4AAD99AFCF21</string>
+				<string>7ABE3450454745FDA42310FB</string>
+				<string>143F726E56544B57B99A1530</string>
+				<string>82101C4D71114752B05F6BFE</string>
 			</array>
 			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
+			<string>PBXFrameworksBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>1223815722E141E88B27C468</key>
+		<key>1F0608D11F4F4431AAA35DE5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>NSDateFormatter+Duration.m</string>
+			<key>path</key>
+			<string>Source/NSDateFormatter+Duration.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>214235ED831E4518855FBB04</key>
 		<dict>
 			<key>fileRef</key>
-			<string>72CF23D901644BDCA4BF499E</string>
+			<string>9C21DDE56C7A424E82D13103</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -177,33 +442,416 @@
 				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
 			</dict>
 		</dict>
-		<key>1387B6A45432462A923BE729</key>
+		<key>25B7F656068743F29D04E144</key>
 		<dict>
-			<key>fileRef</key>
-			<string>43C4668304AA469AB1A8B5AB</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-SVProgressHUD-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>145AA1D768164B8E8D3E6FA0</key>
+		<key>291489464333449D9E5F9D04</key>
 		<dict>
 			<key>buildActionMask</key>
 			<string>2147483647</string>
 			<key>files</key>
 			<array>
-				<string>E8C32A5DBB654CA2B6D2EF52</string>
-				<string>85F2C64AF68E49DD911F8127</string>
+				<string>1376BA295B5443898B3FC569</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>33A46367421242C79852BC26</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F3BF054A6E794163949EC23D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>34B6BF6BB914446D9B789331</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-BeamMusicPlayerViewController-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>34FE0951CFFB443D8B0B6823</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>BeamMusicPlayerViewController.h</string>
+			<key>path</key>
+			<string>Source/BeamMusicPlayerViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>35680B1897DD4FFE9B3D9D15</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E3A3346E013248029A1326BA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>36A9049CCCC942D8AE3557AA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D8FC492302C945F4B2CB11B4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>38081614F0CB4F41ACCA326F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Pods-acknowledgements.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3847317B0A5C4FADA5B1ACBC</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>6DC75911104B4309A2CF047A</string>
+				<string>F5FE40A84B7A4B1A805FB771</string>
+				<string>9DF6BEF89432402C8FFDF7E7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>OBSlider</string>
+			<key>path</key>
+			<string>OBSlider</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>38718538AD9B405E96A5DAFF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-SVProgressHUD-Private.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3991E99EA8C740AF9BC55738</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>NO</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>5.0</string>
+				<key>STRIP_INSTALLED_PRODUCT</key>
+				<string>NO</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>39A24A0161634B45870B5CA2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B709E233D2A141A6B6DB9218</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3B28AC299A9B4ACB831E7B3A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BE152A1934434C18963070A7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>3B8B98732BE746D38DC527BA</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>15E87E140432475586BAEF0D</string>
+				<string>47A45096F3E445F4A917D7A6</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>3C852B7C3105453E8B5293A7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>BeamMusicPlayerViewController~ipad.xib</string>
+			<key>path</key>
+			<string>Source/BeamMusicPlayerViewController~ipad.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3DAF0CD3A4934C9E8A5D3B02</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>83D92117F8C14595B3F22814</string>
+				<string>4E931F82B0C44557963CB1B4</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>MMDrawerBarButtonItem</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3E5F144AFCF1421689A8BF84</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0DE9D0A8B8664DC78FE8F087</string>
+				<string>9891BE7043A14169B671229F</string>
+				<string>E8FC4B3E839B4C4A9439268E</string>
+				<string>B709E233D2A141A6B6DB9218</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>iOS</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F2C4AADD875401B8E7DAE51</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-BeamMusicPlayerViewController-Private.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>409D9A0F721C45E0968D6D9E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E81A1A4CC46D4EBF811EFAD7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Targets Support Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>42161853036341E4BEC96051</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>F28908FCCC2F4D81A56281B8</string>
+				<string>214235ED831E4518855FBB04</string>
+				<string>DAD1BCA7895D416DB596E809</string>
+				<string>D848D8C458A84623A11D8AE3</string>
+				<string>DFF028214E5140F6892E8966</string>
 			</array>
 			<key>isa</key>
 			<string>PBXSourcesBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>165378D5FE934544AB72F6C7</key>
+		<key>44C1A8B9D14846C5A1FE1081</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-SVProgressHUD.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>47A45096F3E445F4A917D7A6</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>3F2C4AADD875401B8E7DAE51</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Pods-BeamMusicPlayerViewController-prefix.pch</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>5.0</string>
+				<key>OTHER_CFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_CPLUSPLUSFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>4887412FF16F48A4848D5BC9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>03A0E4FE7F314044B474CDF7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B16836D7BCA493E88FCEAC7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8E671F9694A941B39EB266B4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>4B4A11F0FE5044AAB84BF69E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>6C726123EDB84CB4A8354E6C</string>
+				<string>8E671F9694A941B39EB266B4</string>
+				<string>038546C10A9A4232B8CBC92A</string>
+				<string>1A312780AE9040B79E6EAF57</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>SVProgressHUD</string>
+			<key>path</key>
+			<string>SVProgressHUD</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B68BBF58846446BB4385B03</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -214,96 +862,40 @@
 			<key>name</key>
 			<string>MMDrawerVisualState.h</string>
 			<key>path</key>
-			<string>MMDrawerController/MMDrawerController/MMDrawerVisualState.h</string>
+			<string>MMDrawerController/MMDrawerVisualState.h</string>
 			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>181AC26C447C487A89A1A5F2</key>
+		<key>4D628EF932314614A32625C9</key>
 		<dict>
 			<key>fileRef</key>
-			<string>B1B72CD6FA7A4F59A44FEAEE</string>
+			<string>00F4164B6F244C0EAC40E726</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
 		</dict>
-		<key>18C0556B1B464C889B2F4B77</key>
+		<key>4E931F82B0C44557963CB1B4</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-OBSlider-Private.xcconfig</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>19DC8E190C314EA49E84B8AA</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-SVProgressHUD.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>19ECCFE959364B14BD5F699A</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>19EE81412D2642B2A1FA4FFB</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>82616358B0B548A484B1F50C</string>
-				<string>43C4668304AA469AB1A8B5AB</string>
-				<string>9B879E93D6BC4E2E95B7C831</string>
-				<string>E5E74B75CE024DA9AF07711C</string>
-				<string>3461E184693D4474AC4F58CE</string>
-				<string>8AD8E04A0C64469AB0BC0CB8</string>
-				<string>EBA662338F2249F7911EDA00</string>
-				<string>B1B72CD6FA7A4F59A44FEAEE</string>
-				<string>488ECE59652C48B69E03B941</string>
-				<string>363896DED7C84D5498B63A90</string>
-				<string>CA144811D22D4238AC899F90</string>
-				<string>B3DA7E77B874498EA231955D</string>
-				<string>61DFAD88904642FDBA63B558</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
+			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>BeamMusicPlayerViewController</string>
+			<string>MMDrawerBarButtonItem.m</string>
+			<key>path</key>
+			<string>MMDrawerController/MMDrawerBarButtonItem.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>1D629FE7567642BEA2281166</key>
+		<key>4EB4427FA83342F1A2577664</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>18C0556B1B464C889B2F4B77</string>
+			<string>A464183333E540F795554092</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ALWAYS_SEARCH_USER_PATHS</key>
 				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_32_BIT)</string>
 				<key>COPY_PHASE_STRIP</key>
 				<string>YES</string>
 				<key>DSTROOT</key>
@@ -348,759 +940,104 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
-		<key>1E3078CD66564964876C39BE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-SVProgressHUD-Private.xcconfig</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>22F609DB00584E94A025AF83</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods.xcconfig</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>22F6EDE56D6F4F4C874C97D8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A55524162BDC4BEC80FA2AF3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2303960711F843B2A8DCF863</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SVProgressHUD.m</string>
-			<key>path</key>
-			<string>SVProgressHUD/SVProgressHUD/SVProgressHUD.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>285CB19EA69D4053A848D983</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D8C5808EE2144BB6A8BBAB2F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>286EEFD8946E4584B727575F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>OBSlider.h</string>
-			<key>path</key>
-			<string>OBSlider/OBSlider/OBSlider.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>2A159DB2719542838EF653CD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>BeamMPMusicPlayerProvider.h</string>
-			<key>path</key>
-			<string>BeamMusicPlayerViewController/Source/BeamMPMusicPlayerProvider.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>2B745928C27B4A829AB09CE0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>QuartzCore.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/QuartzCore.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>2CC7DC1FDCA34ABB9F1CC14D</key>
+		<key>515602A53F054DBC80669F91</key>
 		<dict>
 			<key>buildActionMask</key>
 			<string>2147483647</string>
 			<key>files</key>
 			<array>
-				<string>1387B6A45432462A923BE729</string>
-				<string>F7BB9846CB8F4D7F9E4EAD33</string>
-				<string>181AC26C447C487A89A1A5F2</string>
-				<string>7E879AD37C134762AACB3F34</string>
-				<string>BF580BE2921A4AFD98EBF2AB</string>
-				<string>81CEF46FC51140A0AC6A26F6</string>
-				<string>660A3DF4537B47BBAD462614</string>
+				<string>5572895BE48945A09C88FA23</string>
+				<string>FC72DF2376EF45E2A2E5A428</string>
 			</array>
 			<key>isa</key>
 			<string>PBXSourcesBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>319B6B38F3B5427FA4DEC07A</key>
+		<key>53F5BBB7C43A4AD48126BF9F</key>
 		<dict>
-			<key>fileRef</key>
-			<string>488ECE59652C48B69E03B941</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>31D432F59B5C42EF82E45463</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-dummy.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>3461E184693D4474AC4F58CE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>BeamMusicPlayerDataSource.h</string>
-			<key>path</key>
-			<string>BeamMusicPlayerViewController/Source/BeamMusicPlayerDataSource.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>363896DED7C84D5498B63A90</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>BeamMusicPlayerViewController.m</string>
-			<key>path</key>
-			<string>BeamMusicPlayerViewController/Source/BeamMusicPlayerViewController.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>3AEB40AAD1374EC58A1ADEDB</key>
-		<dict>
-			<key>buildConfigurations</key>
+			<key>children</key>
 			<array>
-				<string>BAFCCFFB03C445C48EE26D06</string>
-				<string>E4C916CBFB524535AF218F6C</string>
+				<string>9FD1714537394217819FF783</string>
+				<string>9C21DDE56C7A424E82D13103</string>
+				<string>03A0E4FE7F314044B474CDF7</string>
+				<string>80641B80AFDC48A9A8FF2E1F</string>
+				<string>8CA0E3B93E6345B6A3A186C2</string>
 			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
 			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>3ED6104E9E014D939A132941</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>F1C64974C2DD40A294C872E9</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_32_BIT)</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Pods-BeamMusicPlayerViewController-prefix.pch</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>5.0</string>
-				<key>OTHER_CFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_CPLUSPLUSFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
+			<string>PBXGroup</string>
 			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>3EED5DBBAC984668806B852D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>name</key>
-			<string>BeamMusicPlayerViewController~ipad.xib</string>
-			<key>path</key>
-			<string>BeamMusicPlayerViewController/Source/BeamMusicPlayerViewController~ipad.xib</string>
+			<string>Core</string>
 			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>4043D6A0B2F345F0899F476A</key>
+		<key>55493D7D7E7247038D20CB9A</key>
 		<dict>
 			<key>buildActionMask</key>
 			<string>2147483647</string>
 			<key>files</key>
 			<array>
-				<string>B4DECFA9066545349CE39834</string>
+				<string>A4A2639444C6467181BA85EE</string>
+				<string>D6B778EB7EE543D7B12C6084</string>
+				<string>8C7B8AB05626498AAA7D691A</string>
+				<string>056F13FF24564E1D9394C187</string>
+				<string>4D628EF932314614A32625C9</string>
+				<string>5FCDA8DBE4754DE38C34A1F2</string>
+				<string>82E3A1D5A6D94B99A9C9CC1C</string>
+				<string>36A9049CCCC942D8AE3557AA</string>
 			</array>
 			<key>isa</key>
 			<string>PBXHeadersBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>41FD057EA1894C2C8452D1DD</key>
+		<key>5572895BE48945A09C88FA23</key>
 		<dict>
-			<key>buildSettings</key>
+			<key>fileRef</key>
+			<string>F5FE40A84B7A4B1A805FB771</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
 			<dict>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>5.0</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
 			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
 		</dict>
-		<key>420C4EFC221A4360A5EC52AE</key>
+		<key>5585C9852E484D2E973719A9</key>
 		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>D150BD218AAE4887B099661B</string>
-				<string>C169F2C6745644199B591F9D</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
+			<key>fileRef</key>
+			<string>B709E233D2A141A6B6DB9218</string>
 			<key>isa</key>
-			<string>XCConfigurationList</string>
+			<string>PBXBuildFile</string>
 		</dict>
-		<key>42DA8942A3AD434F894BFF55</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-OBSlider.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>43C4668304AA469AB1A8B5AB</key>
+		<key>569997D99F5C439C8BCA6549</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>AutoScrollLabel.m</string>
-			<key>path</key>
-			<string>BeamMusicPlayerViewController/Source/AutoScrollLabel.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>46EE4F4E78724D989F12E2A9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
+			<string>wrapper.plug-in</string>
 			<key>name</key>
 			<string>SVProgressHUD.bundle</string>
 			<key>path</key>
-			<string>SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle</string>
+			<string>SVProgressHUD/SVProgressHUD.bundle</string>
 			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>4801EC7C35DC45C2859153F5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-MMDrawerController.xcconfig</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>4817884E802E49B7A69B6CBC</key>
+		<key>595A51A0F647415690CDA5A2</key>
 		<dict>
 			<key>fileRef</key>
-			<string>549BB14B10B24450B3BD1144</string>
+			<string>1F0608D11F4F4431AAA35DE5</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>488ECE59652C48B69E03B941</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>BeamMusicPlayerViewController.h</string>
-			<key>path</key>
-			<string>BeamMusicPlayerViewController/Source/BeamMusicPlayerViewController.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>488FFC27AFDC420A83DEED2F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-OBSlider-dummy.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>489AF923ADF54BFAA838255E</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>BB58EABF76544961BD81C1BC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>4931341C976E480BAAF2C368</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>E380C38E0AC24E46B1D56B49</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>E908BE68D58C49CB87DA7406</string>
-			<key>remoteInfo</key>
-			<string>Pods-SVProgressHUD</string>
-		</dict>
-		<key>4976B57C09BD473983B4E0E1</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>41FD057EA1894C2C8452D1DD</string>
-				<string>F3BE5A479C864056B8B2CB2D</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>4B0D32F016D24B449A0E7A28</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-MMDrawerController-Private.xcconfig</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>549BB14B10B24450B3BD1144</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>5EC77F60C3CF45FD87C1A02A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CA144811D22D4238AC899F90</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5F54D35400E2426CA3DC23A1</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B190B468E8F247058C3402DC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>5F600705B7B94181B363171B</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>F1C64974C2DD40A294C872E9</string>
-			<key>buildSettings</key>
+			<key>settings</key>
 			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_32_BIT)</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Pods-BeamMusicPlayerViewController-prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>5.0</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
 			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
 		</dict>
-		<key>5FD81F22D6654A04B057E387</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>5FF7485FCA634F44954B04BF</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-MMDrawerController.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>60A73F2CADB946BEB377FE52</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>EBA079E8DC754BB086B84066</string>
-				<string>18C0556B1B464C889B2F4B77</string>
-				<string>F006E951A9D041A18CDB5A40</string>
-				<string>488FFC27AFDC420A83DEED2F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-OBSlider</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>61DFAD88904642FDBA63B558</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2A159DB2719542838EF653CD</string>
-				<string>7FC464A756BD4DB48E6F4311</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>MediaPlayer</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6470FBC28FEE44C2B86F5347</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>EB3BBD971CC64B9CB770D9D5</string>
-				<string>1E3078CD66564964876C39BE</string>
-				<string>86835E738F464FDBB9FDD90B</string>
-				<string>04C6745AEAA74D739D40DC81</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-SVProgressHUD</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>660A3DF4537B47BBAD462614</key>
-		<dict>
-			<key>fileRef</key>
-			<string>80772416C7E04FA0834DC0D7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6624D6B825D24CF1A51EEBC7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>549BB14B10B24450B3BD1144</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66940704E36847FDA03CB9C8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DBFFA8BAD6344CEBBD428E2B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6750DE5E26BF4DA891CDC752</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>BeamMusicPlayerController.bundle</string>
-			<key>path</key>
-			<string>BeamMusicPlayerViewController/Source/BeamMusicPlayerController.bundle</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>695DC8609B0948EB84B2D23B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MMDrawerController.h</string>
-			<key>path</key>
-			<string>MMDrawerController/MMDrawerController/MMDrawerController.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>6B917E7BC53249A09127D7B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>82616358B0B548A484B1F50C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6CF519F093964493A2690C03</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>E380C38E0AC24E46B1D56B49</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>7FB2764869E14FE3B42DB68C</string>
-			<key>remoteInfo</key>
-			<string>Pods-OBSlider</string>
-		</dict>
-		<key>72CF23D901644BDCA4BF499E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>MMDrawerBarButtonItem.m</string>
-			<key>path</key>
-			<string>MMDrawerController/MMDrawerController/MMDrawerBarButtonItem.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>73005D1D029246A9B068B908</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>7DE61B4834D14B74AC022A0B</string>
-			<key>buildPhases</key>
-			<array>
-				<string>2CC7DC1FDCA34ABB9F1CC14D</string>
-				<string>FC8B0115BF0C4D6DB46514A4</string>
-				<string>114293C673C843CFABE1BAC2</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>74B71A5B310B471397C7E316</string>
-				<string>F81BCD580E0B41C083B7C400</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-BeamMusicPlayerViewController</string>
-			<key>productName</key>
-			<string>Pods-BeamMusicPlayerViewController</string>
-			<key>productReference</key>
-			<string>DBFFA8BAD6344CEBBD428E2B</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>74B71A5B310B471397C7E316</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>7FB2764869E14FE3B42DB68C</string>
-			<key>targetProxy</key>
-			<string>DD051FB923374465B74B7F76</string>
-		</dict>
-		<key>7607230B613D4D65862BCA62</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>E380C38E0AC24E46B1D56B49</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>891CD5F646E24BF5A8312DC1</string>
-			<key>remoteInfo</key>
-			<string>Pods-MMDrawerController</string>
-		</dict>
-		<key>76DC2FDEDFA740CDA9590D6A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>549BB14B10B24450B3BD1144</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>78342A3E21524F488F068150</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>4801EC7C35DC45C2859153F5</string>
-				<string>4B0D32F016D24B449A0E7A28</string>
-				<string>B541CF7B17004BE1AD9C0F78</string>
-				<string>A55524162BDC4BEC80FA2AF3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-MMDrawerController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7B46C93B489F438AA98D267E</key>
+		<key>59D57C37B5B0411882CC6FC1</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1117,122 +1054,79 @@
 			<key>xcLanguageSpecificationIdentifier</key>
 			<string>xcode.lang.ruby</string>
 		</dict>
-		<key>7DE61B4834D14B74AC022A0B</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>3ED6104E9E014D939A132941</string>
-				<string>5F600705B7B94181B363171B</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>7E879AD37C134762AACB3F34</key>
+		<key>5A2A3F0949DE4CD0AC711CC9</key>
 		<dict>
 			<key>fileRef</key>
-			<string>363896DED7C84D5498B63A90</string>
+			<string>9FD1714537394217819FF783</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
 		</dict>
-		<key>7F8F5B9A40164691B882A6F8</key>
+		<key>5D199260F61A467D838D7A66</key>
 		<dict>
-			<key>containerPortal</key>
-			<string>E380C38E0AC24E46B1D56B49</string>
+			<key>fileRef</key>
+			<string>4B68BBF58846446BB4385B03</string>
 			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>7FB2764869E14FE3B42DB68C</string>
-			<key>remoteInfo</key>
-			<string>Pods-OBSlider</string>
+			<string>PBXBuildFile</string>
 		</dict>
-		<key>7FB2764869E14FE3B42DB68C</key>
+		<key>5EA4FDBCC4624638B4192A66</key>
 		<dict>
-			<key>buildConfigurationList</key>
-			<string>A3F45BACC5E84CF388C67994</string>
-			<key>buildPhases</key>
+			<key>children</key>
 			<array>
-				<string>145AA1D768164B8E8D3E6FA0</string>
-				<string>0AD66B11D7D548AD893B40BB</string>
-				<string>5F54D35400E2426CA3DC23A1</string>
+				<string>D357DE0ADFB94820AD3A8E9F</string>
+				<string>9CBB5450E704455D90A8D2AC</string>
+				<string>1093C4A7B01E42D19D0FAAE2</string>
+				<string>931986614666417CB4173C39</string>
 			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
 			<key>isa</key>
-			<string>PBXNativeTarget</string>
+			<string>PBXGroup</string>
 			<key>name</key>
-			<string>Pods-OBSlider</string>
-			<key>productName</key>
-			<string>Pods-OBSlider</string>
-			<key>productReference</key>
-			<string>42DA8942A3AD434F894BFF55</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>7FC464A756BD4DB48E6F4311</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>BeamMPMusicPlayerProvider.m</string>
-			<key>path</key>
-			<string>BeamMusicPlayerViewController/Source/BeamMPMusicPlayerProvider.m</string>
+			<string>Support Files</string>
 			<key>sourceTree</key>
 			<string>SOURCE_ROOT</string>
 		</dict>
-		<key>80772416C7E04FA0834DC0D7</key>
+		<key>5FCDA8DBE4754DE38C34A1F2</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>F964732DFB164CB8AFA68818</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-BeamMusicPlayerViewController-dummy.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
+			<string>PBXBuildFile</string>
 		</dict>
-		<key>80DB7188024B43AFB9AB4AF2</key>
+		<key>61C15D4B19D3448ABBB5BF8B</key>
 		<dict>
-			<key>baseConfigurationReference</key>
-			<string>18C0556B1B464C889B2F4B77</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ALWAYS_SEARCH_USER_PATHS</key>
 				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_32_BIT)</string>
-				<key>COPY_PHASE_STRIP</key>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
 				<string>NO</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
 				<key>GCC_C_LANGUAGE_STANDARD</key>
 				<string>gnu99</string>
 				<key>GCC_DYNAMIC_NO_PIC</key>
 				<string>NO</string>
 				<key>GCC_OPTIMIZATION_LEVEL</key>
 				<string>0</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Pods-OBSlider-prefix.pch</string>
 				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
 				<array>
 					<string>DEBUG=1</string>
@@ -1240,37 +1134,52 @@
 				</array>
 				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
 				<string>NO</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
 				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
 				<string>5.0</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
+				<key>ONLY_ACTIVE_ARCH</key>
 				<string>YES</string>
+				<key>STRIP_INSTALLED_PRODUCT</key>
+				<string>NO</string>
 			</dict>
 			<key>isa</key>
 			<string>XCBuildConfiguration</string>
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>81541F03006349A1A901DCF2</key>
+		<key>62132A5989024E71ACE20C90</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>0ADDDF053BD446BB9A7451F8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>626BB8C06B7D4FD7804B24D3</key>
 		<dict>
 			<key>children</key>
 			<array>
-				<string>DBFFA8BAD6344CEBBD428E2B</string>
-				<string>5FF7485FCA634F44954B04BF</string>
-				<string>42DA8942A3AD434F894BFF55</string>
-				<string>19DC8E190C314EA49E84B8AA</string>
-				<string>19ECCFE959364B14BD5F699A</string>
+				<string>7EF60B1B2ACB43459564B7D0</string>
+				<string>0DE6DB8FD9CA49489EA55E11</string>
+				<string>A882C7F6521747EC8CB3F18B</string>
+				<string>E649B088267549AC9F75A8CD</string>
+				<string>8BA28949B5194960A61ACF8B</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -1279,78 +1188,7 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>81CEF46FC51140A0AC6A26F6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7FC464A756BD4DB48E6F4311</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>82616358B0B548A484B1F50C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>AutoScrollLabel.h</string>
-			<key>path</key>
-			<string>BeamMusicPlayerViewController/Source/AutoScrollLabel.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>832E461C1813413BAF9BFCAB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>19DC8E190C314EA49E84B8AA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>84C83877B2AB47819C9D3881</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AA74DE7173EE44449CE5D919</string>
-				<string>DDC709E0F6D44ACE96F6EDC1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8585D2DE3E03413FBCA0FBCA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>CC85DE7F655749AC828FB5A7</string>
-				<string>F1C64974C2DD40A294C872E9</string>
-				<string>9C244D096B174FF695BC4FF7</string>
-				<string>80772416C7E04FA0834DC0D7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-BeamMusicPlayerViewController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>85F2C64AF68E49DD911F8127</key>
-		<dict>
-			<key>fileRef</key>
-			<string>488FFC27AFDC420A83DEED2F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>86835E738F464FDBB9FDD90B</key>
+		<key>682395135E8E4E438ABE75D8</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1359,527 +1197,18 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>Pods-SVProgressHUD-prefix.pch</string>
+			<string>Pods-environment.h</string>
 			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>872143E7345E45D7B29346AB</key>
+		<key>6855DB8C9FE849ABA05C7CB3</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>22F609DB00584E94A025AF83</string>
+			<string>38718538AD9B405E96A5DAFF</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ALWAYS_SEARCH_USER_PATHS</key>
 				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_32_BIT)</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>5.0</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>891CD5F646E24BF5A8312DC1</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>3AEB40AAD1374EC58A1ADEDB</string>
-			<key>buildPhases</key>
-			<array>
-				<string>F2D3EABE13A34C9CA743AD5A</string>
-				<string>EB2294E9E0474BE8AD26E4E4</string>
-				<string>D1BBF90FD9A6437A9EF3BC73</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-MMDrawerController</string>
-			<key>productName</key>
-			<string>Pods-MMDrawerController</string>
-			<key>productReference</key>
-			<string>5FF7485FCA634F44954B04BF</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>8AD8E04A0C64469AB0BC0CB8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>BeamMusicPlayerDelegate.h</string>
-			<key>path</key>
-			<string>BeamMusicPlayerViewController/Source/BeamMusicPlayerDelegate.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>8DE2D253E0A64B40BE87DC1C</key>
-		<dict>
-			<key>children</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Subclass</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>903D7AB29C5A4DCBBAD16A8D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>01383F133AE74913A60EB1B1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>91640D5E67AE4F0D8D720CFC</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>B4C6E2680F95435094D65162</string>
-			<key>buildPhases</key>
-			<array>
-				<string>489AF923ADF54BFAA838255E</string>
-				<string>CAF034290EB14DC8BBD344F1</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>BF3296F599894920A363E354</string>
-				<string>9B8FC0EBE1BA4DA1AF7A072F</string>
-				<string>9F455F05FC604A23B539AF5D</string>
-				<string>D76BE1446AD94AB984EA9B61</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>productName</key>
-			<string>Pods</string>
-			<key>productReference</key>
-			<string>19ECCFE959364B14BD5F699A</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>92CE749E80AC4464AC5EDB26</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>0F94F8C65A3F4447A63D9284</string>
-				<string>E917A519BFA64E55BFDA69F2</string>
-				<string>81541F03006349A1A901DCF2</string>
-				<string>84C83877B2AB47819C9D3881</string>
-				<string>EFFBF8E4777B4D42A4EBA942</string>
-				<string>7B46C93B489F438AA98D267E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>93CF3A4237D045B3B6CC3408</key>
-		<dict>
-			<key>fileRef</key>
-			<string>04C6745AEAA74D739D40DC81</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>993D5D96EA24408080784CC2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>42DA8942A3AD434F894BFF55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9B636DA145AA4A6DA596BAED</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>165378D5FE934544AB72F6C7</string>
-				<string>FD74BC8508BC4477991CC30D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>MMDrawerVisualStates</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9B879E93D6BC4E2E95B7C831</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>BeamAVMusicPlayerProvider.h</string>
-			<key>path</key>
-			<string>BeamMusicPlayerViewController/Source/BeamAVMusicPlayerProvider.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>9B8FC0EBE1BA4DA1AF7A072F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>891CD5F646E24BF5A8312DC1</string>
-			<key>targetProxy</key>
-			<string>7607230B613D4D65862BCA62</string>
-		</dict>
-		<key>9C244D096B174FF695BC4FF7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-BeamMusicPlayerViewController-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>9F455F05FC604A23B539AF5D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>7FB2764869E14FE3B42DB68C</string>
-			<key>targetProxy</key>
-			<string>6CF519F093964493A2690C03</string>
-		</dict>
-		<key>A3F45BACC5E84CF388C67994</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>1D629FE7567642BEA2281166</string>
-				<string>80DB7188024B43AFB9AB4AF2</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>A52F955A82C14D34B77B27C7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9B879E93D6BC4E2E95B7C831</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A55524162BDC4BEC80FA2AF3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-MMDrawerController-dummy.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>A866CC32E2FF4A3896CF2ACA</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>AA74DE7173EE44449CE5D919</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>0E0AE46AF3EB4361BC8E1A65</string>
-				<string>3EED5DBBAC984668806B852D</string>
-				<string>6750DE5E26BF4DA891CDC752</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>BeamMusicPlayerViewController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AD72A1F3897A4EEA9C63390F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FD74BC8508BC4477991CC30D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>B190B468E8F247058C3402DC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>286EEFD8946E4584B727575F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B1B72CD6FA7A4F59A44FEAEE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>BeamMusicPlayerTransparentToolbar.m</string>
-			<key>path</key>
-			<string>BeamMusicPlayerViewController/Source/BeamMusicPlayerTransparentToolbar.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>B3DA7E77B874498EA231955D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>NSDateFormatter+Duration.m</string>
-			<key>path</key>
-			<string>BeamMusicPlayerViewController/Source/NSDateFormatter+Duration.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>B4287CEEDC6A484598B3FE2E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>B4C6E2680F95435094D65162</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>FA15E66228D748248374EA63</string>
-				<string>872143E7345E45D7B29346AB</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>B4DECFA9066545349CE39834</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FF47DCB801BA47B3B4CBD600</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B541CF7B17004BE1AD9C0F78</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-MMDrawerController-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>BAFCCFFB03C445C48EE26D06</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>4B0D32F016D24B449A0E7A28</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_32_BIT)</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Pods-MMDrawerController-prefix.pch</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>5.0</string>
-				<key>OTHER_CFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_CPLUSPLUSFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>BB58EABF76544961BD81C1BC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>31D432F59B5C42EF82E45463</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE0BCE6CBE3148A3BF7CCAE4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2A159DB2719542838EF653CD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEF0AEB182B3466C849E2659</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>F80954A874CF4A8C8E6D9F52</string>
-				<string>93CF3A4237D045B3B6CC3408</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BF3296F599894920A363E354</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>73005D1D029246A9B068B908</string>
-			<key>targetProxy</key>
-			<string>F77E0B35ED134DE295751935</string>
-		</dict>
-		<key>BF580BE2921A4AFD98EBF2AB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B3DA7E77B874498EA231955D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>BFFC665D8A944A10BB25C113</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F2B2E3D47C7C470BA4A94094</string>
-				<string>01F2C13EC34443C4875313D0</string>
-				<string>9B636DA145AA4A6DA596BAED</string>
-				<string>8DE2D253E0A64B40BE87DC1C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>MMDrawerController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C169F2C6745644199B591F9D</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>1E3078CD66564964876C39BE</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_32_BIT)</string>
 				<key>COPY_PHASE_STRIP</key>
 				<string>NO</string>
 				<key>DSTROOT</key>
@@ -1923,25 +1252,7 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>C2D7CEAFE27447C2849FEB69</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>22F609DB00584E94A025AF83</string>
-				<string>0AA9962A4DD94798B5A29B37</string>
-				<string>C357263F94B44B5A84BBCE77</string>
-				<string>5FD81F22D6654A04B057E387</string>
-				<string>B4287CEEDC6A484598B3FE2E</string>
-				<string>31D432F59B5C42EF82E45463</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C357263F94B44B5A84BBCE77</key>
+		<key>69874F9294534FD0A3640C7C</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1952,16 +1263,23 @@
 			<key>path</key>
 			<string>Pods-resources.sh</string>
 			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>C495DB25A15C4BDFBE84AA3F</key>
+		<key>6C0454A0FB404100962E62B0</key>
 		<dict>
-			<key>fileRef</key>
-			<string>549BB14B10B24450B3BD1144</string>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>06CAFEFAEDCB4269B88E84E3</string>
+				<string>5585C9852E484D2E973719A9</string>
+			</array>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
 		</dict>
-		<key>CA144811D22D4238AC899F90</key>
+		<key>6C726123EDB84CB4A8354E6C</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1970,67 +1288,69 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>NSDateFormatter+Duration.h</string>
+			<string>SVProgressHUD.h</string>
 			<key>path</key>
-			<string>BeamMusicPlayerViewController/Source/NSDateFormatter+Duration.h</string>
+			<string>SVProgressHUD/SVProgressHUD.h</string>
 			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>CAF034290EB14DC8BBD344F1</key>
+		<key>6D1357D0A46A4CE9AF931642</key>
 		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
+			<key>containerPortal</key>
+			<string>DBF7BDB5F6E144BCAE0322C9</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>8608C5446CB14D019B7E9B55</string>
+			<key>remoteInfo</key>
+			<string>Pods-MMDrawerController</string>
+		</dict>
+		<key>6DC75911104B4309A2CF047A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>OBSlider.h</string>
+			<key>path</key>
+			<string>OBSlider/OBSlider.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6EAD4A658D40463BA3400A93</key>
+		<dict>
+			<key>children</key>
 			<array>
-				<string>6624D6B825D24CF1A51EEBC7</string>
-				<string>66940704E36847FDA03CB9C8</string>
-				<string>E91BAB25D3A24F6A843EFE6C</string>
-				<string>993D5D96EA24408080784CC2</string>
-				<string>832E461C1813413BAF9BFCAB</string>
+				<string>4B68BBF58846446BB4385B03</string>
+				<string>7B33B95B5F68485C88B7EC8D</string>
 			</array>
 			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>CC85DE7F655749AC828FB5A7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-BeamMusicPlayerViewController.xcconfig</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>CF6FF34386FD48F696612A09</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
+			<string>PBXGroup</string>
 			<key>name</key>
-			<string>UIViewController+MMDrawerController.m</string>
-			<key>path</key>
-			<string>MMDrawerController/MMDrawerController/UIViewController+MMDrawerController.m</string>
+			<string>MMDrawerVisualStates</string>
 			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>D150BD218AAE4887B099661B</key>
+		<key>6EEC3A0EF6684DDAAEE940BC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>83D92117F8C14595B3F22814</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>73573AEB66EF4170926049C5</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>1E3078CD66564964876C39BE</string>
+			<string>EF4FC9FBF5344C09BF482E83</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ALWAYS_SEARCH_USER_PATHS</key>
 				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_32_BIT)</string>
 				<key>COPY_PHASE_STRIP</key>
 				<string>YES</string>
 				<key>DSTROOT</key>
@@ -2039,8 +1359,6 @@
 				<string>gnu99</string>
 				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
 				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Pods-SVProgressHUD-prefix.pch</string>
 				<key>GCC_VERSION</key>
 				<string>com.apple.compilers.llvm.clang.1_0</string>
 				<key>INSTALL_PATH</key>
@@ -2075,25 +1393,157 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
-		<key>D1BBF90FD9A6437A9EF3BC73</key>
+		<key>760378B3A6AE446D9B3C1EB5</key>
 		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
+			<key>buildConfigurations</key>
 			<array>
-				<string>006B79B1A38D41CC8CA8329F</string>
-				<string>111BBE7AF3AD413D8BB47D95</string>
-				<string>05882A3EF67D45A88B3FD962</string>
-				<string>903D7AB29C5A4DCBBAD16A8D</string>
-				<string>EC2DE1AA638946FF9FA71394</string>
-				<string>285CB19EA69D4053A848D983</string>
+				<string>91DBB80636B44D86A752576C</string>
+				<string>DEBEA0D65C0F47979DD0C647</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>796D1F6D95374863AF176A66</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>BeamMPMusicPlayerProvider.h</string>
+			<key>path</key>
+			<string>Source/BeamMPMusicPlayerProvider.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>79860DAC0DD94B0F90BF2B92</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0C09D93362594FE4AB32BABB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>79A16B784E6E48E7AF56AE1D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A942DB6918D147EDB3A67A3E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>7ABE3450454745FDA42310FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A882C7F6521747EC8CB3F18B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7B33B95B5F68485C88B7EC8D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>MMDrawerVisualState.m</string>
+			<key>path</key>
+			<string>MMDrawerController/MMDrawerVisualState.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7BBF85A5D2764DB3854D85EF</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>B869EAD1E9F145D293D7BF55</string>
+			<key>buildPhases</key>
+			<array>
+				<string>F4D1A7EF98774D66ACD7F46C</string>
+				<string>F0EC668E8C524B0D94BA10EE</string>
+				<string>D4FF7AD8741347C59B617D62</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods-SVProgressHUD</string>
+			<key>productName</key>
+			<string>Pods-SVProgressHUD</string>
+			<key>productReference</key>
+			<string>8BA28949B5194960A61ACF8B</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>7C98898636A548EDA1978BDB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>C2F67D1C1EA640A39B8A008D</string>
+			<key>targetProxy</key>
+			<string>133E166F63C34069B08F9A4D</string>
+		</dict>
+		<key>7E7AA9C58EAC400A9B921EB1</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>53F5BBB7C43A4AD48126BF9F</string>
+				<string>3DAF0CD3A4934C9E8A5D3B02</string>
+				<string>6EAD4A658D40463BA3400A93</string>
+				<string>A96EA365BF044B2F86EBD03D</string>
+				<string>5EA4FDBCC4624638B4192A66</string>
 			</array>
 			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>MMDrawerController</string>
+			<key>path</key>
+			<string>MMDrawerController</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>D2F62DCE60E441B4809637F4</key>
+		<key>7E8924E489EA4BC1A9CD8789</key>
+		<dict>
+			<key>fileRef</key>
+			<string>6C726123EDB84CB4A8354E6C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7EF60B1B2ACB43459564B7D0</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>7F69765A53F54B5FACEA80FC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0DE9D0A8B8664DC78FE8F087</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>80641B80AFDC48A9A8FF2E1F</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -2104,32 +1554,53 @@
 			<key>name</key>
 			<string>UIViewController+MMDrawerController.h</string>
 			<key>path</key>
-			<string>MMDrawerController/MMDrawerController/UIViewController+MMDrawerController.h</string>
+			<string>MMDrawerController/UIViewController+MMDrawerController.h</string>
 			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>D69F302BF57F45FDB176AAEF</key>
+		<key>82101C4D71114752B05F6BFE</key>
 		<dict>
 			<key>fileRef</key>
-			<string>CF6FF34386FD48F696612A09</string>
+			<string>8BA28949B5194960A61ACF8B</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
 		</dict>
-		<key>D76BE1446AD94AB984EA9B61</key>
+		<key>82E3A1D5A6D94B99A9C9CC1C</key>
 		<dict>
+			<key>fileRef</key>
+			<string>34FE0951CFFB443D8B0B6823</string>
 			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>E908BE68D58C49CB87DA7406</string>
-			<key>targetProxy</key>
-			<string>4931341C976E480BAAF2C368</string>
+			<string>PBXBuildFile</string>
 		</dict>
-		<key>D8C5808EE2144BB6A8BBAB2F</key>
+		<key>83509AD5244E43529D39C417</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>0A21C05F3A6446A1A29F4105</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>838859022EE54F30A0E5176A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>7F69765A53F54B5FACEA80FC</string>
+				<string>98A13A2E2BE846A4A445BFE1</string>
+				<string>1297B3B6DE864E9E92A28CCB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>83D92117F8C14595B3F22814</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -2138,20 +1609,66 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>MMDrawerController+Subclass.h</string>
+			<string>MMDrawerBarButtonItem.h</string>
 			<key>path</key>
-			<string>MMDrawerController/MMDrawerController/MMDrawerController+Subclass.h</string>
+			<string>MMDrawerController/MMDrawerBarButtonItem.h</string>
 			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>DBBDB9D8AC5A48E2910B93B0</key>
+		<key>8608C5446CB14D019B7E9B55</key>
 		<dict>
-			<key>fileRef</key>
-			<string>EBA662338F2249F7911EDA00</string>
+			<key>buildConfigurationList</key>
+			<string>760378B3A6AE446D9B3C1EB5</string>
+			<key>buildPhases</key>
+			<array>
+				<string>42161853036341E4BEC96051</string>
+				<string>6C0454A0FB404100962E62B0</string>
+				<string>E83BC528D43848DABDD5A1D8</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods-MMDrawerController</string>
+			<key>productName</key>
+			<string>Pods-MMDrawerController</string>
+			<key>productReference</key>
+			<string>A882C7F6521747EC8CB3F18B</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
 		</dict>
-		<key>DBFFA8BAD6344CEBBD428E2B</key>
+		<key>88CF182580FD477AB04AA1AA</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>DBF7BDB5F6E144BCAE0322C9</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>C2F67D1C1EA640A39B8A008D</string>
+			<key>remoteInfo</key>
+			<string>Pods-OBSlider</string>
+		</dict>
+		<key>8A4E8B398181429B9FDFCA84</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>BeamMusicPlayerDataSource.h</string>
+			<key>path</key>
+			<string>Source/BeamMusicPlayerDataSource.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8BA28949B5194960A61ACF8B</key>
 		<dict>
 			<key>explicitFileType</key>
 			<string>archive.ar</string>
@@ -2160,44 +1677,18 @@
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>path</key>
-			<string>libPods-BeamMusicPlayerViewController.a</string>
+			<string>libPods-SVProgressHUD.a</string>
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>DC1F1015021C47AB80AD4825</key>
+		<key>8C7B8AB05626498AAA7D691A</key>
 		<dict>
 			<key>fileRef</key>
-			<string>549BB14B10B24450B3BD1144</string>
+			<string>796D1F6D95374863AF176A66</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>DD051FB923374465B74B7F76</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>E380C38E0AC24E46B1D56B49</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>7FB2764869E14FE3B42DB68C</string>
-			<key>remoteInfo</key>
-			<string>Pods-OBSlider</string>
-		</dict>
-		<key>DDC709E0F6D44ACE96F6EDC1</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>46EE4F4E78724D989F12E2A9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>SVProgressHUD</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E04D9ADC629B42A986816B26</key>
+		<key>8CA0E3B93E6345B6A3A186C2</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -2206,21 +1697,745 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>OBSlider.m</string>
+			<string>UIViewController+MMDrawerController.m</string>
 			<key>path</key>
-			<string>OBSlider/OBSlider/OBSlider.m</string>
+			<string>MMDrawerController/UIViewController+MMDrawerController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8E671F9694A941B39EB266B4</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SVProgressHUD.m</string>
+			<key>path</key>
+			<string>SVProgressHUD/SVProgressHUD.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8FCE17F8352B4F84AC7FA4ED</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>Pods-acknowledgements.markdown</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>90C2EF08A565479498F31BE3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9891BE7043A14169B671229F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>90DD599568F3404A86238826</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3E5F144AFCF1421689A8BF84</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>91BA4C32B5CF40D8A1351A97</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-BeamMusicPlayerViewController.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>91DBB80636B44D86A752576C</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>9CBB5450E704455D90A8D2AC</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Pods-MMDrawerController-prefix.pch</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>5.0</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>931986614666417CB4173C39</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-MMDrawerController-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>954939D822964A889ED715D8</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>AutoScrollLabel.h</string>
+			<key>path</key>
+			<string>Source/AutoScrollLabel.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9563A18D2A9D4E9BB5120DF4</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>954939D822964A889ED715D8</string>
+				<string>BE152A1934434C18963070A7</string>
+				<string>F4EC78B4C1C442CE84CD863D</string>
+				<string>D161D08B44514F2DB41EC8E5</string>
+				<string>8A4E8B398181429B9FDFCA84</string>
+				<string>00F4164B6F244C0EAC40E726</string>
+				<string>F964732DFB164CB8AFA68818</string>
+				<string>F3BF054A6E794163949EC23D</string>
+				<string>34FE0951CFFB443D8B0B6823</string>
+				<string>E3A3346E013248029A1326BA</string>
+				<string>D8FC492302C945F4B2CB11B4</string>
+				<string>1F0608D11F4F4431AAA35DE5</string>
+				<string>CDB8DE4283C84690A187E641</string>
+				<string>D34FE2E86BB64D35BD258E3E</string>
+				<string>9C2D4ABD5448409A943CFF2B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>BeamMusicPlayerViewController</string>
+			<key>path</key>
+			<string>BeamMusicPlayerViewController</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>96195C90693F4C2DBB52331D</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>B068976FC80548438CB52A89</string>
+			<key>targetProxy</key>
+			<string>1599D60F471847F8A3C7B39A</string>
+		</dict>
+		<key>966F1A5C1F6A449E90316225</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>E7AD4C3882484B3B9FD2A8F5</string>
+			<key>buildPhases</key>
+			<array>
+				<string>83509AD5244E43529D39C417</string>
+				<string>1C36B3B5A51E4B4A8162A41B</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>96195C90693F4C2DBB52331D</string>
+				<string>A8F87FD2EEBC4696B14AE224</string>
+				<string>7C98898636A548EDA1978BDB</string>
+				<string>16FC3ABE7F1F4C2CB8212EAB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>productName</key>
+			<string>Pods</string>
+			<key>productReference</key>
+			<string>7EF60B1B2ACB43459564B7D0</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>9891BE7043A14169B671229F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>98A13A2E2BE846A4A445BFE1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9891BE7043A14169B671229F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>9C21DDE56C7A424E82D13103</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>MMDrawerController.m</string>
+			<key>path</key>
+			<string>MMDrawerController/MMDrawerController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9C2D4ABD5448409A943CFF2B</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>91BA4C32B5CF40D8A1351A97</string>
+				<string>3F2C4AADD875401B8E7DAE51</string>
+				<string>0C09D93362594FE4AB32BABB</string>
+				<string>34B6BF6BB914446D9B789331</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
 			<key>sourceTree</key>
 			<string>SOURCE_ROOT</string>
 		</dict>
-		<key>E380C38E0AC24E46B1D56B49</key>
+		<key>9CBB5450E704455D90A8D2AC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-MMDrawerController-Private.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9CF394FBF029461F96E80484</key>
+		<dict>
+			<key>fileRef</key>
+			<string>25B7F656068743F29D04E144</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>9DBE444E1F8146D2ACDB5C3A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9DF6BEF89432402C8FFDF7E7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>C0E2A98EBC024586866F2D56</string>
+				<string>A464183333E540F795554092</string>
+				<string>B1C2070098424BC48D61848A</string>
+				<string>095E4819367249C489B33972</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>9FD1714537394217819FF783</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>MMDrawerController.h</string>
+			<key>path</key>
+			<string>MMDrawerController/MMDrawerController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A464183333E540F795554092</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-OBSlider-Private.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A47E8D4763DC485D9685BF7B</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>3B28AC299A9B4ACB831E7B3A</string>
+				<string>D365411CD11D4C5BA066503B</string>
+				<string>79A16B784E6E48E7AF56AE1D</string>
+				<string>33A46367421242C79852BC26</string>
+				<string>35680B1897DD4FFE9B3D9D15</string>
+				<string>595A51A0F647415690CDA5A2</string>
+				<string>79860DAC0DD94B0F90BF2B92</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>A4A2639444C6467181BA85EE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>954939D822964A889ED715D8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A882C7F6521747EC8CB3F18B</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-MMDrawerController.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>A8F87FD2EEBC4696B14AE224</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>8608C5446CB14D019B7E9B55</string>
+			<key>targetProxy</key>
+			<string>6D1357D0A46A4CE9AF931642</string>
+		</dict>
+		<key>A942DB6918D147EDB3A67A3E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>BeamMPMusicPlayerProvider.m</string>
+			<key>path</key>
+			<string>Source/BeamMPMusicPlayerProvider.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A96EA365BF044B2F86EBD03D</key>
+		<dict>
+			<key>children</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Subclass</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B068976FC80548438CB52A89</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>3B8B98732BE746D38DC527BA</string>
+			<key>buildPhases</key>
+			<array>
+				<string>A47E8D4763DC485D9685BF7B</string>
+				<string>838859022EE54F30A0E5176A</string>
+				<string>55493D7D7E7247038D20CB9A</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>F0CF9B550C6E4B57814B1621</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods-BeamMusicPlayerViewController</string>
+			<key>productName</key>
+			<string>Pods-BeamMusicPlayerViewController</string>
+			<key>productReference</key>
+			<string>0DE6DB8FD9CA49489EA55E11</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>B1C2070098424BC48D61848A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-OBSlider-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B563058B2FDD40269A5C8EF2</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>59D57C37B5B0411882CC6FC1</string>
+				<string>90DD599568F3404A86238826</string>
+				<string>BAA06D87C0FA4F6E8937B4F4</string>
+				<string>626BB8C06B7D4FD7804B24D3</string>
+				<string>409D9A0F721C45E0968D6D9E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B709E233D2A141A6B6DB9218</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>QuartzCore.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/QuartzCore.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>B869EAD1E9F145D293D7BF55</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>6855DB8C9FE849ABA05C7CB3</string>
+				<string>FBE094BE33AD4DF3B1B1A1B5</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>B9FC1D38590348528B9DFFA7</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>61C15D4B19D3448ABBB5BF8B</string>
+				<string>3991E99EA8C740AF9BC55738</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>BAA06D87C0FA4F6E8937B4F4</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>9563A18D2A9D4E9BB5120DF4</string>
+				<string>7E7AA9C58EAC400A9B921EB1</string>
+				<string>3847317B0A5C4FADA5B1ACBC</string>
+				<string>4B4A11F0FE5044AAB84BF69E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BE152A1934434C18963070A7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>AutoScrollLabel.m</string>
+			<key>path</key>
+			<string>Source/AutoScrollLabel.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C0E2A98EBC024586866F2D56</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-OBSlider.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C2F67D1C1EA640A39B8A008D</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>E0C56C70CAD64C489C1D4D27</string>
+			<key>buildPhases</key>
+			<array>
+				<string>515602A53F054DBC80669F91</string>
+				<string>291489464333449D9E5F9D04</string>
+				<string>62132A5989024E71ACE20C90</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods-OBSlider</string>
+			<key>productName</key>
+			<string>Pods-OBSlider</string>
+			<key>productReference</key>
+			<string>E649B088267549AC9F75A8CD</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>CB98BF84C8D940B0A2934BB0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>03A0E4FE7F314044B474CDF7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>CDB8DE4283C84690A187E641</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>796D1F6D95374863AF176A66</string>
+				<string>A942DB6918D147EDB3A67A3E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>MediaPlayer</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D07041DF69F24206AEC6F5DE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9891BE7043A14169B671229F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D161D08B44514F2DB41EC8E5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>BeamAVMusicPlayerProvider.m</string>
+			<key>path</key>
+			<string>Source/BeamAVMusicPlayerProvider.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D34FE2E86BB64D35BD258E3E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F7141E741C624751AAF7E22C</string>
+				<string>1204BC70F17442479EB725B1</string>
+				<string>3C852B7C3105453E8B5293A7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D357DE0ADFB94820AD3A8E9F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-MMDrawerController.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D365411CD11D4C5BA066503B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D161D08B44514F2DB41EC8E5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>D4FF7AD8741347C59B617D62</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>7E8924E489EA4BC1A9CD8789</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>D6B778EB7EE543D7B12C6084</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F4EC78B4C1C442CE84CD863D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D848D8C458A84623A11D8AE3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1093C4A7B01E42D19D0FAAE2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D8FC492302C945F4B2CB11B4</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>NSDateFormatter+Duration.h</string>
+			<key>path</key>
+			<string>Source/NSDateFormatter+Duration.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D9DAB563928F4823AC0B703B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-SVProgressHUD-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>DAD1BCA7895D416DB596E809</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7B33B95B5F68485C88B7EC8D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>DBF7BDB5F6E144BCAE0322C9</key>
 		<dict>
 			<key>attributes</key>
 			<dict>
 				<key>LastUpgradeCheck</key>
-				<string>0450</string>
+				<string>0510</string>
 			</dict>
 			<key>buildConfigurationList</key>
-			<string>4976B57C09BD473983B4E0E1</string>
+			<string>B9FC1D38590348528B9DFFA7</string>
 			<key>compatibilityVersion</key>
 			<string>Xcode 3.2</string>
 			<key>developmentRegion</key>
@@ -2234,9 +2449,9 @@
 				<string>en</string>
 			</array>
 			<key>mainGroup</key>
-			<string>92CE749E80AC4464AC5EDB26</string>
+			<string>B563058B2FDD40269A5C8EF2</string>
 			<key>productRefGroup</key>
-			<string>81541F03006349A1A901DCF2</string>
+			<string>626BB8C06B7D4FD7804B24D3</string>
 			<key>projectDirPath</key>
 			<string></string>
 			<key>projectReferences</key>
@@ -2245,403 +2460,31 @@
 			<string></string>
 			<key>targets</key>
 			<array>
-				<string>73005D1D029246A9B068B908</string>
-				<string>891CD5F646E24BF5A8312DC1</string>
-				<string>7FB2764869E14FE3B42DB68C</string>
-				<string>E908BE68D58C49CB87DA7406</string>
-				<string>91640D5E67AE4F0D8D720CFC</string>
+				<string>966F1A5C1F6A449E90316225</string>
+				<string>B068976FC80548438CB52A89</string>
+				<string>8608C5446CB14D019B7E9B55</string>
+				<string>C2F67D1C1EA640A39B8A008D</string>
+				<string>7BBF85A5D2764DB3854D85EF</string>
 			</array>
 		</dict>
-		<key>E4C916CBFB524535AF218F6C</key>
+		<key>DEBEA0D65C0F47979DD0C647</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>4B0D32F016D24B449A0E7A28</string>
+			<string>9CBB5450E704455D90A8D2AC</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ALWAYS_SEARCH_USER_PATHS</key>
 				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_32_BIT)</string>
 				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
+				<string>YES</string>
 				<key>DSTROOT</key>
 				<string>/tmp/xcodeproj.dst</string>
 				<key>GCC_C_LANGUAGE_STANDARD</key>
 				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
 				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
 				<string>YES</string>
 				<key>GCC_PREFIX_HEADER</key>
 				<string>Pods-MMDrawerController-prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>5.0</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>E56021E0A2DD4A229457A1D0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>01A999A4E6984C2A9414AAC1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>E5E74B75CE024DA9AF07711C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>BeamAVMusicPlayerProvider.m</string>
-			<key>path</key>
-			<string>BeamMusicPlayerViewController/Source/BeamAVMusicPlayerProvider.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>E6D2D7361D934D1FA00AD87B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8AD8E04A0C64469AB0BC0CB8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E8C32A5DBB654CA2B6D2EF52</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E04D9ADC629B42A986816B26</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>E908BE68D58C49CB87DA7406</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>420C4EFC221A4360A5EC52AE</string>
-			<key>buildPhases</key>
-			<array>
-				<string>BEF0AEB182B3466C849E2659</string>
-				<string>EB195C5969674915A4E3E584</string>
-				<string>4043D6A0B2F345F0899F476A</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-SVProgressHUD</string>
-			<key>productName</key>
-			<string>Pods-SVProgressHUD</string>
-			<key>productReference</key>
-			<string>19DC8E190C314EA49E84B8AA</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>E917A519BFA64E55BFDA69F2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>19EE81412D2642B2A1FA4FFB</string>
-				<string>BFFC665D8A944A10BB25C113</string>
-				<string>F63FD2364FD34BB9856134BD</string>
-				<string>FA82ADE4DC4E47328AD6E841</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E91BAB25D3A24F6A843EFE6C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5FF7485FCA634F44954B04BF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EB195C5969674915A4E3E584</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>DC1F1015021C47AB80AD4825</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>EB2294E9E0474BE8AD26E4E4</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>76DC2FDEDFA740CDA9590D6A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>EB3BBD971CC64B9CB770D9D5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-SVProgressHUD.xcconfig</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>EBA079E8DC754BB086B84066</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-OBSlider.xcconfig</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>EBA662338F2249F7911EDA00</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>BeamMusicPlayerTransparentToolbar.h</string>
-			<key>path</key>
-			<string>BeamMusicPlayerViewController/Source/BeamMusicPlayerTransparentToolbar.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>EC2DE1AA638946FF9FA71394</key>
-		<dict>
-			<key>fileRef</key>
-			<string>165378D5FE934544AB72F6C7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EFFBF8E4777B4D42A4EBA942</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>8585D2DE3E03413FBCA0FBCA</string>
-				<string>78342A3E21524F488F068150</string>
-				<string>60A73F2CADB946BEB377FE52</string>
-				<string>6470FBC28FEE44C2B86F5347</string>
-				<string>C2D7CEAFE27447C2849FEB69</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Targets Support Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F006E951A9D041A18CDB5A40</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-OBSlider-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>F1C64974C2DD40A294C872E9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-BeamMusicPlayerViewController-Private.xcconfig</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>F2B2E3D47C7C470BA4A94094</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D8C5808EE2144BB6A8BBAB2F</string>
-				<string>695DC8609B0948EB84B2D23B</string>
-				<string>01A999A4E6984C2A9414AAC1</string>
-				<string>D2F62DCE60E441B4809637F4</string>
-				<string>CF6FF34386FD48F696612A09</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Core</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F2D3EABE13A34C9CA743AD5A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>E56021E0A2DD4A229457A1D0</string>
-				<string>D69F302BF57F45FDB176AAEF</string>
-				<string>1223815722E141E88B27C468</string>
-				<string>AD72A1F3897A4EEA9C63390F</string>
-				<string>22F6EDE56D6F4F4C874C97D8</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>F3BE5A479C864056B8B2CB2D</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>5.0</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>F63FD2364FD34BB9856134BD</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>286EEFD8946E4584B727575F</string>
-				<string>E04D9ADC629B42A986816B26</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>OBSlider</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F77E0B35ED134DE295751935</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>E380C38E0AC24E46B1D56B49</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>73005D1D029246A9B068B908</string>
-			<key>remoteInfo</key>
-			<string>Pods-BeamMusicPlayerViewController</string>
-		</dict>
-		<key>F7BB9846CB8F4D7F9E4EAD33</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E5E74B75CE024DA9AF07711C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>F80954A874CF4A8C8E6D9F52</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2303960711F843B2A8DCF863</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>F81BCD580E0B41C083B7C400</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>7FB2764869E14FE3B42DB68C</string>
-			<key>targetProxy</key>
-			<string>7F8F5B9A40164691B882A6F8</string>
-		</dict>
-		<key>FA15E66228D748248374EA63</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>22F609DB00584E94A025AF83</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_32_BIT)</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
 				<key>GCC_VERSION</key>
 				<string>com.apple.compilers.llvm.clang.1_0</string>
 				<key>INSTALL_PATH</key>
@@ -2676,56 +2519,33 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
-		<key>FA82ADE4DC4E47328AD6E841</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FF47DCB801BA47B3B4CBD600</string>
-				<string>2303960711F843B2A8DCF863</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>SVProgressHUD</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FBC6C55272B948B88ED31DB8</key>
+		<key>DFF028214E5140F6892E8966</key>
 		<dict>
 			<key>fileRef</key>
-			<string>3461E184693D4474AC4F58CE</string>
+			<string>8CA0E3B93E6345B6A3A186C2</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
 		</dict>
-		<key>FC8B0115BF0C4D6DB46514A4</key>
+		<key>E0C56C70CAD64C489C1D4D27</key>
 		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
+			<key>buildConfigurations</key>
 			<array>
-				<string>C495DB25A15C4BDFBE84AA3F</string>
+				<string>072FD97C176B4DF29EED3E36</string>
+				<string>4EB4427FA83342F1A2577664</string>
 			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
+			<key>defaultConfigurationIsVisible</key>
 			<string>0</string>
-		</dict>
-		<key>FCFF0007F5824FD68C440E69</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>MediaPlayer.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/MediaPlayer.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
+			<string>XCConfigurationList</string>
 		</dict>
-		<key>FD74BC8508BC4477991CC30D</key>
+		<key>E3A3346E013248029A1326BA</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -2734,13 +2554,179 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>MMDrawerVisualState.m</string>
+			<string>BeamMusicPlayerViewController.m</string>
 			<key>path</key>
-			<string>MMDrawerController/MMDrawerController/MMDrawerVisualState.m</string>
+			<string>Source/BeamMusicPlayerViewController.m</string>
 			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>FF47DCB801BA47B3B4CBD600</key>
+		<key>E3F7FB5DD7C240D597B6CEF3</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>DBF7BDB5F6E144BCAE0322C9</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>7BBF85A5D2764DB3854D85EF</string>
+			<key>remoteInfo</key>
+			<string>Pods-SVProgressHUD</string>
+		</dict>
+		<key>E649B088267549AC9F75A8CD</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-OBSlider.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>E7AD4C3882484B3B9FD2A8F5</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>14D8E8DCF5F64EEE9B5FCFFA</string>
+				<string>73573AEB66EF4170926049C5</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>E81A1A4CC46D4EBF811EFAD7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>EF4FC9FBF5344C09BF482E83</string>
+				<string>8FCE17F8352B4F84AC7FA4ED</string>
+				<string>38081614F0CB4F41ACCA326F</string>
+				<string>9DBE444E1F8146D2ACDB5C3A</string>
+				<string>682395135E8E4E438ABE75D8</string>
+				<string>69874F9294534FD0A3640C7C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E83BC528D43848DABDD5A1D8</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>6EEC3A0EF6684DDAAEE940BC</string>
+				<string>CB98BF84C8D940B0A2934BB0</string>
+				<string>4887412FF16F48A4848D5BC9</string>
+				<string>5A2A3F0949DE4CD0AC711CC9</string>
+				<string>5D199260F61A467D838D7A66</string>
+				<string>116D69283DF142B09ACAA75A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>E8FC4B3E839B4C4A9439268E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>MediaPlayer.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/MediaPlayer.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>EF4FC9FBF5344C09BF482E83</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F0CF9B550C6E4B57814B1621</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>C2F67D1C1EA640A39B8A008D</string>
+			<key>targetProxy</key>
+			<string>88CF182580FD477AB04AA1AA</string>
+		</dict>
+		<key>F0EC668E8C524B0D94BA10EE</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>D07041DF69F24206AEC6F5DE</string>
+				<string>39A24A0161634B45870B5CA2</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>F28908FCCC2F4D81A56281B8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4E931F82B0C44557963CB1B4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>F3BF054A6E794163949EC23D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>BeamMusicPlayerTransparentToolbar.m</string>
+			<key>path</key>
+			<string>Source/BeamMusicPlayerTransparentToolbar.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F4D1A7EF98774D66ACD7F46C</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>9CF394FBF029461F96E80484</string>
+				<string>4B16836D7BCA493E88FCEAC7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>F4EC78B4C1C442CE84CD863D</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -2749,14 +2735,118 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>SVProgressHUD.h</string>
+			<string>BeamAVMusicPlayerProvider.h</string>
 			<key>path</key>
-			<string>SVProgressHUD/SVProgressHUD/SVProgressHUD.h</string>
+			<string>Source/BeamAVMusicPlayerProvider.h</string>
 			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F5FE40A84B7A4B1A805FB771</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>OBSlider.m</string>
+			<key>path</key>
+			<string>OBSlider/OBSlider.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F7141E741C624751AAF7E22C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.plug-in</string>
+			<key>name</key>
+			<string>BeamMusicPlayerController.bundle</string>
+			<key>path</key>
+			<string>Source/BeamMusicPlayerController.bundle</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F964732DFB164CB8AFA68818</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>BeamMusicPlayerTransparentToolbar.h</string>
+			<key>path</key>
+			<string>Source/BeamMusicPlayerTransparentToolbar.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBE094BE33AD4DF3B1B1A1B5</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>38718538AD9B405E96A5DAFF</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Pods-SVProgressHUD-prefix.pch</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>5.0</string>
+				<key>OTHER_CFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_CPLUSPLUSFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>FC72DF2376EF45E2A2E5A428</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B1C2070098424BC48D61848A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 	</dict>
 	<key>rootObject</key>
-	<string>E380C38E0AC24E46B1D56B49</string>
+	<string>DBF7BDB5F6E144BCAE0322C9</string>
 </dict>
 </plist>
