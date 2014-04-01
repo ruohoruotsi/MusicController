@@ -1,6 +1,9 @@
-DPMusicController
+MusicController
 =================
-A library manager and Core Audio wrapper for the iOS MediaPlayer framework
+A library manager and Core Audio wrapper for the iOS MediaPlayer framework based on the excellent, but bare-bones, and increasingly out-of-date Controller by Dan Pourhadi @ [https://github.com/pourhadi/DPMusicController](https://github.com/pourhadi/DPMusicController)
+
+I have also introduced a large number of bugfixes and Cocoapod extensions. These include MMDrawerViewController, SVProgressHUD and BeamMusicViewController.
+
 
 Introduction
 --------------
