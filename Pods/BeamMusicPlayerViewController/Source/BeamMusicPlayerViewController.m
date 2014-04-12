@@ -200,7 +200,11 @@
         [self.trackTitleLabel setFont:[UIFont boldSystemFontOfSize:12]];
         [self.albumTitleLabel setFont:[UIFont boldSystemFontOfSize:12]];
 
-        self.navigationItem.titleView.center = mmNavBar.center;
+        // IO HAVOC - This code has no effect in iOS7 as is, removing and using XIB to do layout. That
+        // at least is responsive.
+        // float adjustedCenterY = mmNavBar.center.y - 20;
+        // self.navigationItem.titleView.center = CGPointMake(mmNavBar.center.x, adjustedCenterY);
+        // self.navigationItem.titleView.center = mmNavBar.center;
         [mmNavBar addSubview:self.navigationItem.titleView];
 
     } else {
