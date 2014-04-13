@@ -200,6 +200,10 @@
         [self.trackTitleLabel setFont:[UIFont boldSystemFontOfSize:12]];
         [self.albumTitleLabel setFont:[UIFont boldSystemFontOfSize:12]];
 
+        [self.artistNameLabel setTextColor:[UIColor blackColor]];
+        [self.trackTitleLabel setTextColor:[UIColor blackColor]];
+        [self.albumTitleLabel setTextColor:[UIColor blackColor]];
+        
         // IO HAVOC - This code has no effect in iOS7 as is, removing and using XIB to do layout. That
         // at least is responsive.
         // float adjustedCenterY = mmNavBar.center.y - 20;
