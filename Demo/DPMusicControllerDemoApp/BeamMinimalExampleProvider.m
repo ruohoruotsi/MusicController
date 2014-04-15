@@ -9,6 +9,7 @@
 
 #import "BeamMinimalExampleProvider.h"
 #import "DPMusicController.h"
+#import "SVProgressHUD.h"
 
 @implementation BeamMinimalExampleProvider
 
@@ -116,14 +117,24 @@
         int delta = track - currentIndex;
         DLog(@" track#:  %d   currentIndex#:   %d     delta:  %d \n", track, currentIndex, delta);        
         
-        if (delta > 0) [controller nextWithCrossfade:NO error:nil];
-        else if(delta < 0) [controller previousWithCrossfade:NO error:nil];
-        else if(delta == 0) {
+        
+        // Handle the FFWD & RWD case off the end of the queue, loop around
+        if(abs(delta) == [[controller queue] count] - 1) {
             
-            DLog(@"####:  delta == 0 \n");
-            // [self.musicPlayer skipToBeginning];
-            [controller previousWithCrossfade:NO error:nil];
-
+            DLog(@"####>>>>: At an end looping around\n");
+            [controller setPlayhead:track play:YES error:nil];
+        }
+        else {
+            if (delta > 0) [controller nextWithCrossfade:NO error:nil];
+            else if(delta < 0) [controller previousWithCrossfade:NO error:nil];
+            else if(delta == 0) {
+                
+                DLog(@"####:  Track - CurrentIndex DELTA == 0 -- IOHAVOC \n");
+                [SVProgressHUD showSuccessWithStatus:@"DELTA == 0"];
+                
+                // [self.musicPlayer skipToBeginning];
+                // [controller previousWithCrossfade:NO error:nil];
+            }
         }
     }
 
