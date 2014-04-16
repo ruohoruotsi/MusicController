@@ -122,7 +122,7 @@
         if(abs(delta) == [[controller queue] count] - 1) {
             
             DLog(@"####>>>>: At an end looping around\n");
-            [controller setPlayhead:track play:YES error:nil];
+            [controller setPlayhead:track play:[controller isPlaying] error:nil];
         }
         else {
             if (delta > 0) [controller nextWithCrossfade:NO error:nil];
