@@ -17,6 +17,7 @@
 #define kUnitSize sizeof(AudioUnitSampleType)
 #define kBufferUnit 655360
 #define kTotalBufferSize kBufferUnit * kUnitSize
+#define kSampleBufferGetTotalSampleSize 32768
 
 #define MAIN_BUS 0
 #define AUX_BUS 1
@@ -99,6 +100,8 @@ static OSStatus ipodRenderCallback (
 
 -(void)setCurrentSong:(DPMusicItemSong*)song play:(BOOL)play
 {
+    DLog(@"-(void)setCurrentSong:(DPMusicItemSong*)song play:(BOOL)play");
+
 	if (self.song != song)
 	{
 		_song = song;
@@ -222,6 +225,7 @@ static OSStatus ipodRenderCallback (
 
 - (void)incrementTrackPosition
 {
+    DLog(@" %f", audioStructs[mainBus].currentSampleNum / SInt16StereoStreamFormat.mSampleRate);
 	[self setTrackPosition:audioStructs[mainBus].currentSampleNum / SInt16StereoStreamFormat.mSampleRate];
 }
 
@@ -295,7 +299,7 @@ static OSStatus ipodRenderCallback (
         while (![feediPodBufferOperation isCancelled] && self.crossfadeAssetReader.status != AVAssetReaderStatusCompleted) {
             
 			if (self.crossfadeAssetReader.status == AVAssetReaderStatusReading) {
-				if (kTotalBufferSize - crossfadeSongStruct.circularBuffer.fillCount >= 32768) {
+				if (kTotalBufferSize - crossfadeSongStruct.circularBuffer.fillCount >= kSampleBufferGetTotalSampleSize) {
                     CMSampleBufferRef nextBuffer = [readerOutput copyNextSampleBuffer];
 					
                     if (nextBuffer) {
@@ -352,16 +356,23 @@ static OSStatus ipodRenderCallback (
         AudioUnitSampleType *outSample          = (AudioUnitSampleType *)ioData->mBuffers[0].mData;
         memset(outSample, 0, inNumberFrames * kUnitSize);
         
+        
+       printf("\n\ncallback ########################            inNumberFrames == %d\n", (unsigned int)inNumberFrames);
+
         if (audioObject->playingiPod && audioObject->bufferIsReady) {
             
             int32_t availableBytes;
             
             AudioUnitSampleType *bufferTail     = TPCircularBufferTail(&audioObject->circularBuffer, &availableBytes);
             
+            printf("callback ########################            availableBytes == %d\n", availableBytes );
+
             memcpy(outSample, bufferTail, MIN(availableBytes, inNumberFrames * kUnitSize) );
             TPCircularBufferConsume(&audioObject->circularBuffer, MIN(availableBytes, inNumberFrames * kUnitSize) );
             audioObject->currentSampleNum += MIN(availableBytes / (kUnitSize), inNumberFrames);
             
+            printf("callback ########################            audioObject->currentSampleNum == %d\n", audioObject->currentSampleNum );
+
             if (inBusNumber == self->mainBus)
                 self->framesSinceLastTimeUpdate += inNumberFrames;
             
@@ -371,9 +382,16 @@ static OSStatus ipodRenderCallback (
                                                                          withObject:nil
                                                                       waitUntilDone:NO];
                 self->framesSinceLastTimeUpdate = 0;
+                printf("callback ########################   ########################           incrementTrackPositionInvocation\n");
+
             }
             
-            if (availableBytes <= inNumberFrames * kUnitSize) {
+            // sit w/ a slouch 9672345
+            long crap = inNumberFrames * kUnitSize;
+            long left =  self.graphSampleRate * self.duration - audioObject->currentSampleNum;
+            printf("\n duration = %f    left = %ld\n", self.graphSampleRate * self.duration, left);
+            if ((availableBytes <= inNumberFrames * kUnitSize) &&
+                ( left < kSampleBufferGetTotalSampleSize)) {
                 // Buffer is running out or playback is finished
                 audioObject->bufferIsReady = NO;
                 audioObject->playingiPod = NO;
@@ -881,7 +899,7 @@ static char *FormatError(char *str, OSStatus error)
 }
 
 #pragma mark -
-#pragma mark - crossfade stuff
+#pragma mark crossfade stuff
 
 -(void)addCrossfadeBus
 {
@@ -950,6 +968,8 @@ static char *FormatError(char *str, OSStatus error)
 
 		if (self.song)
 		{
+            DLog(@"if self.song -(void)setCurrentSong:(DPMusicItemSong*)song play:(BOOL)play");
+
 			[self loadBufferAtStartTime:[self trackPosition] reset:YES];
 		}
 		
@@ -980,6 +1000,10 @@ static char *FormatError(char *str, OSStatus error)
 		}
 
 		[[NSNotificationCenter defaultCenter] postNotificationName:kDPMusicNotificationPlayStateChanged object:nil userInfo:@{kDPMusicNotificationPlayStateKey:kDPMusicNotificationPlayStatePause}];
+        
+        // IO HAVOC -- persist actual position of stream at the time of pause/stop, in case we need to restart,
+        // we don't want to "rewind" to the last time we invoked incrementTrackPositionInvocation, which could be up to a second or so
+        [self setTrackPosition:audioStructs[mainBus].currentSampleNum / SInt16StereoStreamFormat.mSampleRate];
 	}
 }
 
@@ -1126,6 +1150,7 @@ static BOOL wasPlayingBeforeSeek = NO;
 }
 -(void)loadBufferAtStartTime:(NSTimeInterval)time reset:(BOOL)reset
 {
+    DLog(@"loadBufferAtStartTime: @ (NSTimeInterval)%f  reset==%d\n", time, (int)reset);
 
 	audioStructs[mainBus].playingiPod = YES;
 	
@@ -1188,10 +1213,12 @@ static BOOL wasPlayingBeforeSeek = NO;
 		while (![feediPodBufferOperation isCancelled] && assetReader.status != AVAssetReaderStatusCompleted) {
 			if (assetReader.status == AVAssetReaderStatusReading) {
 
-				if (kTotalBufferSize - audio->circularBuffer.fillCount >= 32768) {
+				if (kTotalBufferSize - audio->circularBuffer.fillCount >= kSampleBufferGetTotalSampleSize) {
 
+                    DLog(@"kTotalBufferSize - audio->circularBuffer.fillCount == %ld   audio->circularBuffer.fillCount == %d", kTotalBufferSize - audio->circularBuffer.fillCount , audio->circularBuffer.fillCount);
                     CMSampleBufferRef nextBuffer = [readerOutput copyNextSampleBuffer];
 					
+                    DLog(@"nextBuffer == %d", (int)nextBuffer);
                     if (nextBuffer) {
 
                         AudioBufferList abl;
@@ -1200,7 +1227,7 @@ static BOOL wasPlayingBeforeSeek = NO;
                         UInt64 size = CMSampleBufferGetTotalSampleSize(nextBuffer);
 
 						int bytesCopied = TPCircularBufferProduceBytes(&audio->circularBuffer, abl.mBuffers[0].mData, size);
-						
+						DLog(@"            bytesCopied size == %ld", size);
 						if (!audio->bufferIsReady && bytesCopied > 0) {
                             audio->bufferIsReady = YES;
 							audio->playingiPod = YES;
@@ -1211,6 +1238,9 @@ static BOOL wasPlayingBeforeSeek = NO;
                         CFRelease(blockBuffer);
                     }
                     else {
+                        DLog(@"\n\n BREAK \n\n");
+
+                        
                         break;
                     }
 				}

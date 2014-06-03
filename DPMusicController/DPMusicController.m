@@ -110,7 +110,12 @@
 {
     // Implicitly, self.isPlaying == NO. In first play usecase, the player doesn't have
     // a current song, so set it first since we're not playing, then play
-    [self.player setOnlyCurrentSong:self.currentSong];
+    if([self.player song] == nil) {
+        //-(void)setCurrentSong:(DPMusicItemSong*)song play:(BOOL)play
+        [self.player setCurrentSong:self.currentSong play:self.isPlaying];
+        
+        //[self.player setOnlyCurrentSong:self.currentSong];
+    }
     
 	return [self.player play];  
 }
@@ -508,6 +513,7 @@
 
 -(void)playbackDidFinish
 {
+    DLog(@"playbackDidFinish ---------------- FINISHED");
     [self nextWithCrossfade:NO error:nil];
     
 }
