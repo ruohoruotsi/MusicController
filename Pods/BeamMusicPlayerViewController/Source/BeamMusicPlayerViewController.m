@@ -462,6 +462,9 @@
  * Changes the track to the new track given.
  */
 -(void)changeTrack:(NSInteger)newTrack {
+    
+    printf("-(void)changeTrack:(NSInteger)newTrack ");
+    
     BOOL shouldChange = YES;
     if ( [self.delegate respondsToSelector:@selector(musicPlayer:shouldChangeTrack:) ]){
         shouldChange = [self.delegate musicPlayer:self shouldChangeTrack:newTrack];
