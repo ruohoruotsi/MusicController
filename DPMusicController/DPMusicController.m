@@ -194,7 +194,14 @@
 - (void)setPlayhead:(NSInteger)playhead play:(BOOL)play error:(NSError *__autoreleasing *)error
 {
 	if (playhead >= self.queue.count) {
-		*error = [NSError errorWithDomain:kDPMusicErrorDomain code:0 userInfo:@{kDPMusicErrorDescriptionKey: [NSString stringWithFormat:@"New playhead (%d) outside of bounds of queue with %d songs", playhead, self.queue.count]}];
+		*error = [NSError errorWithDomain:kDPMusicErrorDomain
+                                     code:0
+                                 userInfo:@{ kDPMusicErrorDescriptionKey:
+                                                 [NSString stringWithFormat:@"New playhead (%d) outside of bounds of queue with %d songs",
+                                                  (int) playhead,
+                                                  (int) self.queue.count]
+                                             }
+                  ];
 		return;
 	}
 	
@@ -215,7 +222,13 @@
 {
 	if ([self.queue containsObject:song]) {
 		if (error)
-			*error = [[NSError alloc] initWithDomain:kDPMusicErrorDomain code:101 userInfo:@{kDPMusicErrorDescriptionKey: [NSString stringWithFormat:@"The song you are trying to add ('%@') is already in the playlist.", song.title]}];
+			*error = [[NSError alloc] initWithDomain:kDPMusicErrorDomain
+                                                code:101
+                                            userInfo:@{kDPMusicErrorDescriptionKey:
+                                                           [NSString stringWithFormat:@"The song you are trying to add ('%@') is already in the playlist.",
+                                                            song.title]
+                                                       }
+                      ];
 		return NO;
 	}
 	
@@ -238,7 +251,14 @@
 	}
 	
 	if (newIndex > self.queue.count) {
-		*error = [NSError errorWithDomain:kDPMusicErrorDomain code:100 userInfo:@{kDPMusicErrorDescriptionKey:[NSString stringWithFormat:@"Attempting to insert song (%@) at index %d is beyond the playlist bounds.", song.title, index]}];
+		*error = [NSError errorWithDomain:kDPMusicErrorDomain
+                                     code:100
+                                 userInfo:@{kDPMusicErrorDescriptionKey:
+                                                [NSString stringWithFormat:@"Attempting to insert song (%@) at index %d is beyond the playlist bounds.",
+                                                 song.title,
+                                                 (int)index]
+                                            }
+                  ];
 		
 		return NO;
 	}
@@ -276,7 +296,13 @@
 - (BOOL)removeSong:(DPMusicItemSong *)song error:(NSError *__autoreleasing *)error
 {
 	if (![self.queue containsObject:song]) {
-		*error = [NSError errorWithDomain:kDPMusicErrorDomain code:102 userInfo:@{kDPMusicErrorDescriptionKey:[NSString stringWithFormat:@"The song you are trying to remove from the playlist (%@) is not in the playlist.", song.title]}];
+		*error = [NSError errorWithDomain:kDPMusicErrorDomain
+                                     code:102
+                                 userInfo:@{kDPMusicErrorDescriptionKey:
+                                                [NSString stringWithFormat:@"The song you are trying to remove from the playlist (%@) is not in the playlist.",
+                                                 song.title]
+                                            }
+                  ];
 		return NO;
 	}
 	
@@ -328,7 +354,11 @@
 	return YES;
 }
 
-- (BOOL)insertSongCollection:(DPMusicItemCollection*)collection atIndex:(NSInteger)index indexType:(DPMusicIndexType)type shuffle:(BOOL)shuffle error:(NSError *__autoreleasing *)error
+- (BOOL)insertSongCollection:(DPMusicItemCollection*)collection
+                     atIndex:(NSInteger)index
+                   indexType:(DPMusicIndexType)type
+                     shuffle:(BOOL)shuffle
+                       error:(NSError *__autoreleasing *)error
 {
 	NSInteger newIndex = index;
 	NSMutableArray *mutablePlaylist = [self.queue mutableCopy];
@@ -552,7 +582,7 @@
 {
 	UInt64 currentTimeSec = self.trackPosition;
 	
-	int minutes = currentTimeSec / 60;
+	int minutes = (int)(currentTimeSec / 60);
 	int seconds = (currentTimeSec % 60);
 	NSString *elapsed = [NSString stringWithFormat: @"%02d:%02d", minutes, seconds];
 	
@@ -562,7 +592,7 @@
 - (NSString*)remainingTimeString
 {
 	UInt64 leftTimeVal = self.duration - self.trackPosition;
-	int leftMinutes = leftTimeVal / 60;
+	int leftMinutes = (int)(leftTimeVal / 60);
 	int leftSeconds = (leftTimeVal % 60);
 	NSString *remaining = [NSString stringWithFormat:@"-%02d:%02d", leftMinutes, leftSeconds];
 	return remaining;

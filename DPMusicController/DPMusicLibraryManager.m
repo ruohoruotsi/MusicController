@@ -98,7 +98,7 @@
 
             _songs = [NSArray arrayWithArray:songsArray];
             DLog(@" SONG QUERY SUBARRAY ELEMENT COUNT == %d", count);
-            DLog(@" songsArray COUNT == %d", [_songs count]);
+            DLog(@" songsArray COUNT == %d", (int)[_songs count]);
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 _songsLoaded = YES;
@@ -153,7 +153,7 @@
             
 			_artists = [NSArray arrayWithArray:artistsArray];
             DLog(@" ARTIST QUERY SUBARRAY ELEMENT COUNT == %d", count);
-            DLog(@" artistsArray COUNT == %d", [_artists count]);
+            DLog(@" artistsArray COUNT == %d", (int)[_artists count]);
 
 			dispatch_async(dispatch_get_main_queue(), ^{
 				_artistsLoaded = YES;

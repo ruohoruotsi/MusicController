@@ -373,7 +373,7 @@
                 }
             
             } else {
-                NSLog(@"Discarded CoverArt for track: %d, current track already moved to %d.", track, self.currentTrack);
+                NSLog(@"Discarded CoverArt for track: %d, current track already moved to %d.", (int)track, (int)self.currentTrack);
             }
         }];
     }
@@ -551,7 +551,7 @@
  */
 -(void)updateTrackDisplay {
     if ( !self.scrobbling ){
-        self.numberOfTracksLabel.text = [NSString stringWithFormat:@"Track %d of %d", self.currentTrack+1, self.numberOfTracks];
+        self.numberOfTracksLabel.text = [NSString stringWithFormat:@"Track %d of %d", (int)(self.currentTrack+1), (int)(self.numberOfTracks)];
         self.numberOfTracksLabel.hidden = !self.numberOfTracksAvailable;
     }
 }
@@ -574,12 +574,12 @@
         [self.repeatButton setImage:[UIImage imageNamed:[@"BeamMusicPlayerController.bundle/images/" stringByAppendingString:imageName]] forState:UIControlStateNormal];
 }
 
-#pragma mark Repeat mode
-
+#pragma mark Repeat mode // IO HAVOC REMOVING because we already have a property MPMusicRepeatMode which has a getter/setter @ line 54 of header
+/*
 -(void)setRepeatMode:(int)newRepeatMode {
     self->repeatMode = newRepeatMode;
     [self updateRepeatButton];
-}
+} */
 
 #pragma mark Shuffling ( Every day I'm )
 

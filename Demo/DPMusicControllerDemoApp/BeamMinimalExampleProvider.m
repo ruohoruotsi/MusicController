@@ -114,8 +114,8 @@
         
         NSInteger currentIndex = [controller indexOfSong:[controller currentSong] indexType:DPMusicIndexTypePlaylistIndex error:nil];
 
-        int delta = track - currentIndex;
-        DLog(@" track#:  %d   currentIndex#:   %d     delta:  %d \n", track, currentIndex, delta);        
+        int delta = (int)(track - currentIndex);
+        DLog(@" track#:  %d   currentIndex#:   %d     delta:  %d \n", (int)track, (int)currentIndex, delta);
         
         
         // Handle the FFWD & RWD case off the end of the queue, loop around

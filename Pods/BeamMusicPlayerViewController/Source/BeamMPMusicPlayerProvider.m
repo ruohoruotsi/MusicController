@@ -148,11 +148,11 @@
     if(self.mediaItems) {
         [self.musicPlayer setNowPlayingItem:[self mediaItemAtIndex:track]];
     } else {
-        int delta = track - self.musicPlayer.indexOfNowPlayingItem;
+        int delta = (int)(track - self.musicPlayer.indexOfNowPlayingItem);
         if(delta > 0)
             [self.musicPlayer skipToNextItem];
         if(delta == 0)
-            [self.musicPlayer skipToBeginning];
+            [self.musicPlayer skipToBeginning];  // IO HAVOC HERE TO FIGURE OUT SKIP TO BEGINNING VS PREVIOUS ITEM
         if(delta < 0)
             [self.musicPlayer skipToPreviousItem];
     }

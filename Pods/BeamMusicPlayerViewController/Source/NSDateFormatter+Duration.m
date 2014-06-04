@@ -16,7 +16,7 @@
     if ( duration < 0  )
         prefix = @"-";
 
-    duration = abs(duration);
+    duration = abs((int)duration);
     
     NSMutableArray* comps = [NSMutableArray new];
     

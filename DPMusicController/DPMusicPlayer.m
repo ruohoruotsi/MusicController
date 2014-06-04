@@ -307,7 +307,7 @@ static OSStatus ipodRenderCallback (
                         AudioBufferList abl;
                         CMBlockBufferRef blockBuffer;
                         CMSampleBufferGetAudioBufferListWithRetainedBlockBuffer(nextBuffer, NULL, &abl, sizeof(abl), NULL, NULL, kCMSampleBufferFlag_AudioBufferList_Assure16ByteAlignment, &blockBuffer);
-                        UInt64 size = CMSampleBufferGetTotalSampleSize(nextBuffer);
+                        int size = (int)CMSampleBufferGetTotalSampleSize(nextBuffer);
 						
                         int bytesCopied = TPCircularBufferProduceBytes(&audioStructs[auxBus].circularBuffer, abl.mBuffers[0].mData, size);
 						
@@ -368,10 +368,10 @@ static OSStatus ipodRenderCallback (
             printf("callback ########################            availableBytes == %d\n", availableBytes );
 
             memcpy(outSample, bufferTail, MIN(availableBytes, inNumberFrames * kUnitSize) );
-            TPCircularBufferConsume(&audioObject->circularBuffer, MIN(availableBytes, inNumberFrames * kUnitSize) );
+            TPCircularBufferConsume(&audioObject->circularBuffer, MIN(availableBytes, (int)(inNumberFrames * kUnitSize)));
             audioObject->currentSampleNum += MIN(availableBytes / (kUnitSize), inNumberFrames);
             
-            printf("callback ########################            audioObject->currentSampleNum == %d\n", audioObject->currentSampleNum );
+            printf("callback ########################            audioObject->currentSampleNum == %ld \n", (long)audioObject->currentSampleNum );
 
             if (inBusNumber == self->mainBus)
                 self->framesSinceLastTimeUpdate += inNumberFrames;
@@ -387,7 +387,7 @@ static OSStatus ipodRenderCallback (
             }
             
             // sit w/ a slouch 9672345
-            long crap = inNumberFrames * kUnitSize;
+            // long crap = inNumberFrames * kUnitSize;
             long left =  self.graphSampleRate * self.duration - audioObject->currentSampleNum;
             printf("\n duration = %f    left = %ld\n", self.graphSampleRate * self.duration, left);
             if ((availableBytes <= inNumberFrames * kUnitSize) &&
@@ -418,11 +418,11 @@ static OSStatus ipodRenderCallback (
     //        stereo, noninterleaved stream at the hardware sample rate.
     SInt16StereoStreamFormat.mFormatID          = kAudioFormatLinearPCM;
     SInt16StereoStreamFormat.mFormatFlags       = kAudioFormatFlagsCanonical;
-    SInt16StereoStreamFormat.mBytesPerPacket    = 2 * bytesPerSample;   // *** kAudioFormatFlagsCanonical <- implicit interleaved data => (left sample + right sample) per Packet
+    SInt16StereoStreamFormat.mBytesPerPacket    = (UInt32)(2 * bytesPerSample);     // *** kAudioFormatFlagsCanonical <- implicit interleaved data => (left sample + right sample) per Packet
     SInt16StereoStreamFormat.mFramesPerPacket   = 1;
     SInt16StereoStreamFormat.mBytesPerFrame     = SInt16StereoStreamFormat.mBytesPerPacket * SInt16StereoStreamFormat.mFramesPerPacket;
-    SInt16StereoStreamFormat.mChannelsPerFrame  = 2;                    // 2 indicates stereo
-    SInt16StereoStreamFormat.mBitsPerChannel    = 8 * bytesPerSample;
+    SInt16StereoStreamFormat.mChannelsPerFrame  = 2;                                // 2 indicates stereo
+    SInt16StereoStreamFormat.mBitsPerChannel    = (UInt32)(8 * bytesPerSample);
     SInt16StereoStreamFormat.mSampleRate        = self.graphSampleRate;
 	
 	//return SInt16StereoStreamFormat;
@@ -439,12 +439,12 @@ static OSStatus ipodRenderCallback (
     
     DLog (@"  Sample Rate:         %10.0f",  asbd.mSampleRate);
     DLog (@"  Format ID:           %10s",    formatIDString);
-    DLog (@"  Format Flags:        %10lX",    asbd.mFormatFlags);
-    DLog (@"  Bytes per Packet:    %10ld",    asbd.mBytesPerPacket);
-    DLog (@"  Frames per Packet:   %10ld",    asbd.mFramesPerPacket);
-    DLog (@"  Bytes per Frame:     %10ld",    asbd.mBytesPerFrame);
-    DLog (@"  Channels per Frame:  %10ld",    asbd.mChannelsPerFrame);
-    DLog (@"  Bits per Channel:    %10ld",    asbd.mBitsPerChannel);
+    DLog (@"  Format Flags:        %10lX",    (unsigned long) asbd.mFormatFlags);
+    DLog (@"  Bytes per Packet:    %10ld",    (unsigned long) asbd.mBytesPerPacket);
+    DLog (@"  Frames per Packet:   %10ld",    (unsigned long) asbd.mFramesPerPacket);
+    DLog (@"  Bytes per Frame:     %10ld",    (unsigned long) asbd.mBytesPerFrame);
+    DLog (@"  Channels per Frame:  %10ld",    (unsigned long) asbd.mChannelsPerFrame);
+    DLog (@"  Bits per Channel:    %10ld",    (unsigned long) asbd.mBitsPerChannel);
 }
 # pragma mark- mixer host stuff
 - (void) setupAudioSession {
@@ -668,7 +668,7 @@ static OSStatus ipodRenderCallback (
 		mainBus = 0;
 		auxBus = 1;
 		
-		DLog (@"Setting mixer unit input bus count to: %lu", busCount);
+		DLog (@"Setting mixer unit input bus count to: %u", busCount);
 		result = AudioUnitSetProperty (
 									   _mixerUnit,
 									   kAudioUnitProperty_ElementCount,
@@ -802,7 +802,11 @@ static OSStatus ipodRenderCallback (
 		CFArrayRef mEQPresetsArray;
 		UInt32 size = sizeof(mEQPresetsArray);
 		result = AudioUnitGetProperty(_eqUnit, kAudioUnitProperty_FactoryPresets, kAudioUnitScope_Global, 0, &mEQPresetsArray, &size);
-		if (noErr != result) { printf("AudioUnitGetProperty result %ld %08X %4.4s\n", result, (unsigned int)result, (char*)&result); return; }
+		if (noErr != result) {
+            // printf("AudioUnitGetProperty result %ld %08X %4.4s\n", (long)result, (unsigned int)result, (char*)&result);
+            [self printErrorMessage: @"AudioUnitGetProperty result" withStatus: result];
+            return;
+        }
 
 		
 		NSInteger presetVal = 0;
@@ -814,7 +818,11 @@ static OSStatus ipodRenderCallback (
 		
 		AUPreset *aPreset = (AUPreset*)CFArrayGetValueAtIndex(mEQPresetsArray, presetVal);
 		result = AudioUnitSetProperty(_eqUnit, kAudioUnitProperty_PresentPreset, kAudioUnitScope_Global, 0, aPreset, sizeof(AUPreset));
-		if (noErr != result) { printf("AudioUnitSetProperty result %ld %08X %4.4s\n", result, (unsigned int)result, (char*)&result); return; };
+		if (noErr != result) {
+            // printf("AudioUnitSetProperty result %ld %08X %4.4s\n", (long)result, (unsigned int)result, (char*)&result);
+            [self printErrorMessage: @"AudioUnitSetProperty result" withStatus: result];
+            return;
+        }
 		
 		CFRelease(mEQPresetsArray);
 		
@@ -858,19 +866,29 @@ static OSStatus ipodRenderCallback (
 		CFArrayRef mEQPresetsArray;
 		UInt32 size = sizeof(mEQPresetsArray);
 		result = AudioUnitGetProperty(_eqUnit, kAudioUnitProperty_FactoryPresets, kAudioUnitScope_Global, 0, &mEQPresetsArray, &size);
-		if (result) { printf("AudioUnitGetProperty result %ld %08X %4.4s\n", result, (unsigned int)result, (char*)&result); return; }
+		if (result) {
+            // printf("AudioUnitGetProperty result %d %08X %4.4s\n", (int)result, (unsigned int)result, (char*)&result);
+            [self printErrorMessage: @"AudioUnitGetProperty result" withStatus: result];
+            return;
+        }
 		
-		/*  // this code can be used if you're interested in dumping out the preset list
+		 /*
+         // this code can be used if you're interested in dumping out the preset list
 		 printf("iPodEQ Factory Preset List:\n");
 		 UInt8 count = CFArrayGetCount(mEQPresetsArray);
 		 for (int i = 0; i < count; ++i) {
 		 AUPreset *aPreset = (AUPreset*)CFArrayGetValueAtIndex(mEQPresetsArray, i);
 		 CFShow(aPreset->presetName);
-		 }*/
+		 }
+         */
 		
 		AUPreset *aPreset = (AUPreset*)CFArrayGetValueAtIndex(mEQPresetsArray, value);
 		result = AudioUnitSetProperty(_eqUnit, kAudioUnitProperty_PresentPreset, kAudioUnitScope_Global, 0, aPreset, sizeof(AUPreset));
-		if (noErr != result) { printf("AudioUnitSetProperty result %ld %08X %4.4s\n", result, (unsigned int)result, (char*)&result); return; };
+		if (noErr != result) {
+            // printf("AudioUnitSetProperty result %ld %08X %4.4s\n", (long)result, (unsigned int)result, (char*)&result);
+            [self printErrorMessage: @"AudioUnitSetProperty result" withStatus: result];
+            return;
+        }
 		
 		CFRelease(mEQPresetsArray);
 	}
@@ -910,7 +928,7 @@ static char *FormatError(char *str, OSStatus error)
     UInt32 crossfadeBus  = 1;    // mixer unit bus 0 will be stereo and will take the guitar sound
 								 //   UInt32 beatsBus   = 1;    // mixer unit bus 1 will be mono and will take the beats sound
     
-    DLog (@"Setting mixer unit input bus count to: %lu", busCount);
+    DLog (@"Setting mixer unit input bus count to: %u", busCount);
     result = AudioUnitSetProperty (
 								   _mixerUnit,
 								   kAudioUnitProperty_ElementCount,
@@ -1035,7 +1053,7 @@ static char *FormatError(char *str, OSStatus error)
 // Enable or disable a specified bus
 - (void) enableMixerInput: (UInt32) inputBus isOn: (AudioUnitParameterValue) isOnValue {
 	
-    DLog (@"Bus %d now %@", (int) inputBus, isOnValue ? @"on" : @"off");
+    DLog (@"Bus %u now %@", inputBus, isOnValue ? @"on" : @"off");
 	
     OSStatus result = AudioUnitSetParameter (
 											 _mixerUnit,
@@ -1226,8 +1244,8 @@ static BOOL wasPlayingBeforeSeek = NO;
                         CMSampleBufferGetAudioBufferListWithRetainedBlockBuffer(nextBuffer, NULL, &abl, sizeof(abl), NULL, NULL, kCMSampleBufferFlag_AudioBufferList_Assure16ByteAlignment, &blockBuffer);
                         UInt64 size = CMSampleBufferGetTotalSampleSize(nextBuffer);
 
-						int bytesCopied = TPCircularBufferProduceBytes(&audio->circularBuffer, abl.mBuffers[0].mData, size);
-						DLog(@"            bytesCopied size == %ld", size);
+						int bytesCopied = TPCircularBufferProduceBytes(&audio->circularBuffer, abl.mBuffers[0].mData, (int)size);
+						DLog(@"            bytesCopied size == %lld", size);
 						if (!audio->bufferIsReady && bytesCopied > 0) {
                             audio->bufferIsReady = YES;
 							audio->playingiPod = YES;
