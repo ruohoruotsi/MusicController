@@ -10,6 +10,9 @@
 #import "BeamMinimalExampleProvider.h"
 #import "DPMusicController.h"
 #import "SVProgressHUD.h"
+#import "DDLog.h"
+
+static const int ddLogLevel = LOG_LEVEL_OFF; // LOG_LEVEL_VERBOSE;
 
 @implementation BeamMinimalExampleProvider
 
@@ -115,13 +118,13 @@
         NSInteger currentIndex = [controller indexOfSong:[controller currentSong] indexType:DPMusicIndexTypePlaylistIndex error:nil];
 
         int delta = (int)(track - currentIndex);
-        DLog(@" track#:  %d   currentIndex#:   %d     delta:  %d \n", (int)track, (int)currentIndex, delta);
+        DDLogVerbose(@" track#:  %d   currentIndex#:   %d     delta:  %d \n", (int)track, (int)currentIndex, delta);
         
         
         // Handle the FFWD & RWD case off the end of the queue, loop around
         if(abs(delta) == [[controller queue] count] - 1) {
             
-            DLog(@"####>>>>: At an end looping around\n");
+            DDLogVerbose(@"####>>>>: At an end looping around\n");
             [controller setPlayhead:track play:[controller isPlaying] error:nil];
         }
         else {
@@ -129,7 +132,7 @@
             else if(delta < 0) [controller previousWithCrossfade:NO error:nil];
             else if(delta == 0) {
                 
-                DLog(@"####:  Track - CurrentIndex DELTA == 0 -- IOHAVOC \n");
+                DDLogVerbose(@"####:  Track - CurrentIndex DELTA == 0 -- IOHAVOC \n");
                 [SVProgressHUD showSuccessWithStatus:@"DELTA == 0"];
                 
                 // [self.musicPlayer skipToBeginning];

@@ -8,6 +8,9 @@
 
 #import "DPMTableViewController.h"
 #import "SVProgressHUD.h"
+#import "DDLog.h"
+
+static const int ddLogLevel = LOG_LEVEL_OFF; // LOG_LEVEL_VERBOSE;
 
 
 @interface DPMTableViewController ()
@@ -48,7 +51,7 @@
 
 - (void)reloadList
 {
-    // DLog(@"self.tableContentType == %d", self.tableContentType);
+    // DDLogVerbose(@"self.tableContentType == %d", self.tableContentType);
     
 	switch (self.tableContentType) {
 		case DPMTableViewControllerContentTypeSongs:
@@ -118,8 +121,8 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // DLog(@"self.tableContentType == %d", self.tableContentType);
-    // DLog(@"loaded == %d\n", loaded);
+    // DDLogVerbose(@"self.tableContentType == %d", self.tableContentType);
+    // DDLogVerbose(@"loaded == %d\n", loaded);
 	
 	if (!loaded && (self.tableContentType == DPMTableViewControllerContentTypeSongs ||
                     self.tableContentType == DPMTableViewControllerContentTypeArtists ||
@@ -138,8 +141,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // DLog(@"self.tableContentType == %d", self.tableContentType);
-    // DLog(@"loaded == %d\n", loaded);
+    // DDLogVerbose(@"self.tableContentType == %d", self.tableContentType);
+    // DDLogVerbose(@"loaded == %d\n", loaded);
     
 	if (!loaded && (self.tableContentType == DPMTableViewControllerContentTypeSongs ||
                     self.tableContentType == DPMTableViewControllerContentTypeArtists ||
@@ -159,7 +162,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // DLog(@"self.tableContentType == %d", self.tableContentType);
+    // DDLogVerbose(@"self.tableContentType == %d", self.tableContentType);
 
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -257,7 +260,7 @@
         
 	} else if (self.tableContentType == DPMTableViewControllerContentTypeQueue) { // Special handling for queues
 
-        DLog(@" self.tableContentType == DPMTableViewControllerContentTypeQueue handler");
+        DDLogVerbose(@" self.tableContentType == DPMTableViewControllerContentTypeQueue handler");
         
     } else {  // If there is a section index, we need to display sectioned data (i.e. artists, albums)
         

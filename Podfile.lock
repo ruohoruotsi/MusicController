@@ -4,6 +4,11 @@ PODS:
     - OBSlider (~> 1.1)
   - BeamMusicPlayerViewController/MediaPlayer (0.2.1):
     - OBSlider (~> 1.1)
+  - CocoaLumberjack (1.9.0):
+    - CocoaLumberjack/Extensions
+  - CocoaLumberjack/Core (1.9.0)
+  - CocoaLumberjack/Extensions (1.9.0):
+    - CocoaLumberjack/Core
   - MMDrawerController (0.5.3):
     - MMDrawerController/Core
     - MMDrawerController/MMDrawerBarButtonItem
@@ -21,13 +26,15 @@ PODS:
 
 DEPENDENCIES:
   - BeamMusicPlayerViewController
+  - CocoaLumberjack
   - MMDrawerController (~> 0.5.3)
   - SVProgressHUD
 
 SPEC CHECKSUMS:
-  BeamMusicPlayerViewController: ecfd85eb1619f4c69d093f74822356c6831b432f
-  MMDrawerController: 4445e1927e8947b7e2382136c9b7109840efbfb9
-  OBSlider: 1eae1ad6fea0af687f7dde0366003044c4ba3d27
-  SVProgressHUD: 5e10939a296debf5fe5a5895eda9539b8b2114f1
+  BeamMusicPlayerViewController: acbfa705ca2847bce13520b185bf3f36f5ff8399
+  CocoaLumberjack: 5766cdd1d0a24bcf15a133c6023747346bf786dd
+  MMDrawerController: 02a2da0d9dd522cffde4413ebc4bbbf1d20576f7
+  OBSlider: 3536461f3dd47dfcbd0972c5aafb88aa7081fb79
+  SVProgressHUD: 5034c6e22b8c2ca3e09402e48d41ed0340aa1c50
 
-COCOAPODS: 0.30.0
+COCOAPODS: 0.33.1

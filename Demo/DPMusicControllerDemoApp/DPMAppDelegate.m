@@ -12,12 +12,15 @@
 #import "BeamMinimalExampleProvider.h"
 #import "MMDrawerController.h"
 #import "MMDrawerBarButtonItem.h"
-
+#import "DDLog.h"
+#import "DDTTYLogger.h"
 
 @implementation DPMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    
     // Override point for customization after application launch.
     _beamAppVC = nil;
     _topNavViewController = (UINavigationController *)self.window.rootViewController;
@@ -126,37 +129,37 @@
 
     if (viewController == [tabBarController.viewControllers objectAtIndex:0] ) {
      
-        // DLog(@"Selected 0 \n");
+        // DDLogVerbose(@"Selected 0 \n");
         _topNavViewController.navigationBar.topItem.title = [titleArray objectAtIndex:0];        
         [self hideBeamAutoScrollLabels:YES];
     }
     else if (viewController == [tabBarController.viewControllers objectAtIndex:1] ) {
         
-        // DLog(@"Selected 1 \n");
+        // DDLogVerbose(@"Selected 1 \n");
         _topNavViewController.navigationBar.topItem.title = [titleArray objectAtIndex:1];
         [self hideBeamAutoScrollLabels:YES];
     }
     else if (viewController == [tabBarController.viewControllers objectAtIndex:2] ) {
         
-        // DLog(@"Selected 2 \n");
+        // DDLogVerbose(@"Selected 2 \n");
         _topNavViewController.navigationBar.topItem.title = [titleArray objectAtIndex:2];
         [self hideBeamAutoScrollLabels:YES];
     }
     else if (viewController == [tabBarController.viewControllers objectAtIndex:3] ) {
         
-        // DLog(@"Selected 3 \n");
+        // DDLogVerbose(@"Selected 3 \n");
         _topNavViewController.navigationBar.topItem.title = [titleArray objectAtIndex:3];
         [self hideBeamAutoScrollLabels:YES];
     }
     else if (viewController == [tabBarController.viewControllers objectAtIndex:4] ) {
         
-        // DLog(@"Selected 4 \n");
+        // DDLogVerbose(@"Selected 4 \n");
         _topNavViewController.navigationBar.topItem.title = [titleArray objectAtIndex:4];
         [self hideBeamAutoScrollLabels:NO];
     }
     else if (viewController == [tabBarController.viewControllers objectAtIndex:5] ) {
         
-        // DLog(@"Selected 5 \n");
+        // DDLogVerbose(@"Selected 5 \n");
         _topNavViewController.navigationBar.topItem.title = [titleArray objectAtIndex:5];
         [self hideBeamAutoScrollLabels:YES];
     }

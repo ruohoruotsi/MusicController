@@ -7,14 +7,17 @@
 //
 
 #import "DPMusicLibraryManager.h"
-#import <MediaPlayer/MediaPlayer.h>
 #import "DPMusicItem.h"
 #import "DPMusicItemIndexSection.h"
 #import "DPMusicItemSong.h"
 #import "DPMusicItemArtist.h"
 #import "DPMusicItemAlbum.h"
+#import "DDLog.h"
 
+#import <MediaPlayer/MediaPlayer.h>
 #import <mach/mach_time.h>  // for mach_absolute_time() and friends
+
+static const int ddLogLevel = LOG_LEVEL_OFF; // LOG_LEVEL_VERBOSE;
 
 
 @interface DPMusicLibraryManager ()
@@ -59,7 +62,7 @@
             
             uint64_t start_songs = mach_absolute_time ();
             __block int count = 0;
-            // DLog(@" songsQuery.itemSections size == %ld", (unsigned long)[songsQuery.itemSections count]);
+            // DDLogVerbose(@" songsQuery.itemSections size == %ld", (unsigned long)[songsQuery.itemSections count]);
             for (MPMediaQuerySection *section in songsQuery.itemSections) {
                 NSArray *subArray = [songsQuery.items objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:section.range]];
                 NSMutableArray *convertedSubArray = [NSMutableArray arrayWithCapacity:subArray.count];
@@ -90,15 +93,15 @@
                 }
 #endif
                 
-                // DLog(@"  [SONG] convertedSubArray size == %ld", (unsigned long)[convertedSubArray count]);
+                // DDLogVerbose(@"  [SONG] convertedSubArray size == %ld", (unsigned long)[convertedSubArray count]);
                 DPMusicItemIndexSection *itemSection = [[DPMusicItemIndexSection alloc] initWithItems:convertedSubArray forIndexTitle:section.title atIndex:songsArray.count];
                 
                 [songsArray addObject:itemSection];
             }
 
             _songs = [NSArray arrayWithArray:songsArray];
-            DLog(@" SONG QUERY SUBARRAY ELEMENT COUNT == %d", count);
-            DLog(@" songsArray COUNT == %d", (int)[_songs count]);
+            DDLogVerbose(@" SONG QUERY SUBARRAY ELEMENT COUNT == %d", count);
+            DDLogVerbose(@" songsArray COUNT == %d", (int)[_songs count]);
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 _songsLoaded = YES;
@@ -111,7 +114,7 @@
             uint64_t elapsed_songs = end_songs - start_songs;
             uint64_t nanos_songs = elapsed_songs * info.numer / info.denom;
             CGFloat ret_songs =  (CGFloat)nanos_songs / NSEC_PER_SEC;
-            DLog(@" IOHAVOC -- SONG QUERY -- TIMING:::::::: %f", ret_songs);
+            DDLogVerbose(@" IOHAVOC -- SONG QUERY -- TIMING:::::::: %f", ret_songs);
         });
         
         
@@ -128,7 +131,7 @@
             
             uint64_t start_artists = mach_absolute_time ();
             int count = 0;
-            // DLog(@" artistsQuery.itemSections size == %ld", (unsigned long)[artistsQuery.itemSections count]);
+            // DDLogVerbose(@" artistsQuery.itemSections size == %ld", (unsigned long)[artistsQuery.itemSections count]);
 			
 			for (MPMediaQuerySection *section in artistsQuery.collectionSections) {
 				NSArray *subArray = [artistsQuery.collections objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:section.range]];
@@ -143,7 +146,7 @@
                      count++;
 				}
 				
-                // DLog(@" [ARTIST] convertedSubArray size == %ld", (unsigned long)[convertedSubArray count]);
+                // DDLogVerbose(@" [ARTIST] convertedSubArray size == %ld", (unsigned long)[convertedSubArray count]);
 				DPMusicItemIndexSection *itemSection = [[DPMusicItemIndexSection alloc] initWithItems:convertedSubArray forIndexTitle:section.title atIndex:artistsArray.count];
 				
 				
@@ -152,8 +155,8 @@
 			}
             
 			_artists = [NSArray arrayWithArray:artistsArray];
-            DLog(@" ARTIST QUERY SUBARRAY ELEMENT COUNT == %d", count);
-            DLog(@" artistsArray COUNT == %d", (int)[_artists count]);
+            DDLogVerbose(@" ARTIST QUERY SUBARRAY ELEMENT COUNT == %d", count);
+            DDLogVerbose(@" artistsArray COUNT == %d", (int)[_artists count]);
 
 			dispatch_async(dispatch_get_main_queue(), ^{
 				_artistsLoaded = YES;
@@ -165,7 +168,7 @@
             uint64_t elapsed_artists = end_artists - start_artists;
             uint64_t nanos_artists = elapsed_artists * info.numer / info.denom;
             CGFloat ret_artists =  (CGFloat)nanos_artists / NSEC_PER_SEC;
-            DLog(@" IOHAVOC -- ARTIST QUERY -- TIMING:::::::: %f", ret_artists);
+            DDLogVerbose(@" IOHAVOC -- ARTIST QUERY -- TIMING:::::::: %f", ret_artists);
             
 		});
         
@@ -204,8 +207,8 @@
 			
 			
 			_albums = [NSArray arrayWithArray:albumsArray];
-            DLog(@" ALBUM QUERY SUBARRAY ELEMENT COUNT == %d", count);
-            DLog(@" ALBUM SIZE == %ld", (unsigned long)[_albums count]);
+            DDLogVerbose(@" ALBUM QUERY SUBARRAY ELEMENT COUNT == %d", count);
+            DDLogVerbose(@" ALBUM SIZE == %ld", (unsigned long)[_albums count]);
 			
             dispatch_async(dispatch_get_main_queue(), ^{
 				_albumsLoaded = YES;
@@ -217,7 +220,7 @@
             uint64_t elapsed_albums = end_albums - start_albums;
             uint64_t nanos_albums = elapsed_albums * info.numer / info.denom;
             CGFloat ret_albums =  (CGFloat)nanos_albums / NSEC_PER_SEC;
-            DLog(@" IOHAVOC -- ALBUMS QUERY -- TIMING:::::::: %f", ret_albums);
+            DDLogVerbose(@" IOHAVOC -- ALBUMS QUERY -- TIMING:::::::: %f", ret_albums);
 		});
     });
 }
@@ -228,7 +231,7 @@
 		_listsLoaded = YES;
 		
 		[[NSNotificationCenter defaultCenter] postNotificationName:kDPMusicNotificationLibraryLoaded object:nil];
-		DLog(@"lists loaded");
+		DDLogVerbose(@"lists loaded");
         
         if (!self.includeUnplayable) {
 			dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

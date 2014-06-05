@@ -9,10 +9,14 @@
 #import "DPMusicPlayer.h"
 #import "DPMusicItem.h"
 #import "DPMusicItemSong.h"
-#import <CoreMedia/CoreMedia.h>
 #import "DPMusicConstants.h"
+#import "DDLog.h"
 
+#import <CoreMedia/CoreMedia.h>
 #import <AVFoundation/AVAudioSession.h>
+
+static const int ddLogLevel = LOG_LEVEL_OFF; // LOG_LEVEL_VERBOSE;
+
 
 #define kUnitSize sizeof(AudioUnitSampleType)
 #define kBufferUnit 655360
@@ -100,7 +104,7 @@ static OSStatus ipodRenderCallback (
 
 -(void)setCurrentSong:(DPMusicItemSong*)song play:(BOOL)play
 {
-    DLog(@"-(void)setCurrentSong:(DPMusicItemSong*)song play:(BOOL)play");
+    DDLogVerbose(@"-(void)setCurrentSong:(DPMusicItemSong*)song play:(BOOL)play");
 
 	if (self.song != song)
 	{
@@ -225,7 +229,7 @@ static OSStatus ipodRenderCallback (
 
 - (void)incrementTrackPosition
 {
-    DLog(@" %f", audioStructs[mainBus].currentSampleNum / SInt16StereoStreamFormat.mSampleRate);
+    DDLogVerbose(@" %f", audioStructs[mainBus].currentSampleNum / SInt16StereoStreamFormat.mSampleRate);
 	[self setTrackPosition:audioStructs[mainBus].currentSampleNum / SInt16StereoStreamFormat.mSampleRate];
 }
 
@@ -262,23 +266,23 @@ static OSStatus ipodRenderCallback (
 	
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:assetURL options:nil];
     if (asset == nil) {
-        DLog(@"asset is not defined!");
+        DDLogVerbose(@"asset is not defined!");
         return;
     }
 	
-    DLog(@"Total Asset Duration: %f", CMTimeGetSeconds(asset.duration));
+    DDLogVerbose(@"Total Asset Duration: %f", CMTimeGetSeconds(asset.duration));
 	
     NSError *assetError = nil;
     self.crossfadeAssetReader = [AVAssetReader assetReaderWithAsset:asset error:&assetError];
     if (assetError) {
-        DLog (@"error: %@", assetError);
+        DDLogVerbose (@"error: %@", assetError);
         return;
     }
 	
     AVAssetReaderOutput *readerOutput = [AVAssetReaderAudioMixOutput assetReaderAudioMixOutputWithAudioTracks:asset.tracks audioSettings:outputSettings];
 	
     if (! [self.crossfadeAssetReader canAddOutput: readerOutput]) {
-        DLog (@"can't add reader output... die!");
+        DDLogVerbose (@"can't add reader output... die!");
         return;
     }
 	
@@ -286,7 +290,7 @@ static OSStatus ipodRenderCallback (
     [self.crossfadeAssetReader addOutput: readerOutput];
 	
     if (! [self.crossfadeAssetReader startReading]) {
-        DLog(@"Unable to start reading!");
+        DDLogVerbose(@"Unable to start reading!");
         return;
     }
 	
@@ -324,7 +328,7 @@ static OSStatus ipodRenderCallback (
                 }
             }
         }
-        DLog(@"iPod Buffer Reading Finished");
+        DDLogVerbose(@"iPod Buffer Reading Finished");
     }];
 	
     [crossfadeOperationQueue addOperation:feediPodBufferOperation];
@@ -357,7 +361,7 @@ static OSStatus ipodRenderCallback (
         memset(outSample, 0, inNumberFrames * kUnitSize);
         
         
-       printf("\n\ncallback ########################            inNumberFrames == %d\n", (unsigned int)inNumberFrames);
+       // printf("\n\ncallback ########################            inNumberFrames == %d\n", (unsigned int)inNumberFrames);
 
         if (audioObject->playingiPod && audioObject->bufferIsReady) {
             
@@ -365,13 +369,13 @@ static OSStatus ipodRenderCallback (
             
             AudioUnitSampleType *bufferTail     = TPCircularBufferTail(&audioObject->circularBuffer, &availableBytes);
             
-            printf("callback ########################            availableBytes == %d\n", availableBytes );
+            // printf("callback ########################            availableBytes == %d\n", availableBytes );
 
             memcpy(outSample, bufferTail, MIN(availableBytes, inNumberFrames * kUnitSize) );
             TPCircularBufferConsume(&audioObject->circularBuffer, MIN(availableBytes, (int)(inNumberFrames * kUnitSize)));
             audioObject->currentSampleNum += MIN(availableBytes / (kUnitSize), inNumberFrames);
             
-            printf("callback ########################            audioObject->currentSampleNum == %ld \n", (long)audioObject->currentSampleNum );
+            // printf("callback ########################            audioObject->currentSampleNum == %ld \n", (long)audioObject->currentSampleNum );
 
             if (inBusNumber == self->mainBus)
                 self->framesSinceLastTimeUpdate += inNumberFrames;
@@ -382,14 +386,14 @@ static OSStatus ipodRenderCallback (
                                                                          withObject:nil
                                                                       waitUntilDone:NO];
                 self->framesSinceLastTimeUpdate = 0;
-                printf("callback ########################   ########################           incrementTrackPositionInvocation\n");
+                // printf("callback ########################   ########################           incrementTrackPositionInvocation\n");
 
             }
             
             // sit w/ a slouch 9672345
             // long crap = inNumberFrames * kUnitSize;
             long left =  self.graphSampleRate * self.duration - audioObject->currentSampleNum;
-            printf("\n duration = %f    left = %ld\n", self.graphSampleRate * self.duration, left);
+            // printf("\n duration = %f    left = %ld\n", self.graphSampleRate * self.duration, left);
             if ((availableBytes <= inNumberFrames * kUnitSize) &&
                 ( left < kSampleBufferGetTotalSampleSize)) {
                 // Buffer is running out or playback is finished
@@ -426,7 +430,7 @@ static OSStatus ipodRenderCallback (
     SInt16StereoStreamFormat.mSampleRate        = self.graphSampleRate;
 	
 	//return SInt16StereoStreamFormat;
-    DLog (@"The stereo stream format for the \"iPod\" mixer input bus:");
+    DDLogVerbose (@"The stereo stream format for the \"iPod\" mixer input bus:");
 	[self printASBD: SInt16StereoStreamFormat];
 }
 
@@ -437,14 +441,14 @@ static OSStatus ipodRenderCallback (
     bcopy (&formatID, formatIDString, 4);
     formatIDString[4] = '\0';
     
-    DLog (@"  Sample Rate:         %10.0f",  asbd.mSampleRate);
-    DLog (@"  Format ID:           %10s",    formatIDString);
-    DLog (@"  Format Flags:        %10lX",    (unsigned long) asbd.mFormatFlags);
-    DLog (@"  Bytes per Packet:    %10ld",    (unsigned long) asbd.mBytesPerPacket);
-    DLog (@"  Frames per Packet:   %10ld",    (unsigned long) asbd.mFramesPerPacket);
-    DLog (@"  Bytes per Frame:     %10ld",    (unsigned long) asbd.mBytesPerFrame);
-    DLog (@"  Channels per Frame:  %10ld",    (unsigned long) asbd.mChannelsPerFrame);
-    DLog (@"  Bits per Channel:    %10ld",    (unsigned long) asbd.mBitsPerChannel);
+    DDLogVerbose (@"  Sample Rate:         %10.0f",  asbd.mSampleRate);
+    DDLogVerbose (@"  Format ID:           %10s",    formatIDString);
+    DDLogVerbose (@"  Format Flags:        %10lX",    (unsigned long) asbd.mFormatFlags);
+    DDLogVerbose (@"  Bytes per Packet:    %10ld",    (unsigned long) asbd.mBytesPerPacket);
+    DDLogVerbose (@"  Frames per Packet:   %10ld",    (unsigned long) asbd.mFramesPerPacket);
+    DDLogVerbose (@"  Bytes per Frame:     %10ld",    (unsigned long) asbd.mBytesPerFrame);
+    DDLogVerbose (@"  Channels per Frame:  %10ld",    (unsigned long) asbd.mChannelsPerFrame);
+    DDLogVerbose (@"  Bits per Channel:    %10ld",    (unsigned long) asbd.mBitsPerChannel);
 }
 # pragma mark- mixer host stuff
 - (void) setupAudioSession {
@@ -456,7 +460,7 @@ static OSStatus ipodRenderCallback (
 	
 	if (audioSessionError != nil) {
 		
-		DLog (@"Error setting audio session category.");
+		DDLogVerbose (@"Error setting audio session category.");
 		return;
 	}
 	
@@ -471,7 +475,7 @@ static OSStatus ipodRenderCallback (
     
 	if (audioSessionError != nil) {
 		
-		DLog (@"Error setting preferred hardware sample rate.");
+		DDLogVerbose (@"Error setting preferred hardware sample rate.");
 		return;
 	}
 	
@@ -480,7 +484,7 @@ static OSStatus ipodRenderCallback (
 	
 	if (audioSessionError != nil) {
 		
-		DLog (@"Error activating audio session during initial setup.");
+		DDLogVerbose (@"Error activating audio session during initial setup.");
 		return;
 	}
 	
@@ -549,7 +553,7 @@ static OSStatus ipodRenderCallback (
 	@autoreleasepool {
 		
 		
-		DLog (@"Configuring and then initializing audio processing graph");
+		DDLogVerbose (@"Configuring and then initializing audio processing graph");
 		OSStatus result = noErr;
 		
 		//............................................................................
@@ -588,7 +592,7 @@ static OSStatus ipodRenderCallback (
 		
 		//............................................................................
 		// Add nodes to the audio processing graph.
-		DLog (@"Adding nodes to audio processing graph");
+		DDLogVerbose (@"Adding nodes to audio processing graph");
 		
 		//    AUNode   iONode;         // node for I/O unit
 		//    AUNode   mixerNode;      // node for Multichannel Mixer unit
@@ -668,7 +672,7 @@ static OSStatus ipodRenderCallback (
 		mainBus = 0;
 		auxBus = 1;
 		
-		DLog (@"Setting mixer unit input bus count to: %u", busCount);
+		DDLogVerbose (@"Setting mixer unit input bus count to: %u", busCount);
 		result = AudioUnitSetProperty (
 									   _mixerUnit,
 									   kAudioUnitProperty_ElementCount,
@@ -681,7 +685,7 @@ static OSStatus ipodRenderCallback (
 		if (noErr != result) {[self printErrorMessage: @"AudioUnitSetProperty (set mixer unit bus count)" withStatus: result]; return;}
 		
 		
-		DLog (@"Setting kAudioUnitProperty_MaximumFramesPerSlice for mixer unit global scope");
+		DDLogVerbose (@"Setting kAudioUnitProperty_MaximumFramesPerSlice for mixer unit global scope");
 		// Increase the maximum frames per slice allows the mixer unit to accommodate the
 		//    larger slice size used when the screen is locked.
 		UInt32 maximumFramesPerSlice = 4096;
@@ -717,7 +721,7 @@ static OSStatus ipodRenderCallback (
 			inputCallbackStruct.inputProc        = ipodRenderCallback;
 			inputCallbackStruct.inputProcRefCon  = (__bridge void*)self;
 			
-			DLog (@"Registering the render callback with mixer unit input bus %u", busNumber);
+			DDLogVerbose (@"Registering the render callback with mixer unit input bus %u", busNumber);
 			// Set a callback for the specified node's specified input
 			result = AUGraphSetNodeInputCallback (
 												  processingGraph,
@@ -731,7 +735,7 @@ static OSStatus ipodRenderCallback (
 		
 		//[self addCrossfadeBus];
 		
-		DLog (@"Setting stereo stream format for mixer unit \"guitar\" input bus");
+		DDLogVerbose (@"Setting stereo stream format for mixer unit \"guitar\" input bus");
 		result = AudioUnitSetProperty (
 									   _mixerUnit,
 									   kAudioUnitProperty_StreamFormat,
@@ -744,7 +748,7 @@ static OSStatus ipodRenderCallback (
 		if (noErr != result) {[self printErrorMessage: @"AudioUnitSetProperty (set mixer unit guitar input bus stream format)" withStatus: result];return;}
 		
 		//
-		//    DLog (@"Setting mono stream format for mixer unit \"beats\" input bus");
+		//    DDLogVerbose (@"Setting mono stream format for mixer unit \"beats\" input bus");
 		//    result = AudioUnitSetProperty (
 		//								   mixerUnit,
 		//								   kAudioUnitProperty_StreamFormat,
@@ -757,7 +761,7 @@ static OSStatus ipodRenderCallback (
 		//    if (noErr != result) {[self printErrorMessage: @"AudioUnitSetProperty (set mixer unit beats input bus stream format)" withStatus: result];return;}
 		//
 		
-		DLog (@"Setting sample rate for mixer unit output scope");
+		DDLogVerbose (@"Setting sample rate for mixer unit output scope");
 		// Set the mixer unit's output sample rate format. This is the only aspect of the output stream
 		//    format that must be explicitly set.
 		result = AudioUnitSetProperty (
@@ -774,7 +778,7 @@ static OSStatus ipodRenderCallback (
 		
 		//............................................................................
 		// Connect the nodes of the audio processing graph
-		DLog (@"Connecting the mixer output to the input of the I/O unit output element");
+		DDLogVerbose (@"Connecting the mixer output to the input of the I/O unit output element");
 		
 		result = AUGraphConnectNodeInput (
 										  processingGraph,
@@ -797,7 +801,7 @@ static OSStatus ipodRenderCallback (
 		if (noErr != result) {[self printErrorMessage: @"AUGraphConnectNodeInput eq to io" withStatus: result]; return;}
 		
 		
-		DLog(@"set default eq preset");
+		DDLogVerbose(@"set default eq preset");
 		
 		CFArrayRef mEQPresetsArray;
 		UInt32 size = sizeof(mEQPresetsArray);
@@ -837,10 +841,10 @@ static OSStatus ipodRenderCallback (
 		// Diagnostic code
 		// Call CAShow if you want to look at the state of the audio processing
 		//    graph.
-		DLog (@"Audio processing graph state immediately before initializing it:");
+		DDLogVerbose (@"Audio processing graph state immediately before initializing it:");
 		CAShow (processingGraph);
 		
-		DLog (@"Initializing the audio processing graph");
+		DDLogVerbose (@"Initializing the audio processing graph");
 		// Initialize the audio processing graph, configure audio data stream formats for
 		//    each input and output, and validate the connections between audio units.
 		result = AUGraphInitialize (processingGraph);
@@ -913,7 +917,7 @@ static char *FormatError(char *str, OSStatus error)
 	char *new = FormatError(str, result);
 	
 	NSString *string = [NSString stringWithUTF8String:new];
-	DLog(@"%@", string)	;
+	DDLogVerbose(@"%@", string)	;
 }
 
 #pragma mark -
@@ -928,7 +932,7 @@ static char *FormatError(char *str, OSStatus error)
     UInt32 crossfadeBus  = 1;    // mixer unit bus 0 will be stereo and will take the guitar sound
 								 //   UInt32 beatsBus   = 1;    // mixer unit bus 1 will be mono and will take the beats sound
     
-    DLog (@"Setting mixer unit input bus count to: %u", busCount);
+    DDLogVerbose (@"Setting mixer unit input bus count to: %u", busCount);
     result = AudioUnitSetProperty (
 								   _mixerUnit,
 								   kAudioUnitProperty_ElementCount,
@@ -945,7 +949,7 @@ static char *FormatError(char *str, OSStatus error)
 	inputCallbackStruct.inputProc        = ipodRenderCallback;
 	inputCallbackStruct.inputProcRefCon  = (__bridge void*)self;
     
-	// DLog (@"Registering the render callback with mixer unit input bus %u", busNumber);
+	// DDLogVerbose (@"Registering the render callback with mixer unit input bus %u", busNumber);
 	// Set a callback for the specified node's specified input
 	result = AUGraphSetNodeInputCallback (
 										  processingGraph,
@@ -958,7 +962,7 @@ static char *FormatError(char *str, OSStatus error)
 	// }
 	
 	
-    DLog (@"Setting stereo stream format for mixer unit \"guitar\" input bus");
+    DDLogVerbose (@"Setting stereo stream format for mixer unit \"guitar\" input bus");
     result = AudioUnitSetProperty (
 								   _mixerUnit,
 								   kAudioUnitProperty_StreamFormat,
@@ -986,12 +990,12 @@ static char *FormatError(char *str, OSStatus error)
 
 		if (self.song)
 		{
-            DLog(@"if self.song -(void)setCurrentSong:(DPMusicItemSong*)song play:(BOOL)play");
+            DDLogVerbose(@"if self.song -(void)setCurrentSong:(DPMusicItemSong*)song play:(BOOL)play");
 
 			[self loadBufferAtStartTime:[self trackPosition] reset:YES];
 		}
 		
-		DLog (@"Starting audio processing graph");
+		DDLogVerbose (@"Starting audio processing graph");
 		OSStatus result = AUGraphStart (processingGraph);
 		if (noErr != result) {[self printErrorMessage: @"AUGraphStart" withStatus: result]; return;}
 		
@@ -1004,7 +1008,7 @@ static char *FormatError(char *str, OSStatus error)
 // Stop playback
 - (void) stopAUGraph {
 	
-    DLog (@"Stopping audio processing graph");
+    DDLogVerbose (@"Stopping audio processing graph");
     Boolean isRunning = false;
     OSStatus result = AUGraphIsRunning (processingGraph, &isRunning);
     if (noErr != result) {[self printErrorMessage: @"AUGraphIsRunning" withStatus: result]; return;}
@@ -1053,7 +1057,7 @@ static char *FormatError(char *str, OSStatus error)
 // Enable or disable a specified bus
 - (void) enableMixerInput: (UInt32) inputBus isOn: (AudioUnitParameterValue) isOnValue {
 	
-    DLog (@"Bus %u now %@", inputBus, isOnValue ? @"on" : @"off");
+    DDLogVerbose (@"Bus %u now %@", inputBus, isOnValue ? @"on" : @"off");
 	
     OSStatus result = AudioUnitSetParameter (
 											 _mixerUnit,
@@ -1168,7 +1172,7 @@ static BOOL wasPlayingBeforeSeek = NO;
 }
 -(void)loadBufferAtStartTime:(NSTimeInterval)time reset:(BOOL)reset
 {
-    DLog(@"loadBufferAtStartTime: @ (NSTimeInterval)%f  reset==%d\n", time, (int)reset);
+    DDLogVerbose(@"loadBufferAtStartTime: @ (NSTimeInterval)%f  reset==%d\n", time, (int)reset);
 
 	audioStructs[mainBus].playingiPod = YES;
 	
@@ -1193,13 +1197,13 @@ static BOOL wasPlayingBeforeSeek = NO;
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:[self.song url] options:nil];
     if (asset == nil) {
 		
-        DLog(@"asset is not defined!");
+        DDLogVerbose(@"asset is not defined!");
         return;
     }
     NSError *assetError = nil;
     __block AVAssetReader *assetReader = [AVAssetReader assetReaderWithAsset:asset error:&assetError];
     if (assetError) {
-        DLog (@"error: %@", assetError);
+        DDLogVerbose (@"error: %@", assetError);
         return;
     }
 	
@@ -1213,14 +1217,14 @@ static BOOL wasPlayingBeforeSeek = NO;
     __block AVAssetReaderOutput *readerOutput = [AVAssetReaderAudioMixOutput assetReaderAudioMixOutputWithAudioTracks:[asset tracksWithMediaType:AVMediaTypeAudio] audioSettings:outputSettings];
 	
     if (! [assetReader canAddOutput: readerOutput]) {
-        DLog (@"can't add reader output... die!");
+        DDLogVerbose (@"can't add reader output... die!");
         return;
     }
     // add output reader to reader
     [assetReader addOutput: readerOutput];
 	
     if (! [assetReader startReading]) {
-        DLog(@"Unable to start reading!");
+        DDLogVerbose(@"Unable to start reading!");
         return;
     }
 	
@@ -1233,10 +1237,10 @@ static BOOL wasPlayingBeforeSeek = NO;
 
 				if (kTotalBufferSize - audio->circularBuffer.fillCount >= kSampleBufferGetTotalSampleSize) {
 
-                    DLog(@"kTotalBufferSize - audio->circularBuffer.fillCount == %ld   audio->circularBuffer.fillCount == %d", kTotalBufferSize - audio->circularBuffer.fillCount , audio->circularBuffer.fillCount);
+                    DDLogVerbose(@"kTotalBufferSize - audio->circularBuffer.fillCount == %ld   audio->circularBuffer.fillCount == %d", kTotalBufferSize - audio->circularBuffer.fillCount , audio->circularBuffer.fillCount);
                     CMSampleBufferRef nextBuffer = [readerOutput copyNextSampleBuffer];
 					
-                    DLog(@"nextBuffer == %d", (int)nextBuffer);
+                    DDLogVerbose(@"nextBuffer == %d", (int)nextBuffer);
                     if (nextBuffer) {
 
                         AudioBufferList abl;
@@ -1245,7 +1249,7 @@ static BOOL wasPlayingBeforeSeek = NO;
                         UInt64 size = CMSampleBufferGetTotalSampleSize(nextBuffer);
 
 						int bytesCopied = TPCircularBufferProduceBytes(&audio->circularBuffer, abl.mBuffers[0].mData, (int)size);
-						DLog(@"            bytesCopied size == %lld", size);
+						DDLogVerbose(@"            bytesCopied size == %lld", size);
 						if (!audio->bufferIsReady && bytesCopied > 0) {
                             audio->bufferIsReady = YES;
 							audio->playingiPod = YES;
@@ -1256,7 +1260,7 @@ static BOOL wasPlayingBeforeSeek = NO;
                         CFRelease(blockBuffer);
                     }
                     else {
-                        DLog(@"\n\n BREAK \n\n");
+                        DDLogVerbose(@"\n\n BREAK \n\n");
 
                         
                         break;
@@ -1267,7 +1271,7 @@ static BOOL wasPlayingBeforeSeek = NO;
 		
 		feediPodBufferOperation = nil;
 		assetReader = nil;
-		DLog(@"iPod Buffer Reading Finished");
+		DDLogVerbose(@"iPod Buffer Reading Finished");
     }];
 		
     [iTunesOperationQueue addOperation:feediPodBufferOperation];

@@ -9,6 +9,10 @@
 #import "DPMusicController.h"
 #import "DPMusicPlayer.h"
 #import "DPMusicItem.h"
+#import "DDLog.h"
+
+static const int ddLogLevel = LOG_LEVEL_OFF; // LOG_LEVEL_VERBOSE;
+
 
 @interface DPMusicController ()
 {
@@ -543,7 +547,7 @@
 
 -(void)playbackDidFinish
 {
-    DLog(@"playbackDidFinish ---------------- FINISHED");
+    DDLogVerbose(@"playbackDidFinish ---------------- FINISHED");
     [self nextWithCrossfade:NO error:nil];
     
 }
