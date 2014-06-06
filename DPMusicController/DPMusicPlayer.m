@@ -1232,8 +1232,7 @@ static BOOL wasPlayingBeforeSeek = NO;
 	__block AudioStruct *audio = &audioStructs[mainBus];
 	
 	__block NSBlockOperation * feediPodBufferOperation = [NSBlockOperation blockOperationWithBlock:^{
-		while (![feediPodBufferOperation isCancelled] && assetReader.status != AVAssetReaderStatusCompleted) {
-			if (assetReader.status == AVAssetReaderStatusReading) {
+		while (![feediPodBufferOperation isCancelled] && assetReader.status == AVAssetReaderStatusReading) {
 
 				if (kTotalBufferSize - audio->circularBuffer.fillCount >= kSampleBufferGetTotalSampleSize) {
 
@@ -1266,7 +1265,6 @@ static BOOL wasPlayingBeforeSeek = NO;
                         break;
                     }
 				}
-			}
         }
 		
 		feediPodBufferOperation = nil;
