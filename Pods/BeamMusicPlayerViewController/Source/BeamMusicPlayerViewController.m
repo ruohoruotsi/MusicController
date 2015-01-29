@@ -415,13 +415,12 @@
 
 -(void)next {
     self.lastDirectionChangePositive = YES;
-    [self changeTrack:self->currentTrack+1];
+    [self changeTrack:self->currentTrack + 1];
 }
 
 -(void)previous {
     self.lastDirectionChangePositive = NO;
-
-    [self changeTrack:self->currentTrack-1];
+    [self changeTrack:self->currentTrack - 1];
 }
 
 /*
@@ -431,8 +430,7 @@
     // TODO: deactivate automatic actions via additional property
     // overhaul this method
     if ( self.repeatMode != MPMusicRepeatModeOne ){
-        // [self next];  - reactivate me
-
+        [self next];
     } else {
         self->currentPlaybackPosition = 0;
         [self updateSeekUI];
@@ -509,12 +507,17 @@
  * Reloads data from the data source and updates the player.
  */
 -(void)reloadData {
-    if([self.dataSource respondsToSelector:@selector(numberOfTracksInPlayer:)])
-        self.numberOfTracks = [self.dataSource numberOfTracksInPlayer:self];
-    else
-        self.numberOfTracks = -1;
-    self.currentTrackLength = [self.dataSource musicPlayer:self lengthForTrack:self.currentTrack];
     
+    if([self.dataSource respondsToSelector:@selector(numberOfTracksInPlayer:)]) {
+        self.numberOfTracks = [self.dataSource numberOfTracksInPlayer:self];
+    } else {
+        self.numberOfTracks = -1;
+    }
+    
+    // If this is the first time into the BeamMusicPlayerVC, set initial track to be the top of the playlist
+    if(self.currentTrack == 0 && playbackTickTimer == nil && !self.playing) [self changeTrack:0];
+    
+    self.currentTrackLength = [self.dataSource musicPlayer:self lengthForTrack:self.currentTrack];
     [self updateUI];
 }
 

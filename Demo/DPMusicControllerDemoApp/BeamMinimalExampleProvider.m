@@ -62,7 +62,7 @@ static const int ddLogLevel = LOG_LEVEL_OFF; // LOG_LEVEL_VERBOSE;
     DPMusicController* controller = [DPMusicController sharedController];
     if([[controller queue] count] != 0) {
         
-        retVal = [[DPMusicController sharedController] duration];
+        retVal = [controller duration];
     }
     return retVal;
 }
@@ -120,7 +120,6 @@ static const int ddLogLevel = LOG_LEVEL_OFF; // LOG_LEVEL_VERBOSE;
         int delta = (int)(track - currentIndex);
         DDLogVerbose(@" track#:  %d   currentIndex#:   %d     delta:  %d \n", (int)track, (int)currentIndex, delta);
         
-        
         // Handle the FFWD & RWD case off the end of the queue, loop around
         if(abs(delta) == [[controller queue] count] - 1) {
             
@@ -136,7 +135,7 @@ static const int ddLogLevel = LOG_LEVEL_OFF; // LOG_LEVEL_VERBOSE;
                 [SVProgressHUD showSuccessWithStatus:@"DELTA == 0"];
                 
                 // [self.musicPlayer skipToBeginning];
-                // [controller previousWithCrossfade:NO error:nil];
+                [controller setPlayhead:track play:[controller isPlaying] error:nil];
             }
         }
     }

@@ -15,13 +15,13 @@
 #import <CoreMedia/CoreMedia.h>
 #import <AVFoundation/AVAudioSession.h>
 
-static const int ddLogLevel = LOG_LEVEL_OFF; // LOG_LEVEL_VERBOSE;
+static const int ddLogLevel = LOG_LEVEL_VERBOSE; // LOG_LEVEL_OFF;
 
 
-#define kUnitSize sizeof(AudioUnitSampleType)
+#define kUnitSize sizeof(AudioUnitSampleType) // IOHAVOC kUnitSize == 4 (bytes)
 #define kBufferUnit 655360
-#define kTotalBufferSize kBufferUnit * kUnitSize
-#define kSampleBufferGetTotalSampleSize 32768
+#define kTotalBufferSize (kBufferUnit * kUnitSize)
+#define kSampleBufferGetTotalSampleSize (8192 * kUnitSize * 2) // 32768
 
 #define MAIN_BUS 0
 #define AUX_BUS 1
@@ -229,7 +229,7 @@ static OSStatus ipodRenderCallback (
 
 - (void)incrementTrackPosition
 {
-    DDLogVerbose(@" %f", audioStructs[mainBus].currentSampleNum / SInt16StereoStreamFormat.mSampleRate);
+    // DDLogVerbose(@" %f", audioStructs[mainBus].currentSampleNum / SInt16StereoStreamFormat.mSampleRate);
 	[self setTrackPosition:audioStructs[mainBus].currentSampleNum / SInt16StereoStreamFormat.mSampleRate];
 }
 
@@ -1197,34 +1197,33 @@ static BOOL wasPlayingBeforeSeek = NO;
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:[self.song url] options:nil];
     if (asset == nil) {
 		
-        DDLogVerbose(@"asset is not defined!");
+        DDLogError(@"AVURLAsset is not defined!");
         return;
     }
     NSError *assetError = nil;
     __block AVAssetReader *assetReader = [AVAssetReader assetReaderWithAsset:asset error:&assetError];
     if (assetError) {
-        DDLogVerbose (@"error: %@", assetError);
+        DDLogError (@"Error: %@", assetError);
         return;
     }
 	
 	if (time!= 0)
 	{
 		assetReader.timeRange = CMTimeRangeMake((time == 0 ? kCMTimeZero : CMTimeMakeWithSeconds(time, 1)), kCMTimePositiveInfinity);
-		
 	}
 	
 	
     __block AVAssetReaderOutput *readerOutput = [AVAssetReaderAudioMixOutput assetReaderAudioMixOutputWithAudioTracks:[asset tracksWithMediaType:AVMediaTypeAudio] audioSettings:outputSettings];
 	
     if (! [assetReader canAddOutput: readerOutput]) {
-        DDLogVerbose (@"can't add reader output... die!");
+        DDLogError (@"Cannot add AVAssetReaderOutput. [assetReader canAddOutput: readerOutput] failed!");
         return;
     }
     // add output reader to reader
     [assetReader addOutput: readerOutput];
 	
     if (! [assetReader startReading]) {
-        DDLogVerbose(@"Unable to start reading!");
+        DDLogError(@"Unable to start reading with AVAssetReader. [assetReader startReading] failed!");
         return;
     }
 	
@@ -1232,27 +1231,35 @@ static BOOL wasPlayingBeforeSeek = NO;
 	__block AudioStruct *audio = &audioStructs[mainBus];
 	
 	__block NSBlockOperation * feediPodBufferOperation = [NSBlockOperation blockOperationWithBlock:^{
-		while (![feediPodBufferOperation isCancelled] && assetReader.status == AVAssetReaderStatusReading) {
+		while (![feediPodBufferOperation isCancelled] && assetReader.status != AVAssetReaderStatusCompleted) {
+			
+            if (assetReader.status == AVAssetReaderStatusReading) {
 
+                // if totalsize(64k) - currentAmount >= 32k i.e. if we're less-than-equal to half full, then fill.
 				if (kTotalBufferSize - audio->circularBuffer.fillCount >= kSampleBufferGetTotalSampleSize) {
 
-                    DDLogVerbose(@"kTotalBufferSize - audio->circularBuffer.fillCount == %ld   audio->circularBuffer.fillCount == %d", kTotalBufferSize - audio->circularBuffer.fillCount , audio->circularBuffer.fillCount);
+                    DDLogVerbose(@"kTotalBufferSize - circularBuffer.fillCount == %ld   circularBuffer.fillCount == %d",
+                                 kTotalBufferSize - audio->circularBuffer.fillCount , audio->circularBuffer.fillCount);
+                    
                     CMSampleBufferRef nextBuffer = [readerOutput copyNextSampleBuffer];
 					
-                    DDLogVerbose(@"nextBuffer == %d", (int)nextBuffer);
+                    // DDLogVerbose(@"nextBuffer == %d", (int)nextBuffer);
                     if (nextBuffer) {
 
+                        // IO HAVOC in the abl in CMSampleBufferGetAudioBufferListWithRetainedBlockBuffer
+                        // the data being returned already has a format of 2ch, 32768 databytesize. Where is this setup??
                         AudioBufferList abl;
                         CMBlockBufferRef blockBuffer;
-                        CMSampleBufferGetAudioBufferListWithRetainedBlockBuffer(nextBuffer, NULL, &abl, sizeof(abl), NULL, NULL, kCMSampleBufferFlag_AudioBufferList_Assure16ByteAlignment, &blockBuffer);
+                        CMSampleBufferGetAudioBufferListWithRetainedBlockBuffer(nextBuffer, NULL, &abl, sizeof(abl), NULL, NULL,
+                                                                                kCMSampleBufferFlag_AudioBufferList_Assure16ByteAlignment,
+                                                                                &blockBuffer);
                         UInt64 size = CMSampleBufferGetTotalSampleSize(nextBuffer);
 
-						int bytesCopied = TPCircularBufferProduceBytes(&audio->circularBuffer, abl.mBuffers[0].mData, (int)size);
-						DDLogVerbose(@"            bytesCopied size == %lld", size);
+						bool bytesCopied = TPCircularBufferProduceBytes(&audio->circularBuffer, abl.mBuffers[0].mData, (int)size);
+						DDLogVerbose(@"                                                                                                bytesCopied size == %d", size);
 						if (!audio->bufferIsReady && bytesCopied > 0) {
                             audio->bufferIsReady = YES;
 							audio->playingiPod = YES;
-							
 						}
 						
                         CFRelease(nextBuffer);
@@ -1261,15 +1268,15 @@ static BOOL wasPlayingBeforeSeek = NO;
                     else {
                         DDLogVerbose(@"\n\n BREAK \n\n");
 
-                        
                         break;
                     }
 				}
+			}
         }
 		
 		feediPodBufferOperation = nil;
 		assetReader = nil;
-		DDLogVerbose(@"iPod Buffer Reading Finished");
+		DDLogVerbose(@"\n\n iPod Buffer Reading Finished");
     }];
 		
     [iTunesOperationQueue addOperation:feediPodBufferOperation];
