@@ -1,1 +1,0 @@
-../../BeamMusicPlayerViewController/Source/BeamMPMusicPlayerProvider.h

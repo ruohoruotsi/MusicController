@@ -47,6 +47,10 @@ static const int ddLogLevel = LOG_LEVEL_OFF; // LOG_LEVEL_VERBOSE;
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadList) name:kDPMusicNotificationLibraryLoaded object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadList) name:kDPMusicNotificationPlaylistChanged object:nil];
+    
+    // Configure HUD
+    [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:0.8 alpha:0.6 ]];
+    [SVProgressHUD setForegroundColor:[UIColor blackColor]];
 }
 
 - (void)reloadList
