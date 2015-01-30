@@ -158,11 +158,11 @@
 		D934A3C917AF4B14003A9AD8 /* BeamMusicPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BeamMusicPlayerViewController.xib; path = ../../Pods/BeamMusicPlayerViewController/Source/BeamMusicPlayerViewController.xib; sourceTree = "<group>"; };
 		D9418CC8179DB45000F65F9A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D963863617806212003724B8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		D99634EB17F91EC600BEAFFE /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MMDrawerController+Subclass.h"; path = "../../Pods/MMDrawerController/MMDrawerController/MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
-		D99634EC17F91EC600BEAFFE /* MMDrawerController.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = MMDrawerController.h; path = ../../Pods/MMDrawerController/MMDrawerController/MMDrawerController.h; sourceTree = "<group>"; };
-		D99634ED17F91EC600BEAFFE /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = "UIViewController+MMDrawerController.h"; path = "../../Pods/MMDrawerController/MMDrawerController/UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
-		D99634EE17F91EC600BEAFFE /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = MMDrawerBarButtonItem.h; path = ../../Pods/MMDrawerController/MMDrawerController/MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
-		D99634EF17F91EC600BEAFFE /* MMDrawerVisualState.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = MMDrawerVisualState.h; path = ../../Pods/MMDrawerController/MMDrawerController/MMDrawerVisualState.h; sourceTree = "<group>"; };
+		D99634EB17F91EC600BEAFFE /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MMDrawerController+Subclass.h"; path = "../../Pods/MMDrawerController/MMDrawerController/MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
+		D99634EC17F91EC600BEAFFE /* MMDrawerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMDrawerController.h; path = ../../Pods/MMDrawerController/MMDrawerController/MMDrawerController.h; sourceTree = "<group>"; };
+		D99634ED17F91EC600BEAFFE /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIViewController+MMDrawerController.h"; path = "../../Pods/MMDrawerController/MMDrawerController/UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
+		D99634EE17F91EC600BEAFFE /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMDrawerBarButtonItem.h; path = ../../Pods/MMDrawerController/MMDrawerController/MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
+		D99634EF17F91EC600BEAFFE /* MMDrawerVisualState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMDrawerVisualState.h; path = ../../Pods/MMDrawerController/MMDrawerController/MMDrawerVisualState.h; sourceTree = "<group>"; };
 		D9CF898817E629BC0014557E /* DPMusicControllerStatic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DPMusicControllerStatic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CF898B17E629BC0014557E /* DPMusicControllerStatic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DPMusicControllerStatic-Info.plist"; sourceTree = "<group>"; };
 		D9CF898D17E629BC0014557E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -470,7 +470,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = DPM;
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Dan Pourhadi";
 			};
 			buildConfigurationList = 44C3C08B16C65EE3003E43D3 /* Build configuration list for PBXProject "DPMusicControllerDemoApp" */;
@@ -761,10 +761,6 @@
 		D9CF899317E629BC0014557E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
 				CONTENTS_FOLDER_PATH = "$(WRAPPER_NAME)/Versions/$(FRAMEWORK_VERSION)";
 				DEAD_CODE_STRIPPING = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -772,6 +768,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DPMusicControllerStatic/DPMusicControllerStatic-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				HEADER_SEARCH_PATHS = "${SRCROOT}/../Pods/Headers/**";
 				INFOPLIST_FILE = "DPMusicControllerStatic/DPMusicControllerStatic-Info.plist";
 				INFOPLIST_PATH = "$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/Info.plist";
@@ -790,10 +787,6 @@
 		D9CF899417E629BC0014557E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
 				CONTENTS_FOLDER_PATH = "$(WRAPPER_NAME)/Versions/$(FRAMEWORK_VERSION)";
 				DEAD_CODE_STRIPPING = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -801,6 +794,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DPMusicControllerStatic/DPMusicControllerStatic-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				HEADER_SEARCH_PATHS = "${SRCROOT}/../Pods/Headers/**";
 				INFOPLIST_FILE = "DPMusicControllerStatic/DPMusicControllerStatic-Info.plist";
 				INFOPLIST_PATH = "$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/Info.plist";
