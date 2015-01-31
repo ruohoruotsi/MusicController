@@ -9,6 +9,7 @@ PODS:
   - CocoaLumberjack/Core (1.9.2)
   - CocoaLumberjack/Extensions (1.9.2):
     - CocoaLumberjack/Core
+  - libpd (0.7.0)
   - MMDrawerController (0.5.7):
     - MMDrawerController/Core (= 0.5.7)
     - MMDrawerController/MMDrawerBarButtonItem (= 0.5.7)
@@ -27,12 +28,14 @@ PODS:
 DEPENDENCIES:
   - BeamMusicPlayerViewController
   - CocoaLumberjack
+  - libpd
   - MMDrawerController (~> 0.5.3)
   - SVProgressHUD
 
 SPEC CHECKSUMS:
   BeamMusicPlayerViewController: acbfa705ca2847bce13520b185bf3f36f5ff8399
   CocoaLumberjack: 205769c032b5fef85b92472046bcc8b7e7c8a817
+  libpd: f9e63d090e284438826f9b2fdc0810dbb9889e6f
   MMDrawerController: c3ab7a318ddc7e2bcd133139c3161af08c6e1197
   OBSlider: 3536461f3dd47dfcbd0972c5aafb88aa7081fb79
   SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
