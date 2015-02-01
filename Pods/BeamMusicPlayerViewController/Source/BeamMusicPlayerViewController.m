@@ -233,7 +233,7 @@
     self.backBlock = self->backBlock;
     
     // force re-layout according to interface orientation
-    dispatch_after(0, dispatch_get_current_queue(), ^{
+    dispatch_after(0, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self willAnimateRotationToInterfaceOrientation:self.interfaceOrientation duration:0];
         [self didRotateFromInterfaceOrientation:self.interfaceOrientation];
     });
@@ -571,6 +571,8 @@
             break;
         case MPMusicRepeatModeAll:
             imageName = @"repeat_on.png";
+            break;
+        case MPMusicRepeatModeNone:
             break;
     }
     if ( imageName )
