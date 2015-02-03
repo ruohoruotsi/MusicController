@@ -26,6 +26,9 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE; // LOG_LEVEL_OFF;
 #define MAIN_BUS 0
 #define AUX_BUS 1
 
+#define kOutputBus 0
+#define kInputBus 1
+
 #define BUFFER_COUNT 2
 
 static OSStatus ipodRenderCallback (
@@ -60,7 +63,7 @@ static OSStatus ipodRenderCallback (
 	UInt32 mainBus;
 	UInt32 auxBus;
 	
-	AudioStreamBasicDescription     SInt16StereoStreamFormat;
+	AudioStreamBasicDescription SInt16StereoStreamFormat;
 
 	NSOperationQueue *iTunesOperationQueue;
 
@@ -221,7 +224,6 @@ static OSStatus ipodRenderCallback (
 		[incrementTrackPositionInvocation setSelector:incrementTrackPositionSelector];
 		[incrementTrackPositionInvocation setTarget:self];
 
-		
 	}
 	
 	return self;
@@ -412,6 +414,9 @@ static OSStatus ipodRenderCallback (
     return noErr;
 }
 
+#if 1
+
+// Legacy < iOS8 format. Keep this around to A/B this stuff.
 - (void) setupSInt16StereoStreamFormat {
 	
     // The AudioUnitSampleType data type is the recommended type for sample data in audio
@@ -433,6 +438,68 @@ static OSStatus ipodRenderCallback (
     DDLogVerbose (@"The stereo stream format for the \"iPod\" mixer input bus:");
 	[self printASBD: SInt16StereoStreamFormat];
 }
+#else
+
+// Legacy < iOS8 format. Keep this around to A/B this stuff.
+- (void) setupSInt16StereoStreamFormat {
+    
+    // The AudioUnitSampleType data type is the recommended type for sample data in audio
+    //    units. This obtains the byte size of the type for use in filling in the ASBD.
+    size_t bytesPerSample = sizeof (float);
+    
+    // Fill audio format struct's field with linear PCM, stereo, noninterleaved floats at the hardware sample rate.
+    SInt16StereoStreamFormat.mFormatID          = kAudioFormatLinearPCM;
+    SInt16StereoStreamFormat.mFormatFlags       = kAudioFormatFlagIsFloat | kAudioFormatFlagsNativeEndian |
+                                                  kAudioFormatFlagIsPacked | kAudioFormatFlagIsNonInterleaved;
+
+    SInt16StereoStreamFormat.mBytesPerPacket    = (UInt32)(2 * bytesPerSample);
+    SInt16StereoStreamFormat.mFramesPerPacket   = 1;
+    SInt16StereoStreamFormat.mBytesPerFrame     = SInt16StereoStreamFormat.mBytesPerPacket * SInt16StereoStreamFormat.mFramesPerPacket;
+    SInt16StereoStreamFormat.mChannelsPerFrame  = 2; // Stereo
+    SInt16StereoStreamFormat.mBitsPerChannel    = (UInt32)(8 * bytesPerSample);
+    SInt16StereoStreamFormat.mSampleRate        = self.graphSampleRate;
+    
+    //return SInt16StereoStreamFormat;
+    DDLogVerbose (@"The stereo stream format for the \"iPod\" mixer input bus:");
+    [self printASBD: SInt16StereoStreamFormat];
+}
+
+#endif
+
+AudioStreamBasicDescription asbdWithInfo(Boolean isFloat,int numberOfChannels,Boolean interleavedIfStereo){
+    AudioStreamBasicDescription asbd = {0};
+    int sampleSize          = isFloat ? sizeof(float) : sizeof(SInt16);
+    asbd.mChannelsPerFrame  = (numberOfChannels == 1) ? 1 : 2;
+    asbd.mBitsPerChannel    = 8 * sampleSize;
+    asbd.mFramesPerPacket   = 1;
+    asbd.mSampleRate        = 44100.0;
+    asbd.mBytesPerFrame     = interleavedIfStereo ? sampleSize * asbd.mChannelsPerFrame : sampleSize;
+    asbd.mBytesPerPacket    = asbd.mBytesPerFrame;
+    asbd.mReserved          = 0;
+    asbd.mFormatID          = kAudioFormatLinearPCM;
+    if (isFloat) {
+        asbd.mFormatFlags = kAudioFormatFlagIsFloat;
+        if (interleavedIfStereo) {
+            if (numberOfChannels == 1) {
+                asbd.mFormatFlags = asbd.mFormatFlags | kAudioFormatFlagsNativeEndian | kAudioFormatFlagIsPacked | kAudioFormatFlagIsNonInterleaved;
+            }
+        }
+        else{
+            asbd.mFormatFlags = asbd.mFormatFlags | kAudioFormatFlagIsNonInterleaved | kAudioFormatFlagIsPacked ;
+        }
+    }
+    else{
+        asbd.mFormatFlags = kAudioFormatFlagIsSignedInteger | kAudioFormatFlagsNativeEndian | kAudioFormatFlagIsPacked;
+        if (!interleavedIfStereo) {
+            if (numberOfChannels > 1) {
+                asbd.mFormatFlags = asbd.mFormatFlags | kAudioFormatFlagIsNonInterleaved;
+            }
+            
+        }
+    }
+    return asbd;
+}
+
 
 - (void) printASBD: (AudioStreamBasicDescription) asbd {
 	
@@ -450,13 +517,32 @@ static OSStatus ipodRenderCallback (
     DDLogVerbose (@"  Channels per Frame:  %10ld",    (unsigned long) asbd.mChannelsPerFrame);
     DDLogVerbose (@"  Bits per Channel:    %10ld",    (unsigned long) asbd.mBitsPerChannel);
 }
+
+- (void) printAUScopesElements: (AudioUnit) audiounit {
+    
+    DDLogVerbose (@"printAUScopesElements");
+
+    AudioStreamBasicDescription strDesc ;
+    UInt32 param = sizeof( AudioStreamBasicDescription ) ;
+    AudioUnitGetProperty( audiounit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, kOutputBus, &strDesc, &param ) ;
+    NSLog( @"Audiounit Input scope, Element 0 (OutputBus): %d", (unsigned int)strDesc.mBitsPerChannel );
+    
+    AudioUnitGetProperty( audiounit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, kOutputBus, &strDesc, &param ) ;
+    NSLog( @"Audiounit Output scope, Element 0 (OutputBus): %d", (unsigned int)strDesc.mBitsPerChannel );
+    
+    AudioUnitGetProperty( audiounit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, kInputBus, &strDesc, &param ) ;
+    NSLog( @"Audiounit Input scope, Element 1 (InputBus): %d", (unsigned int)strDesc.mBitsPerChannel );
+    
+    AudioUnitGetProperty( audiounit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, kInputBus, &strDesc, &param ) ;
+    NSLog( @"Audiounit Output scope, Element 1 (InputBus): %d", (unsigned int)strDesc.mBitsPerChannel );
+}
+
 # pragma mark- mixer host stuff
 - (void) setupAudioSession {
 	
 	AVAudioSession *mySession = [AVAudioSession sharedInstance];
 	NSError *audioSessionError = nil;
-	[mySession setCategory: AVAudioSessionCategoryPlayback
-					 error: &audioSessionError];
+	[mySession setCategory: AVAudioSessionCategoryPlayback error: &audioSessionError];
 	
 	if (audioSessionError != nil) {
 		
@@ -604,8 +690,16 @@ static OSStatus ipodRenderCallback (
 									&iONode);
 		
 		if (noErr != result) {[self printErrorMessage: @"AUGraphNewNode failed for I/O unit" withStatus: result]; return;}
-		
-		
+
+        
+        result = AUGraphAddNode(
+                                processingGraph,
+                                &EQDescription,
+                                &eqNode);
+        
+        if (noErr != result) {[self printErrorMessage: @"AUGraphNewNode failed for EQ unit" withStatus: result]; return;}
+        
+        
 		result =    AUGraphAddNode (
 									processingGraph,
 									&MixerUnitDescription,
@@ -614,14 +708,7 @@ static OSStatus ipodRenderCallback (
 		
 		if (noErr != result) {[self printErrorMessage: @"AUGraphNewNode failed for Mixer unit" withStatus: result]; return;}
 		
-		result = AUGraphAddNode(
-								processingGraph,
-								&EQDescription,
-								&eqNode);
-		
-		if (noErr != result) {[self printErrorMessage: @"AUGraphNewNode failed for EQ unit" withStatus: result]; return;}
-		
-		
+
 		//............................................................................
 		// Open the audio processing graph
 		
@@ -775,7 +862,7 @@ static OSStatus ipodRenderCallback (
 		
 		if (noErr != result) {[self printErrorMessage: @"AudioUnitSetProperty (set mixer unit output stream format)" withStatus: result]; return;}
 		
-		
+
 		//............................................................................
 		// Connect the nodes of the audio processing graph
 		DDLogVerbose (@"Connecting the mixer output to the input of the I/O unit output element");
@@ -839,11 +926,16 @@ static OSStatus ipodRenderCallback (
 		// Initialize audio processing graph
 		
 		// Diagnostic code
-		// Call CAShow if you want to look at the state of the audio processing
-		//    graph.
-		DDLogVerbose (@"Audio processing graph state immediately before initializing it:");
-		CAShow (processingGraph);
-		
+		// Look at the state of the audio processing graph
+        printf("\n\n");
+		DDLogVerbose (@"CAShow(processingGraph): Audio processing graph state immediately before initializing it:");
+        CAShow (processingGraph);
+        printf("\n\n");
+        
+        DDLogVerbose (@"CAShow(processingGraph): Audio processing graph state immediately before initializing it:");
+        [self printAUScopesElements:_mixerUnit];
+
+        
 		DDLogVerbose (@"Initializing the audio processing graph");
 		// Initialize the audio processing graph, configure audio data stream formats for
 		//    each input and output, and validate the connections between audio units.
@@ -1183,8 +1275,9 @@ static BOOL wasPlayingBeforeSeek = NO;
 	framesSinceLastTimeUpdate = 0;
 	audioStructs[mainBus].currentSampleNum = time * SInt16StereoStreamFormat.mSampleRate;
 	
-	
-	
+
+#if 0
+	// < iOS8
     NSDictionary *outputSettings = [NSDictionary dictionaryWithObjectsAndKeys:
                                     [NSNumber numberWithInt:kAudioFormatLinearPCM], AVFormatIDKey,
                                     [NSNumber numberWithFloat:44100.0], AVSampleRateKey,
@@ -1193,7 +1286,28 @@ static BOOL wasPlayingBeforeSeek = NO;
                                     [NSNumber numberWithBool:NO], AVLinearPCMIsFloatKey,
                                     [NSNumber numberWithBool:NO], AVLinearPCMIsBigEndianKey,
                                     nil];
-	
+#endif
+
+    NSDictionary *outputSettings = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    [NSNumber numberWithInt:kAudioFormatLinearPCM], AVFormatIDKey,
+                                    [NSNumber numberWithFloat:44100.0], AVSampleRateKey,
+                                    [NSNumber numberWithInt:16], AVLinearPCMBitDepthKey,
+                                    [NSNumber numberWithBool:NO], AVLinearPCMIsNonInterleaved,
+                                    [NSNumber numberWithBool:NO], AVLinearPCMIsFloatKey,
+                                    [NSNumber numberWithBool:NO], AVLinearPCMIsBigEndianKey,
+                                    nil];
+    
+    NSDictionary *outputSettingsFloat = @{
+                                          AVFormatIDKey : [NSNumber numberWithUnsignedInt:kAudioFormatLinearPCM],
+                                          AVSampleRateKey : [NSNumber numberWithInteger:44100],
+                                          AVNumberOfChannelsKey : [NSNumber numberWithUnsignedInteger:2],
+                                          
+                                          AVLinearPCMBitDepthKey : [NSNumber numberWithInt:32],
+                                          AVLinearPCMIsBigEndianKey : [NSNumber numberWithBool:NO],
+                                          AVLinearPCMIsFloatKey : [NSNumber numberWithBool:YES],
+                                          AVLinearPCMIsNonInterleaved : [NSNumber numberWithBool:YES]
+                                          };
+    
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:[self.song url] options:nil];
     if (asset == nil) {
 		
@@ -1213,7 +1327,7 @@ static BOOL wasPlayingBeforeSeek = NO;
 	}
 	
 	
-    __block AVAssetReaderOutput *readerOutput = [AVAssetReaderAudioMixOutput assetReaderAudioMixOutputWithAudioTracks:[asset tracksWithMediaType:AVMediaTypeAudio] audioSettings:outputSettings];
+    __block AVAssetReaderOutput *readerOutput = [AVAssetReaderAudioMixOutput assetReaderAudioMixOutputWithAudioTracks:[asset tracksWithMediaType:AVMediaTypeAudio] audioSettings:outputSettings]; // IO HAVOC float32
 	
     if (! [assetReader canAddOutput: readerOutput]) {
         DDLogError (@"Cannot add AVAssetReaderOutput. [assetReader canAddOutput: readerOutput] failed!");
