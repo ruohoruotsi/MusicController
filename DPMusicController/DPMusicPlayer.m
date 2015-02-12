@@ -18,7 +18,7 @@
 static const int ddLogLevel = LOG_LEVEL_VERBOSE; // LOG_LEVEL_OFF;
 
 
-#define kUnitSize sizeof(AudioUnitSampleType) // IOHAVOC kUnitSize == 4 (bytes)
+#define kUnitSize sizeof(Float32)
 #define kBufferUnit 655360
 #define kTotalBufferSize (kBufferUnit * kUnitSize)
 #define kSampleBufferGetTotalSampleSize (8192 * kUnitSize * 2) // 32768
@@ -359,7 +359,7 @@ static OSStatus ipodRenderCallback (
         DPMusicPlayer *self = (__bridge DPMusicPlayer*)inRefCon;
         AudioStructPtr audioObject = &self->audioStructs[MAIN_BUS];
         
-        AudioUnitSampleType *outSample          = (AudioUnitSampleType *)ioData->mBuffers[0].mData;
+        Float32 *outSample          = (Float32 *)ioData->mBuffers[0].mData;
         memset(outSample, 0, inNumberFrames * kUnitSize);
         
         
@@ -369,7 +369,7 @@ static OSStatus ipodRenderCallback (
             
             int32_t availableBytes;
             
-            AudioUnitSampleType *bufferTail     = TPCircularBufferTail(&audioObject->circularBuffer, &availableBytes);
+            Float32 *bufferTail     = TPCircularBufferTail(&audioObject->circularBuffer, &availableBytes);
             
             // printf("callback ########################            availableBytes == %d\n", availableBytes );
 
@@ -414,57 +414,23 @@ static OSStatus ipodRenderCallback (
     return noErr;
 }
 
-#if 1
-
-// Legacy < iOS8 format. Keep this around to A/B this stuff.
 - (void) setupSInt16StereoStreamFormat {
 	
-    // The AudioUnitSampleType data type is the recommended type for sample data in audio
-    //    units. This obtains the byte size of the type for use in filling in the ASBD.
-    size_t bytesPerSample = sizeof (AudioSampleType);
+    size_t bytesPerSample = sizeof (SInt16);
 	
-    // Fill the application audio format struct's fields to define a linear PCM,
-    //        stereo, noninterleaved stream at the hardware sample rate.
+    // Fill the application audio format struct's fields to define a stereo, LPCM at the hardware sample rate.
     SInt16StereoStreamFormat.mFormatID          = kAudioFormatLinearPCM;
-    SInt16StereoStreamFormat.mFormatFlags       = kAudioFormatFlagsCanonical;
-    SInt16StereoStreamFormat.mBytesPerPacket    = (UInt32)(2 * bytesPerSample);     // *** kAudioFormatFlagsCanonical <- implicit interleaved data => (left sample + right sample) per Packet
+    SInt16StereoStreamFormat.mFormatFlags       = kAudioFormatFlagIsSignedInteger | kAudioFormatFlagsNativeEndian | kAudioFormatFlagIsPacked;
+    SInt16StereoStreamFormat.mBytesPerPacket    = (UInt32)(2 * bytesPerSample); // implicit interleaved data => (left sample + right sample) per Packet
     SInt16StereoStreamFormat.mFramesPerPacket   = 1;
     SInt16StereoStreamFormat.mBytesPerFrame     = SInt16StereoStreamFormat.mBytesPerPacket * SInt16StereoStreamFormat.mFramesPerPacket;
-    SInt16StereoStreamFormat.mChannelsPerFrame  = 2;                                // 2 indicates stereo
+    SInt16StereoStreamFormat.mChannelsPerFrame  = 2;
     SInt16StereoStreamFormat.mBitsPerChannel    = (UInt32)(8 * bytesPerSample);
     SInt16StereoStreamFormat.mSampleRate        = self.graphSampleRate;
 	
-	//return SInt16StereoStreamFormat;
     DDLogVerbose (@"The stereo stream format for the \"iPod\" mixer input bus:");
 	[self printASBD: SInt16StereoStreamFormat];
 }
-#else
-
-// Legacy < iOS8 format. Keep this around to A/B this stuff.
-- (void) setupSInt16StereoStreamFormat {
-    
-    // The AudioUnitSampleType data type is the recommended type for sample data in audio
-    //    units. This obtains the byte size of the type for use in filling in the ASBD.
-    size_t bytesPerSample = sizeof (float);
-    
-    // Fill audio format struct's field with linear PCM, stereo, noninterleaved floats at the hardware sample rate.
-    SInt16StereoStreamFormat.mFormatID          = kAudioFormatLinearPCM;
-    SInt16StereoStreamFormat.mFormatFlags       = kAudioFormatFlagIsFloat | kAudioFormatFlagsNativeEndian |
-                                                  kAudioFormatFlagIsPacked | kAudioFormatFlagIsNonInterleaved;
-
-    SInt16StereoStreamFormat.mBytesPerPacket    = (UInt32)(2 * bytesPerSample);
-    SInt16StereoStreamFormat.mFramesPerPacket   = 1;
-    SInt16StereoStreamFormat.mBytesPerFrame     = SInt16StereoStreamFormat.mBytesPerPacket * SInt16StereoStreamFormat.mFramesPerPacket;
-    SInt16StereoStreamFormat.mChannelsPerFrame  = 2; // Stereo
-    SInt16StereoStreamFormat.mBitsPerChannel    = (UInt32)(8 * bytesPerSample);
-    SInt16StereoStreamFormat.mSampleRate        = self.graphSampleRate;
-    
-    //return SInt16StereoStreamFormat;
-    DDLogVerbose (@"The stereo stream format for the \"iPod\" mixer input bus:");
-    [self printASBD: SInt16StereoStreamFormat];
-}
-
-#endif
 
 AudioStreamBasicDescription asbdWithInfo(Boolean isFloat,int numberOfChannels,Boolean interleavedIfStereo){
     AudioStreamBasicDescription asbd = {0};
