@@ -1,10 +1,12 @@
-MusicController
-=================
+## MusicController
+
 A library manager and Core Audio wrapper for the iOS MediaPlayer framework based on the excellent, but bare-bones, and increasingly out-of-date Controller by Dan Pourhadi @ [https://github.com/pourhadi/DPMusicController](https://github.com/pourhadi/DPMusicController)
 
 I have also introduced a large number of bugfixes and Cocoapod extensions. These include MMDrawerViewController, SVProgressHUD and BeamMusicViewController.
 
+Open source code distrubted under the [MIT License](https://choosealicense.com/licenses/mit/)
 
+--------------
 Introduction
 --------------
 DPMusicController is the foundational base upon which OnCue, The Music Player was built. It is the result of over two years of near-full-time work dissecting the MediaPlayer, AVFoundation, and Core Audio frameworks.
